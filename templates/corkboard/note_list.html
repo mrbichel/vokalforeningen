@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body_class %}note-list{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<nav id="note-admin">
+    <ul><a href="{% url note_create %}">Nyt opslag</a></ul>
+</nav>
+{% endif %}
+
+<div id="note-list">
+
+{% for object in object_list %}
+
+<article id="{{ object.slug }}">
+    <a href="{{ object.get_absolute_url }}">
+        <time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time>
+        <h1>{{ object.title }}</h1>
+    </a>
+</article>
+
+{% endfor %}
+
+<footer>
+    {% include "_pagination.html" %}
+</footer>
+
+</div>
+{% endblock %}

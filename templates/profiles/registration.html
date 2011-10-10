@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Bliv medlem af Dansk Vokalforening i dag!</h1>
+
+    <p> Det koster x pr. x at være medlem af foreningen. Du skal inbetale til kontonummer i x bank.
+        Dit medlemskab vil blive aktiveret så snart at kasseren har registreret din indbetaling.
+    </p>
+
+    <form action="{% url registration %}" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send" />
+    </form>
+
+{% endblock %}

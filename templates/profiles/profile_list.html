@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+
+{% for profile in object_list %}
+<article>
+    <a href="{{ profile.get_absolute_url }}">
+        {% thumbnail profile.image "48x48" crop="center" as img %}
+            <figure><img src="{{ img.url }}" width="{{ img.width }}" width="{{ img.height }}"/></figure>
+        {% empty %}
+        {% endthumbnail %}
+    
+        <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
+    </a>
+</article>
+{% endfor %}
+
+<footer>
+    {% include "_pagination.html" %}
+</footer>
+
+{% endblock %}

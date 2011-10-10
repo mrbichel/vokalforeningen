@@ -1,0 +1,25 @@
+<nav id="pagination">
+    <ul id="page-navigation">
+        {% if is_paginated %}
+        <div id="step-links">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&larr; nyere</a></li>
+            {% endif %}
+            <li id="page-list">
+                <ol>
+                {% for page in page_range %}
+                    <li class="{% ifequal page page_obj.number %}active{% endifequal %}">
+                        <a href="?page={{ page  }}" >{{ page }}</a>
+                    </li>
+                {% endfor %}
+                </ol>
+            </li>
+            {% if page_obj.has_next %}
+                <li>
+                    <a href="?page={{ page_obj.next_page_number }}">ældre &rarr;</a>
+                </li>
+            {% endif %}
+        </div>
+        {% endif %}
+    </ul>
+</nav>

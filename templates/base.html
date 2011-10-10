@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="dk-da">
+
+<head>
+    <meta charset="utf-8"/>
+
+    <title>{% block title %}Vokalforeningen{% endblock %}</title>
+
+    <meta name="description" content="{% block description %}Vokalforeningen{% endblock %}" />
+
+    <link href="{{ STATIC_URL }}_/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {% block head %}{% endblock %}
+
+    {% include "_analytics.html" %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}" id="top" lang="dk-da">
+<header id="site-header">
+
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url profile_detail user.username %}">{{ user.username }}</li>
+                    <li><a href="{% url logout %}">log ud</a></li>
+                {% else %}
+                    <li><a href="{% url login %}">Log ind</a></li>
+                    <li><a href="{% url registration %}">Bliv medlem</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <div id="site-title">
+            <a href="{% url index %}">
+                <h1>Vokalforeningen</h1>
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="{% url meetings_index %}">Møder og referater</a></li>
+                <li><a href="{% url profiles_index %}">Medlemmer</a></li>
+                <li><a href="{% url corkboard_index %}">Opslagstavle</a></li>
+                <li><a href="{% url pages_index %}">Informationer</a></li>
+            </ul>
+        </nav>
+</header>
+
+<div id="main">
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+<footer id="site-footer">
+        <nav>
+            <ul>
+                <li><a href="#top">til toppen</a></li>
+            </ul>
+        </nav>
+
+        <small>
+            Copyright &copy; Vokalforeningen 2011
+        </small>
+
+        <div id="site-meta">
+            <!--<p>Hosted on a <a href="http://www.linode.com/?r=850e408f57a78445a1970440354f39da5d81b6bf">Linode</a>, powered by django. Designed and developed by <a href="http://johan.cc">johan</a>.</p>
+-->        </div>
+</footer>
+
+
+</body>
+
+</html>
+

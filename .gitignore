@@ -1,0 +1,7 @@
+*.pyc
+*~
+
+/.idea/
+/media/
+.DS_Store
+/test.db

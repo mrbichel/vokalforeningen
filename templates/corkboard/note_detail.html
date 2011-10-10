@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load markup %}
+{% load comments %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block body_class %}note-detail{% endblock %}
+
+{% block content %}
+<article id="{{ object.slug }}">
+
+    <header>
+        <h1>{{ object.title }}</h1>
+    </header>
+
+    <div id="wrapper">
+        <section id="body">
+            {{ object.html|safe }}
+        </section>
+
+        <section id="comments">
+        <h1>Kommentarer</h1>
+            
+        {% render_comment_list for object %}
+
+        {% if user.is_authenticated %}
+
+            {% get_comment_form for object as form %}
+
+              <form action="{% comment_form_target %}" method="post">
+                    {% csrf_token %}
+
+                    {{ form.comment }}
+                    {{ form.honeypot }}
+                    {{ form.content_type }} 
+                    {{ form.object_pk }}
+                    {{ form.timestamp }}
+                    {{ form.security_hash }}
+                    <input type="hidden" name="next" value="{{ object.get_absolute_url }}#cid" />
+
+
+                    <input type="submit" name="submit" value="Post">
+                    <input type="submit" name="preview" value="Preview">
+
+              </form>
+
+
+        {% endif %}
+
+        </section>
+
+        <footer>
+            <dl>
+
+                <div id="published">
+                    <dt>Posted on</dt>
+                    <dd><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time></dd>
+                </div>
+
+                <div id="updated">
+                    <dt>Last updated</dt>
+                    <dd><time class="moddate" datetime="{{ object.mod_date|date:"c" }}">{{ object.mod_date|date }}</time></dd>
+                </div>
+
+                <div id="social">
+                    <dt>Share</dt>
+                    <dd>
+                        <ul>
+                            <li id="googleplus">
+                                <g:plusone size="small"></g:plusone>
+                            </li>
+
+                            <li id="fblike">
+                                <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=190231197703376&amp;xfbml=1"></script><fb:like href="" send="false" layout="button_count" width="108" show_faces="false" font="lucida grande"></fb:like>
+                            </li>
+
+                            <li id="tweet">
+                                <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="mrbichel">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                            </li>
+
+                            <!--<li id="linkedin">
+                                <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="right"></script>
+                            </li>-->
+
+                        </ul>
+                    </dd>
+                </div>
+            </dl>
+
+            {% ifequal user object.author %}
+                <nav id="note-edit">
+                    <ul><a href="{% url note_update object.id %}">rediger</a></ul>
+                    <ul><a href="{% url note_delete object.id %}">slet</a></ul>
+                </nav>
+            {% endifequal %}
+        </footer>
+    </div>
+
+{% if user.is_staff %}
+    <!-- add edit link here -->
+{% endif %}
+
+</article>
+{% endblock %}

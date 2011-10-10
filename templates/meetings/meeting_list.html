@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body_class %}meeting-list{% endblock %}
+
+{% block content %}
+
+<div id="meeting-list">
+
+{% for object in object_list %}
+
+<article id="{{ object.slug }}">
+    <a href="{{ object.get_absolute_url }}">
+        <time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time>
+        <h1>{{ object.title }}</h1>
+    </a>
+</article>
+
+{% endfor %}
+
+<footer>
+    {% include "_pagination.html" %}
+</footer>
+
+
+</div>
+
+{% endblock %} %}
