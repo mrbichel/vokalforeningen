@@ -6,7 +6,7 @@ Forms and validation code for user registration.
 from django.contrib.auth.models import User
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-
+from models import Profile
 
 # I put this on all required fields, because it's easier to pick up
 # on them with CSS or JavaScript if they have a class of "required"
@@ -18,13 +18,8 @@ attrs_dict = {'class': 'required'}
 class RegistrationForm(forms.Form):
     """
     Form for registering a new user account.
-
     """
-    username = forms.RegexField(regex=r'^[\w.@+-]+$',
-                                max_length=30,
-                                widget=forms.TextInput(attrs=attrs_dict),
-                                label="Brugernavn",
-                                error_messages={'invalid': _("This value must contain only letters, numbers and underscores.")})
+
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=75)),
                              label=_("E-mail"))
@@ -35,19 +30,13 @@ class RegistrationForm(forms.Form):
 
     first_name = forms.CharField(max_length=140, label="Fornavn")
     last_name = forms.CharField(max_length=140, label="Efternavn")
+
     address = forms.CharField(max_length=255, widget=forms.Textarea(), label='Adresse')
+    mobile_phone_number = forms.CharField(max_length=12, label='Mobil')
+    postal_code = forms.CharField(max_length=5, label='Postnummer')
+    city = forms.CharField(max_length=255, label='By')
 
-    def clean_username(self):
-        """
-        Validate that the username is alphanumeric and is not already
-        in use.
 
-        """
-        try:
-            user = User.objects.get(username__iexact=self.cleaned_data['username'])
-        except User.DoesNotExist:
-            return self.cleaned_data['username']
-        raise forms.ValidationError(_("A user with that username already exists."))
 
     def clean_email(self):
         """
@@ -72,3 +61,25 @@ class RegistrationForm(forms.Form):
                 raise forms.ValidationError(_("The two password fields didn't match."))
         return self.cleaned_data
 
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name')
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('url',
+                  'address',
+                  'postal_code',
+                  'city',
+                  'phone_number',
+                  'mobile_phone_number',
+                  'birthdate',
+                  'bio',
+                  'education',
+                  'position',
+                  'experience',
+                  #'email'
+            )

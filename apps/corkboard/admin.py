@@ -6,7 +6,7 @@ from corkboard.models import Note, Category
 class NoteAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('title', 'author', 'body', 'pub_date')
+            'fields': ('title', 'author', 'body', 'pub_date', 'category')
         }),
     )
     list_display = ('title', 'author', 'pub_date', 'mod_date')

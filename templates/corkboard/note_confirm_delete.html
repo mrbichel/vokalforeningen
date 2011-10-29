@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="delete-confirmation" class="wrapper">
+
+    <header>
+        <h1>Er du sikker på du vil slette <em>'{{ object.title }}'</em> ?</h1>
+    </header>
+
+    <p>Handlingen kan ikke fortrydes. Tænk dig godt om!<br>
+        <a href="{{ object.get_absolute_url }}">Tilbage</a>
+    </p>
+
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Slet for evigt!</button>
+    </form>
+
+</section>
+
+{% endblock %}

@@ -7,50 +7,21 @@
 {% block body_class %}note-detail{% endblock %}
 
 {% block content %}
-<article id="{{ object.slug }}">
+
+
+    <article id="id{{ object.id }}" class="wrapper">
 
     <header>
         <h1>{{ object.title }}</h1>
     </header>
 
-    <div id="wrapper">
         <section id="body">
             {{ object.html|safe }}
         </section>
 
-        <section id="comments">
-        <h1>Kommentarer</h1>
-            
-        {% render_comment_list for object %}
-
-        {% if user.is_authenticated %}
-
-            {% get_comment_form for object as form %}
-
-              <form action="{% comment_form_target %}" method="post">
-                    {% csrf_token %}
-
-                    {{ form.comment }}
-                    {{ form.honeypot }}
-                    {{ form.content_type }} 
-                    {{ form.object_pk }}
-                    {{ form.timestamp }}
-                    {{ form.security_hash }}
-                    <input type="hidden" name="next" value="{{ object.get_absolute_url }}#cid" />
-
-
-                    <input type="submit" name="submit" value="Post">
-                    <input type="submit" name="preview" value="Preview">
-
-              </form>
-
-
-        {% endif %}
-
-        </section>
 
         <footer>
-            <dl>
+           <!-- <dl>
 
                 <div id="published">
                     <dt>Posted on</dt>
@@ -78,14 +49,15 @@
                                 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="mrbichel">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                             </li>
 
-                            <!--<li id="linkedin">
+                            --><!--<li id="linkedin">
                                 <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="right"></script>
                             </li>-->
 
-                        </ul>
+                      <!--  </ul>
                     </dd>
                 </div>
             </dl>
+            -->
 
             {% ifequal user object.author %}
                 <nav id="note-edit">
@@ -94,11 +66,40 @@
                 </nav>
             {% endifequal %}
         </footer>
-    </div>
 
-{% if user.is_staff %}
-    <!-- add edit link here -->
-{% endif %}
+
+        <section id="comments">
+            <header>
+                <h2>Kommentarer</h2>
+            </header>
+
+            {% render_comment_list for object %}
+
+            {% if user.is_authenticated %}
+
+                {% get_comment_form for object as form %}
+
+                  <form action="{% comment_form_target %}" method="post">
+                        {% csrf_token %}
+
+                        <p>{{ form.comment }}</p>
+                        {{ form.honeypot }}
+                        {{ form.content_type }}
+                        {{ form.object_pk }}
+                        {{ form.timestamp }}
+                        {{ form.security_hash }}
+                        <input type="hidden" name="next" value="{{ object.get_absolute_url }}#cid" />
+
+
+                        <input type="submit" name="submit" value="Post">
+
+                  </form>
+
+            {% else %}
+                <p><a href="{% url login %}">Log ind</a> eller <a href="{% url registration %}">bliv medlem</a> for at kommentere.</p>
+            {% endif %}
+
+        </section>
 
 </article>
 {% endblock %}

@@ -1,13 +1,70 @@
 {% extends 'base.html' %}
 
+{% load thumbnail %}
+
+{% block title %}Forside{% endblock %}
+{% block body_class %}index{% endblock %}
+
 {% block content %}
 
-    <h1>Nyt på opslagstavlen</h1>
+    {% if user.is_anonymous %}
+        <section id="introduction">
+                
 
-    <h1>Nye medlemmer</h1>
+                <header class="wrapper"><h1>Forum for professionelle stemmebrugere</h1></header>
 
-    <h1>Aktuelle møder</h1>
 
-    <h1>Bliv medlem af vokalforeningen</h1>
+                <div class="wrapper">
+                    <p><abbr title="Dansk Vokalforening">DVF</abbr> samler det vokale Danmark i et fagligt forum præget af
+                        åbenhed, samarbejde og tolerance, hvor der er plads til alle holdninger og brug for alles erfaringer.
+                    <a href="{% url pages_index %}">Læs mere &hellip;</a> </p>
+
+                    <p>Er du sanger, sangunderviser, talepædagog, logopæd, halslæge, retoriker, skuespiller, dubber,
+                        korleder, akustiker, tonemester, producer eller på anden måde professionelt beskæftiget med den
+                        menneskelige stemme, så er <abbr title="Dansk Vokalforening">DVF</abbr> en forening for dig.
+                        <a  href="{% url registration %}">Bliv medlem &hellip;</a></p>
+
+                </div>
+
+        </section>
+    {% endif %}
+
+   <!-- <section id="new-members" class="wrapper">
+        <header><h1>Medlemmer</h1></header>
+        <ul>
+        {% for m in members %}
+            <li><a href="{{ m.get_absolute_url }}" title="{{ m.user.get_full_name }}">
+                {% thumbnail m.image "48x48" crop="center" as img %}
+                <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}"/>
+                {% empty %}
+                <img src="http://cartella.tccd.edu/images/shared/profile-empty-head.gif" width="48" height="48"/>
+                {% endthumbnail %}
+            </a></li>
+        {% endfor %}
+        </ul>
+        <a class="action" href="{% url profiles_index %}">Se alle medlemmer</a>
+    </section>
+
+    <section id="new-notes" class="wrapper">
+        <header><h1>Opslagstavlen</h1></header>
+        {% for n in notes %}
+            <article>
+                <a href="{{ n.get_absolute_url }}">
+                    <time class="pubdate" datetime="{{ n.pub_date|date:"c" }}">{{ n.pub_date|date }}</time>
+                    <h2>{{ n.title }}</h2>
+                </a>
+            </article>
+        {% endfor %}
+
+        <a class="action" href="{% url corkboard_index %}">Se alle opslag</a>
+
+    </section>
+
+
+    <section id="current-meetings" class="wrapper">
+        <header><h1>Aktuelle møder</h1></header>
+
+    </section>-->
+
 
 {% endblock %}

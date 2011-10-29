@@ -4,15 +4,25 @@
 
 {% block content %}
 
-<div id="meeting-list">
+<section id="meeting-list">
+
+<header class="wrapper">
+    <h1>Møder og referater</h1>
+</header>
 
 {% for object in object_list %}
 
-<article id="{{ object.slug }}">
-    <a href="{{ object.get_absolute_url }}">
-        <time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time>
-        <h1>{{ object.title }}</h1>
-    </a>
+<article id="id_{{ object.id }}" class="meeting wrapper">
+        <a href="{{ object.get_absolute_url }}">
+
+            <header>
+                <hgroup>
+                    <h2><time class="date" datetime="{{ object.date|date:"c" }}">{{ object.date|date }}</time></h2>
+                    <h1>{{ object.title }}</h1>
+                </hgroup>
+            </header>
+
+        </a>
 </article>
 
 {% endfor %}
@@ -22,6 +32,6 @@
 </footer>
 
 
-</div>
+</section>
 
 {% endblock %} %}

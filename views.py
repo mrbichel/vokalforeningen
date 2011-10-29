@@ -9,9 +9,9 @@ from meetings.models import Meeting
 
 def index(request):
 
-    notes = Note.objects.all()
-    meetings = Meeting.objects.all()
-    members = Profile.objects.all()
+    notes = Note.objects.all()[:4]
+    meetings = Meeting.objects.all()[:4]
+    members = Profile.objects.filter(user__is_active=True)[:16]
 
     return render(request, "index.html", {'notes': notes,
                                           'meetings': meetings,
@@ -21,5 +21,4 @@ def dashboard(request):
     return render(request, "dashboard.html")
 
 def pages(request):
-    pages = []
-    return render(request, "pages.html", {'pages': pages})
+    return render(request, "pages.html")

@@ -1,0 +1,14 @@
+Kære {{ name }},
+
+Tak for din indmeldelse i Dansk Vokalforening. Din bruger vil blive aktiveret så snart vi har registreret indbetaling af kontingent.
+
+Det koster 250 DKK om året at være medlem af foreningen, 150 DKK for studerende. Kontingentet indbetales til vores konto i Danske Bank:
+Registreringsnummer: 9581
+Kontonummer: 10060206
+
+Det er vigtigt at du skriver dit fulde navn eller email i besked til modtager.
+
+Venlig hilsen,
+
+Dansk Vokalforening
+http://vokalforening.dk

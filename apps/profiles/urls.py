@@ -6,11 +6,15 @@ urlpatterns = patterns('profiles.views',
         name='profiles_index'
     ),
 
-    url(r'^(?P<username>[-\w]+)/$',
+    url(r'^(?P<id>\d+)/$',
         'detail',
         name='profile_detail'
     ),
 
+    url(r'^(?P<id>\d+)/update/$',
+        'update',
+        name='profile_update'
+    ),
 
 
 )

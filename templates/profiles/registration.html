@@ -2,15 +2,99 @@
 
 {% block content %}
 
-    <h1>Bliv medlem af Dansk Vokalforening i dag!</h1>
+    <section id="registration-form" class="wrapper">
+      
+            <header>
+                <h1>Bliv medlem af Dansk Vokalforening i dag!</h1>
+            </header>
 
-    <p> Det koster x pr. x at være medlem af foreningen. Du skal inbetale til kontonummer i x bank.
-        Dit medlemskab vil blive aktiveret så snart at kasseren har registreret din indbetaling.
-    </p>
+             <p>
+                Det koster 250 DKK om året at være medlem af foreningen og 150 DKK for studerende.
+                 Kontingentet indbetales til vores konto i Danske Bank: <br>
 
-    <form action="{% url registration %}" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Send" />
-    </form>
+                <em>registreringsnummer: 9581 <br>kontonummer: 10060206</em>
+
+                <br>
+                Dit medlemskab vil blive aktiveret så snart at kasseren har registreret din indbetaling.
+             </p>
+        
+
+
+            <form action="{% url registration %}" method=post>{% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                    <fieldset>
+                        <legend>Bruger information</legend>
+
+                        <ol>
+                            <li>{{ form.email.errors }}
+                                <label for=id_email>{{ form.email.label }}:</label>
+                                <input id=id_email type=email name={{ form.email.name }} value="{{ form.email.value }}" placeholder="example@domain.com" required>
+                            </li>
+
+                            <li>{{ form.password1.errors }}
+                                <label for=id_password1>Adgangskode:</label>
+                                <input id=id_password1 type=password name={{ form.password1.name }} placeholder="din adgangskode" required>
+                            </li>
+
+                            <li>{{ form.password2.errors }}
+                                <label for=id_password2>Gentag adgangskode:</label>
+                                <input id=id_password2 type=password name={{ form.password2.name }} placeholder="din adgangskode igen" required>
+                            </li>
+                        </ol>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Navn og kontaktoplysninger</legend>
+
+                        <ol>
+
+
+                            <li>{{ form.first_name.errors }}
+                                <label for=id_first_name>{{ form.first_name.label }}:</label>
+                                <input id=id_first_name type=text name={{ form.first_name.name }} value="{{ form.first_name.value }}" placeholder="fx. Sine Ravn" required>
+                            </li>
+
+                            <li>{{ form.last_name.errors }}
+                                <label for=id_last_name>{{ form.last_name.label }}:</label>
+                                <input id=id_last_name type=text name={{ form.last_name.name }} placeholder="fx. Knudsen" value="{{ form.last_name.value }}" required>
+                            </li>
+
+                            <li>{{ form.mobile_phone_number.errors }}
+                                <label for=id_mobile_phone_number>Telefon:</label>
+                                <input id=id_mobile_phone_number type=tel name={{ form.mobile_phone_number.name }} value="{{ form.mobile_phone.value }}" placeholder="fx. 28507382" required>
+                            </li>
+
+
+                            <li>{{ form.address.errors }}
+                                <label for=id_address>Adresse:</label>
+                                <textarea id=id_address name={{ form.address.name }} placeholder="fx. Stengade 47B 2. th " rows=5 required>{{ form.address.value }}</textarea>
+                            </li>
+
+                            <li>{{ form.postal_code.errors }}
+                                <label for=id_postnr>Postnummer:</label>
+                                <input id=id_postnr name={{ form.postal_code.name }} value="{{ form.postal_code.value }}" placeholder="fx. 2200" required>
+                            </li>
+
+                            <li>{{ form.city.errors }}
+                                <label for=id_city>By:</label>
+                                <input id=id_city name={{ form.city.name }} value="{{ form.city.value }}" placeholder="fx. København" required>
+                            </li>
+
+
+                        </ol>
+                    </fieldset>
+
+                    <fieldset>
+
+                        <button type="submit">Send</button>
+
+                    </fieldset>
+
+
+            </form>
+
+    </section>
 
 {% endblock %}

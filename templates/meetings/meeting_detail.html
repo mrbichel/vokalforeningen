@@ -1,4 +1,22 @@
 {% extends 'base.html' %}
 
+{% load markup %}
+
 {% block content %}
+
+    <article id="meeting" class="wrapper">
+
+    <header><h1>
+        {{ object.title }}
+    </h1></header>
+
+    <h2>Dagsorden</h2>
+    <p>{{ object.agenda|markdown }}</p>
+
+    <h2>Referat</h2>
+    <p>{{ object.minutes|markdown }}</p>
+
+    </article>
+
+
 {% endblock %}

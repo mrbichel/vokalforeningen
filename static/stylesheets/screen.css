@@ -1,0 +1,812 @@
+/* Based on <http://goldengridsystem.com/> */
+/*
+*
+* Margin, padding, and border resets
+* except for form elements
+*
+*/
+/* line 35, ../source/partials/_base.scss */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, nav, section, menu, time, mark, audio, video, canvas {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/*
+*
+* Consistency fixes
+* adopted from http://necolas.github.com/normalize.css/
+*
+*/
+/* line 48, ../source/partials/_base.scss */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 53, ../source/partials/_base.scss */
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+
+/* line 58, ../source/partials/_base.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, audio, canvas, video {
+  display: block;
+}
+
+/* line 61, ../source/partials/_base.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 67, ../source/partials/_base.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 70, ../source/partials/_base.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 73, ../source/partials/_base.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 78, ../source/partials/_base.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 81, ../source/partials/_base.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 84, ../source/partials/_base.scss */
+input, textarea, button, select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+
+/* line 93, ../source/partials/_base.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+/* line 98, ../source/partials/_base.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 105, ../source/partials/_base.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 108, ../source/partials/_base.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*	Typography
+*/
+/* line 118, ../source/partials/_base.scss */
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* line 123, ../source/partials/_base.scss */
+#content header h1 {
+  font-family: georgia, "Times New Roman", Times, serif;
+}
+
+/* line 126, ../source/partials/_base.scss */
+#site-logo h1 {
+  font-weight: bold;
+}
+
+/* line 129, ../source/partials/_base.scss */
+h2 {
+  margin: 0.9230769230769231em 0 0.46153846153846156em;
+  font-weight: normal;
+}
+
+/* line 133, ../source/partials/_base.scss */
+h3 {
+  margin: 1.5em 0 0.75em;
+}
+
+/* line 136, ../source/partials/_base.scss */
+h2 + h3 {
+  margin-top: 0.75em;
+}
+
+/* line 140, ../source/partials/_base.scss */
+#content p, #content ul, #content ol, #content pre {
+  margin-bottom: 0.75em;
+}
+/* line 143, ../source/partials/_base.scss */
+#content ul {
+  list-style: square;
+}
+/* line 144, ../source/partials/_base.scss */
+#content li {
+  list-style-position: inside;
+}
+
+/* line 146, ../source/partials/_base.scss */
+p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/* line 151, ../source/partials/_base.scss */
+pre {
+  overflow-x: auto;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+/*
+*
+* Simple fluid media
+*
+*/
+/* line 164, ../source/partials/_base.scss */
+figure {
+  position: relative;
+}
+
+/* line 167, ../source/partials/_base.scss */
+figure img, figure object, figure embed, figure video {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 171, ../source/partials/_base.scss */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+/*
+*
+* Zoomable baseline grid
+* type size presets
+*
+*/
+/* line 183, ../source/partials/_base.scss */
+body {
+  /* 16px / 24px */
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* line 189, ../source/partials/_base.scss */
+.small {
+  /* 13px / 18px */
+  font-size: 0.813em;
+  line-height: 1.385em;
+}
+
+/* line 195, ../source/partials/_base.scss */
+.normal, h3 {
+  /* 16px / 24px */
+  font-size: 1em;
+  line-height: 1.5em;
+  /* 24 */
+}
+
+/* line 201, ../source/partials/_base.scss */
+.large, #new-notes article a h2, h2, h1 {
+  /* 26 / 36px */
+  font-size: 1.625em;
+  line-height: 1.385em;
+}
+
+/* line 207, ../source/partials/_base.scss */
+.huge, .ie h1, h1 {
+  /* 42px / 48px */
+  font-size: 2.625em;
+  line-height: 1.143em;
+}
+
+/* line 213, ../source/partials/_base.scss */
+.massive {
+  /* 68px / 72px */
+  font-size: 4.25em;
+  line-height: 1.059em;
+}
+
+/* line 219, ../source/partials/_base.scss */
+.gigantic {
+  /* 110px / 120px */
+  font-size: 6.875em;
+  line-height: 1.091em;
+}
+
+/*
+*
+* Four-column grid active
+* ----------------------------------------
+* Margin | # 1 2 3 4 | Margin
+* 5.55555% | % 25 50 75 100 | 5.55555%
+*
+*/
+/* line 237, ../source/partials/_base.scss */
+#page {
+  margin: 0 5.556%;
+  padding: 1.5em 0;
+  background: url(../images/grid.png) repeat;
+  *zoom: 1;
+}
+/* line 22, ../../../../.gem/ruby/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#page:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 244, ../source/partials/_base.scss */
+#content {
+  margin-top: 1.5em;
+}
+
+/* line 248, ../source/partials/_base.scss */
+h1, h2 {
+  margin: 0.923em 0 1.385em;
+}
+
+/* line 252, ../source/partials/_base.scss */
+h2 {
+  font-weight: normal;
+}
+
+/* line 256, ../source/partials/_base.scss */
+h3 {
+  margin: 1.5em 0 1.5em;
+}
+
+/*
+* Simple elastic gutters
+* Note: box-sizing will not work in IE6-8
+*/
+/* line 266, ../source/partials/_base.scss */
+.wrapper {
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+*
+* Fixes for IE6-8
+* http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
+/* line 283, ../source/partials/_base.scss */
+.ie body {
+  width: 40em;
+  margin: 0 auto;
+  font-size: 1.063em;
+}
+
+/* line 289, ../source/partials/_base.scss */
+.ie h1 {
+  margin: 1.143em 0 0.571em;
+}
+
+/* @media screen and (min-width: 640px) */
+@media screen and (min-width: 40em) {
+  /* line 297, ../source/partials/_base.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+
+  /* line 302, ../source/partials/_base.scss */
+  h1 {
+    margin: 1.143em 0 0.571em;
+  }
+}
+/*
+*
+* Eight-column grid active
+* ----------------------------------------------------------------------
+* Margin | # 1 2 3 4 5 6 7 8 | Margin
+* 5.55555% | % 12.5 25.0 37.5 50.0 62.5 75.0 87.5 100 | 5.55555%
+*
+*
+*/
+/* @media screen and (min-width: 720px) */
+@media screen and (min-width: 45em) {
+  /* line 323, ../source/partials/_base.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1 */
+    font-size: 1em;
+  }
+
+  /* line 329, ../source/partials/_base.scss */
+  #new-members.wrapper, #new-notes.wrapper, #sign-up.wrapper, #introduction.wrapper {
+    float: left;
+    width: 50%;
+  }
+
+  /* line 337, ../source/partials/_base.scss */
+  #member-list .member.wrapper {
+    float: left;
+    width: 50%;
+  }
+}
+/* @media screen and (min-width: 888px) */
+@media screen and (min-width: 55.5em) {
+  /* line 348, ../source/partials/_base.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/* @media screen and (min-width: 984px) */
+@media screen and (min-width: 61.5em) {
+  /* line 358, ../source/partials/_base.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1.0 */
+    font-size: 1em;
+  }
+
+  /* line 363, ../source/partials/_base.scss */
+  #page {
+    margin: 0 16.667%;
+  }
+}
+/* @media screen and (min-width: 1200px) */
+@media screen and (min-width: 75em) {
+  /* line 373, ../source/partials/_base.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 87em) {
+  /* line 384, ../source/partials/_base.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1.0 */
+    font-size: 1em;
+  }
+
+  /* line 389, ../source/partials/_base.scss */
+  #page {
+    margin: 0 27.778%;
+  }
+}
+/* @media screen and (min-width: 1680px) */
+@media screen and (min-width: 105em) {
+  /* line 399, ../source/partials/_base.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/*
+*
+* Sixteen-column grid active
+* ----------------------------------------------------------------------------------------------------------------------
+* Margin | # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 | Margin
+* 5.55555% | % 6.25 12.5 18.75 25.0 31.25 37.5 43.75 50.0 56.25 62.5 68.75 75.0 81.25 87.5 93.75 100 | 5.55555%
+*
+*
+*/
+/* @media screen and (min-width: 1872px) */
+@media screen and (min-width: 117em) {
+  /* line 420, ../source/partials/_base.scss */
+  #page {
+    margin: 0 5.556%;
+  }
+
+  /* line 427, ../source/partials/_base.scss */
+  #new-members.wrapper, #new-notes.wrapper, #sign-up.wrapper, #introduction.wrapper {
+    float: left;
+    width: 25%;
+  }
+}
+/* @media screen and (min-width: 2080px) */
+@media screen and (min-width: 130em) {
+  /* line 439, ../source/partials/_base.scss */
+  body {
+    /* Zoom baseline grid to 18/16 = 1.125 */
+    font-size: 1.125em;
+    max-width: 160 em;
+  }
+}
+/* line 1, ../source/partials/_header.scss */
+#site-header {
+  margin-top: 1.5em;
+}
+
+/* line 5, ../source/partials/_header.scss */
+#site-logo {
+  text-align: center;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 8, ../source/partials/_header.scss */
+#site-logo h1 {
+  color: #ba1820;
+  font-family: times;
+  margin: 0.2859em 0 0.57149em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+/* line 15, ../source/partials/_header.scss */
+#site-logo h1 span.dansk {
+  font-weight: normal;
+  font-size: 1em;
+  color: black;
+  letter-spacing: 0.1em;
+}
+
+/* line 24, ../source/partials/_header.scss */
+#main-navigation {
+  text-align: center;
+}
+/* line 26, ../source/partials/_header.scss */
+#main-navigation ul li {
+  display: inline;
+  padding: 0 2% 0 0;
+}
+/* line 30, ../source/partials/_header.scss */
+#main-navigation ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+/* line 36, ../source/partials/_header.scss */
+#main-navigation ul li a:hover, #main-navigation ul li a:active, #main-navigation ul li a:focus {
+  border-bottom: 2px solid #ba1820;
+}
+
+/* line 43, ../source/partials/_header.scss */
+#user-navigation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1.5em;
+  border-bottom: 1px solid #DDDDDD;
+  background-color: rgba(253, 252, 252, 0.4);
+  padding: 0 0.75em;
+}
+/* line 57, ../source/partials/_header.scss */
+#user-navigation ul li {
+  float: right;
+  display: block;
+  padding: 0 1%;
+}
+/* line 61, ../source/partials/_header.scss */
+#user-navigation ul li a {
+  text-decoration: none;
+  color: #900a0a;
+}
+
+/* line 1, ../source/partials/_footer.scss */
+#site-footer {
+  margin-top: 1.5em;
+}
+
+/* line 1, ../source/partials/_index.scss */
+#splash {
+  overflow: hidden;
+  *zoom: 1;
+  clear: both;
+}
+
+/* line 7, ../source/partials/_index.scss */
+#new-activity {
+  clear: both;
+}
+
+/* line 11, ../source/partials/_index.scss */
+#new-members {
+  margin-bottom: 1.5em;
+}
+/* line 15, ../source/partials/_index.scss */
+#new-members ul {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 17, ../source/partials/_index.scss */
+#new-members ul li {
+  display: block;
+  float: left;
+  width: 25%;
+}
+/* line 22, ../source/partials/_index.scss */
+#new-members ul li a {
+  display: block;
+  text-align: center;
+}
+/* line 25, ../source/partials/_index.scss */
+#new-members ul li a img {
+  -webkit-border-radius: 4px 4px;
+  -moz-border-radius: 4px / 4px;
+  -o-border-radius: 4px / 4px;
+  -ms-border-radius: 4px / 4px;
+  -khtml-border-radius: 4px / 4px;
+  border-radius: 4px / 4px;
+}
+
+/* line 35, ../source/partials/_index.scss */
+#new-notes article a {
+  text-decoration: none;
+}
+/* line 37, ../source/partials/_index.scss */
+#new-notes article a h2 {
+  margin: 0 0 0.4615em;
+}
+
+/*
+*
+* Visual Structure
+*
+*/
+/* line 9, ../source/partials/_visual.scss */
+body {
+  background: url("../images/background.png") repeat;
+}
+
+/* line 13, ../source/partials/_visual.scss */
+#content {
+  margin-bottom: 1.5em;
+}
+/* line 15, ../source/partials/_visual.scss */
+#content .box {
+  border: 1px solid #DDDDDD;
+  background-color: rgba(253, 252, 252, 0.4);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  clear: both;
+  *zoom: 1;
+  padding-bottom: 0.75em;
+}
+/* line 22, ../../../../.gem/ruby/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#content .box:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 24, ../source/partials/_visual.scss */
+#content .box.active:hover {
+  background-color: rgba(253, 252, 252, 0.8);
+}
+
+/* line 34, ../source/partials/_visual.scss */
+#content header h1 {
+  font-weight: normal;
+  font-family: Times;
+  text-align: center;
+  color: black;
+  font-size: 1.625em;
+  line-height: 1.385em;
+  margin: 0.9230769230769231em 0 0.46153846153846156em;
+}
+
+/* line 51, ../source/partials/_visual.scss */
+a {
+  color: #ba1820;
+}
+/* line 53, ../source/partials/_visual.scss */
+a:visited {
+  color: #8d1218;
+}
+/* line 56, ../source/partials/_visual.scss */
+a:hover, a:active, a:focus {
+  color: #600c10;
+}
+
+/* line 62, ../source/partials/_visual.scss */
+a.action {
+  float: right;
+}
+
+/* line 66, ../source/partials/_visual.scss */
+a.button {
+  -webkit-border-radius: 4px 4px;
+  -moz-border-radius: 4px / 4px;
+  -o-border-radius: 4px / 4px;
+  -ms-border-radius: 4px / 4px;
+  -khtml-border-radius: 4px / 4px;
+  border-radius: 4px / 4px;
+  text-decoration: none;
+  color: rgba(253, 252, 252, 0.6);
+  background-color: #220402;
+  padding: 0.417em 1em;
+  margin: 0 0 0.834em 0;
+  display: inline-block;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+/* line 77, ../source/partials/_visual.scss */
+a.button:hover, a.button:active, a.button:focus {
+  color: #d11b24;
+}
+
+/* forms */
+/* line 84, ../source/partials/_visual.scss */
+#id_honeypot {
+  display: none;
+}
+
+/* line 89, ../source/partials/_visual.scss */
+#pagination {
+  clear: both;
+}
+/* line 91, ../source/partials/_visual.scss */
+#pagination ul, #pagination ol {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* line 95, ../source/partials/_visual.scss */
+#pagination ul li, #pagination ul ol, #pagination ol li, #pagination ol ol {
+  display: inline;
+}
+/* line 97, ../source/partials/_visual.scss */
+#pagination ul li li, #pagination ul ol li, #pagination ol li li, #pagination ol ol li {
+  margin-right: 2px;
+}
+/* line 100, ../source/partials/_visual.scss */
+#pagination ul li.active, #pagination ul ol.active, #pagination ol li.active, #pagination ol ol.active {
+  font-weight: bold;
+}
+/* line 102, ../source/partials/_visual.scss */
+#pagination ul li.active a, #pagination ul ol.active a, #pagination ol li.active a, #pagination ol ol.active a {
+  border: none;
+  color: #ba1820;
+}
+/* line 108, ../source/partials/_visual.scss */
+#pagination ul li, #pagination ol li {
+  margin-right: 1.2em;
+}
+/* line 111, ../source/partials/_visual.scss */
+#pagination ul #step-links, #pagination ol #step-links {
+  display: inline;
+}
+
+/* line 125, ../source/partials/_visual.scss */
+#profile .avatar {
+  float: right;
+}
+
+/* line 133, ../source/partials/_visual.scss */
+nav.edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* line 140, ../source/partials/_visual.scss */
+#member-list .member {
+  height: 4em;
+  margin-bottom: 0.75em;
+}
+/* line 145, ../source/partials/_visual.scss */
+#member-list .member header {
+  margin-left: 3.5em;
+}
+/* line 147, ../source/partials/_visual.scss */
+#member-list .member header h1 {
+  margin: 0;
+  text-align: left;
+  font-size: 1em;
+}
+/* line 155, ../source/partials/_visual.scss */
+#member-list .member .avatar {
+  float: left;
+  width: 3em;
+}
+/* line 158, ../source/partials/_visual.scss */
+#member-list .member .avatar img {
+  height: 3em;
+}
+
+/* line 165, ../source/partials/_visual.scss */
+#note-list article a {
+  text-decoration: none;
+}
+/* line 169, ../source/partials/_visual.scss */
+#note-list article .meta {
+  margin-bottom: 0;
+}
+/* line 171, ../source/partials/_visual.scss */
+#note-list article .meta li {
+  display: inline;
+  padding-right: 0.75em;
+  font-style: italic;
+}
+/* line 179, ../source/partials/_visual.scss */
+#note-list article header h1 {
+  text-align: left;
+  margin-top: 0;
+}
+
+/* line 189, ../source/partials/_visual.scss */
+form ol li {
+  list-style: none;
+  line-height: 3em;
+  clear: both;
+}
+/* line 194, ../source/partials/_visual.scss */
+form ol li input:not([type="radio"]), form ol li textarea {
+  width: 44%;
+}
+/* line 199, ../source/partials/_visual.scss */
+form label {
+  float: left;
+  width: 40%;
+  font-size: 0.9em;
+  text-align: right;
+  padding: 0 0.75em;
+}
+/* line 205, ../source/partials/_visual.scss */
+form label:hover {
+  cursor: pointer;
+}
+/* line 211, ../source/partials/_visual.scss */
+form input:not([type="radio"]), form textarea {
+  padding: 0.2em;
+  font-size: 0.9em;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #DDDDDD;
+  font-style: italic;
+}
+/* line 217, ../source/partials/_visual.scss */
+form input:not([type="radio"]):focus, form textarea:focus {
+  background-color: #f7f7f7;
+}
+/* line 224, ../source/partials/_visual.scss */
+form textarea {
+  font-size: 1em;
+}

@@ -6,6 +6,9 @@ from markdown2 import markdown
 class Category(models.Model):
     name = models.CharField(max_length=40)
 
+    def __unicode__(self):
+        return self.name
+
 class Note(models.Model):
     title = models.CharField(max_length=60)
     author = models.ForeignKey(User)

@@ -6,3 +6,5 @@
 .DS_Store
 /test.db
 /settings_local.py
+static/images/bggrain.psd
+vokalforening_d.xml

@@ -53,25 +53,32 @@ def create(request):
 
 
 def update(request, id):
-    obj = Note.objects.get(id=id)
-    if request.user == obj.author:
+    note = Note.objects.get(id=id)
+    if request.user == note.author:
         if request.method == 'POST':
-            form = NoteForm(request.POST)
+            form = NoteForm(request.POST, instance=note)
             if form.is_valid():
                 form.save()
 
                 return HttpResponseRedirect(note.get_absolute_url())
         else:
-            form = NoteForm(instance=obj)
+            form = NoteForm(instance=note)
 
         return render(request, "corkboard/note_form.html", {'form': form})
     else:
-        return HttpResponseForbidden("Du har ikke tilladelse til at redigerer dette opslag.")
+        return HttpResponseForbidden("Du har ikke tilladelse til at redigere dette opslag.")
 
 def delete(request, id):
-    return create_update.delete_object(
-        request,
-        login_required=True,
-        model=Note,
-        object_id=id,
-    )
+    note = Note.objects.get(id=id)
+    if request.user == note.author:
+
+        return create_update.delete_object(
+            request,
+            login_required=True,
+            model=Note,
+            object_id=id,
+            post_delete_redirect="/",
+        )
+
+    else:
+        return HttpResponseForbidden("Du har ikke tilladelse til at slette dette opslag.")

@@ -10,12 +10,14 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     url = models.URLField('Hjemmeside', blank=True)
     address = models.CharField('Adresse', max_length=255, blank=True)
+    postal_code = models.PositiveIntegerField(max_length=5, blank=True, null=True)
+    city = models.CharField('By', max_length=255, blank=True)
     phone_number = models.CharField('Telefon', max_length=20, blank=True)
-    member_since = models.DateField('Medlem siden', default=datetime.datetime.now)
+    mobile_phone_number = models.CharField('Mobil telefon', max_length=20, blank=True)
     birthdate = models.DateField('Fødselsdato', blank=True)
     bio = models.TextField('Biografi', blank=True)
+    board_member = models.BooleanField(default=False)
 
-    #pub_date = models.DateTimeField(default=datetime.datetime.now)
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
 
     image = ImageField(
@@ -27,10 +29,11 @@ class Profile(models.Model):
 
     #lastfm = models.CharField(blank=True, )
     #googleplus = models.URLField(blank=True, )
-    #uddannelse
-    #stilling
-    #facebook = models.CharField(blank=True, )
-    #twitter models.CharField(blank=True, )
+    education = models.TextField('Uddannelse', blank=True)
+    experience = models.TextField('Brancheerfaring', blank=True)
+    position = models.TextField('Stilling', blank=True)
+
+    receive_email = models.BooleanField()
 
     def __unicode__(self):
         return self.user.username
@@ -38,7 +41,7 @@ class Profile(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('profile_detail', (),
-            {'username': self.user.username,})
+            {'id': self.user.id,})
 
 
     class Meta:

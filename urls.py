@@ -10,10 +10,12 @@ sitemaps = {
     'pages': FlatPageSitemap,
 }
 
+
+
 urlpatterns = patterns('',
 
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'profiles/login.html'}, name="login"),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'profiles/logged_out.html'}, name="logout"),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'profiles/logged_out.html', 'next_page': '/'}, name="logout"),
 
     url(r'^registration/$', 'profiles.views.registration', name="registration"),
 

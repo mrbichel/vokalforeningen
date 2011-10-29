@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% load flatpages %}
 
-
 {% block content %}
 
-{% get_flatpages for user as flatpages %}
-<nav>
-<ul>
-    {% for page in flatpages %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-</ul>
-</nav>
+
+    
+<header class="wrapper">
+    <h1>Information</h1>
+</header>
+
+
+
+<section class="wrapper">
+    {% get_flatpages for user as flatpages %}
+    <nav>
+    <ul>
+        {% for page in flatpages %}
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
+    </nav>
+</section>
 
 {% endblock %}

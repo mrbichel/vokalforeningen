@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load comments %}
+
 
 {% block body_class %}note-list{% endblock %}
 {% block content %}
+
+<header class="wrapper">
+<h1>Opslagstavlen</h1>
 
 {% if user.is_authenticated %}
 <nav id="note-admin">
@@ -9,22 +14,38 @@
 </nav>
 {% endif %}
 
-<div id="note-list">
+</header>
+
+
+
+
+<section id="note-list">
 
 {% for object in object_list %}
 
-<article id="{{ object.slug }}">
-    <a href="{{ object.get_absolute_url }}">
-        <time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time>
-        <h1>{{ object.title }}</h1>
+<article id="note-id{{ object.id }}" class="wrapper">
+    <a href="{{ object.get_absolute_url }}" rel="permalink">
+
+
+        <ul class="meta">
+            <li><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time></li>
+
+            {% get_comment_count for object as comment_count %}
+            <li class=comments><span class=count>{{ comment_count }}</span> kommentar{{ comment_count|pluralize:"er" }}</li>
+
+            <li class=author>af {{ object.author.get_full_name }}</li>
+        </ul>
+
+            <header><h1>{{ object.title }}</h1></header>
+
     </a>
 </article>
 
 {% endfor %}
 
-<footer>
+<footer class="wrapper">
     {% include "_pagination.html" %}
 </footer>
 
-</div>
+</section>
 {% endblock %}

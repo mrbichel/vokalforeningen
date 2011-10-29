@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="dk-da">
+
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+
+<!--
+The comment jumble above is handy for targeting old IE with CSS.
+http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+-->
 
 <head>
     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>{% block title %}Vokalforeningen{% endblock %}</title>
+    <!-- Please don't add "maximum-scale=1" here. It's bad for accessibility. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <meta name="description" content="{% block description %}Vokalforeningen{% endblock %}" />
+    <title>{% block title %}{% endblock %}- Dansk Vokalforening</title>
 
-    <link href="{{ STATIC_URL }}_/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <meta name="description" content="{% block description %}Forum for professionelle stemmebrugere.{% endblock %}" />
+
+    <link href="{{ STATIC_URL }}stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Here's Golden Gridlet, the grid overlay script. -->
+    <script src="https://raw.github.com/jonikorpi/Golden-Grid-System/master/GGS.js
+"></script>
 
     <!-- enable HTML5 elements in IE7+8 -->
     <!--[if lt IE 9]>
@@ -24,60 +37,71 @@
     {% include "_analytics.html" %}
 </head>
 
-<body class="{% block body_class %}{% endblock %}" id="top" lang="dk-da">
-<header id="site-header">
+<body class="{% block body_class %}{% endblock %}" id="top" lang="da">
 
-        <nav>
-            <ul>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url profile_detail user.username %}">{{ user.username }}</li>
-                    <li><a href="{% url logout %}">log ud</a></li>
-                {% else %}
-                    <li><a href="{% url login %}">Log ind</a></li>
-                    <li><a href="{% url registration %}">Bliv medlem</a></li>
-                {% endif %}
-            </ul>
-        </nav>
+    <div id="page">
 
-        <div id="site-title">
-            <a href="{% url index %}">
-                <h1>Vokalforeningen</h1>
-            </a>
+        <header id="site-header">
+
+            <div id="site-logo" class="wrapper">
+                <a href="{% url index %}">
+                    <h1><span class="dansk">Dansk</span><br/> Vokalforening</h1>
+                </a>
+            </div>
+
+
+            <nav id="main-navigation" class="wrapper">
+                <ul>
+                    <li><a href="{% url profiles_index %}">Medlemmer</a></li>
+                    <li><a href="{% url corkboard_index %}">Opslagstavlen</a></li>
+                    <li><a href="{% url pages_index %}">Om foreningen</a></li>
+                    <li><a href="{% url meetings_index %}">Møder og referater</a></li>
+                </ul>
+            </nav>
+
+            <nav id="user-navigation">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url profile_detail user.id %}">{{ user.username }}</li>
+                        {% if user.is_staff %}
+                            <li><a href="/a">admin</a></li>
+                        {% endif %}
+                        <li><a href="{% url logout %}">log ud</a></li>
+                    {% else %}
+                        <li><a href="{% url login %}">Log ind</a></li>
+                        <li><a href="{% url registration %}">Bliv medlem</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </header>
+
+        <div id="content" class="wrapper">
+            <div class="box">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
 
-        <nav>
-            <ul>
-                <li><a href="{% url meetings_index %}">Møder og referater</a></li>
-                <li><a href="{% url profiles_index %}">Medlemmer</a></li>
-                <li><a href="{% url corkboard_index %}">Opslagstavle</a></li>
-                <li><a href="{% url pages_index %}">Informationer</a></li>
-            </ul>
-        </nav>
-</header>
+        <!--<footer id="site-footer">
 
-<div id="main">
-    <div id="content">
-        {% block content %}
-        {% endblock %}
+                <nav>
+                    <ul>
+                        <li><a href="#top">til toppen</a></li>
+                    </ul>
+                </nav>
+
+                <small>
+                    Copyright &copy; Vokalforeningen 2011
+                </small>
+
+                <div id="site-meta">
+                    <p>Hosted on a <a href="http://www.linode.com/?r=850e408f57a78445a1970440354f39da5d81b6bf">Linode</a>, powered by django. Designed and developed by <a href="http://johan.cc">johan</a>.</p>
+                </div>
+
+        </footer>-->
+
     </div>
-</div>
-
-<footer id="site-footer">
-        <nav>
-            <ul>
-                <li><a href="#top">til toppen</a></li>
-            </ul>
-        </nav>
-
-        <small>
-            Copyright &copy; Vokalforeningen 2011
-        </small>
-
-        <div id="site-meta">
-            <!--<p>Hosted on a <a href="http://www.linode.com/?r=850e408f57a78445a1970440354f39da5d81b6bf">Linode</a>, powered by django. Designed and developed by <a href="http://johan.cc">johan</a>.</p>
--->        </div>
-</footer>
-
 
 </body>
 

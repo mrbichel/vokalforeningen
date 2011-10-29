@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="profile-form" class="wrapper">
+<div class="box">
+    <form action="" method="post">{% csrf_token %}
+        {{ uform.as_p }}
+        {{ pform.as_p }}
+    <input type="submit" value="Gem" />
+    </form>
+</div>
+
+</div>
+
+{% endblock %}

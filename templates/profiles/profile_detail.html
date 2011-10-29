@@ -3,18 +3,50 @@
 
 
 {% block content %}
+<section id="profile">
 
-    {% thumbnail profile.image "108x126" crop="center" as img %}
-        <figure><img src="{{ img.url }}" width="{{ img.width }}" width="{{ img.height }}"/></figure>
-    {% empty %}
-    {% endthumbnail %}
+    {% ifequal profile.user user %}
+        <nav class="edit">
+            <ul>
+                <li><a href="{% url profile_update profile.user.id %}">Rediger profil</a></li>
+            </ul>
+        </nav>
+    {% endifequal %}
 
-    <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
 
-     <p>{{ profile.member_since }}</p>
+    <header class="wrapper">
+    <h1>{{ profile.user.get_full_name }}</h1>
+    </header>
 
-     <p>{{ profile.website }}</p>
+    <section id="about" class="wrapper">
+
+
+    <figure class="avatar">
+        {% thumbnail profile.image "126" crop="center" as img %}
+            <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}"/>
+        {% empty %}
+        {% endthumbnail %}
+    </figure>
 
     <p>{{ profile.bio }}</p>
+
+    </section>
+
+    <section id="facts">
+        
+        {{ profile.member_since }}
+
+    </section>
+
+    <section id="social-links" class="wrapper">
+        <nav>
+            <ul>
+                <li><a href="{{ profile.url }}">{{ profile.url }}</a></li>
+                <!--<li><a href="{{ profile.facebook }}">facebook</a></li>-->
+            </ul>
+        </nav>
+    </section>
+
+</section>
 
 {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load markup %}
+{% load comments %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block body_class %}flatpage{% endblock %}
+
+{% block content %}
+
+<article id="{{ flatpage.slug }}" class="wrapper">
+
+    <header>
+        <h1>{{ flatpage.title }}</h1>
+    </header>
+
+    {{ flatpage.content|markdown }}
+
+
+{% if user.is_staff %}
+    <!-- add edit link here -->
+{% endif %}
+
+</article>
+{% endblock %}

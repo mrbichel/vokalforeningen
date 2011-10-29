@@ -42,9 +42,9 @@ STATICFILES_DIRS = (
 )
 
 TIME_ZONE = 'Europe/Copenhagen'
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'dk'
 SITE_ID = 1
-USE_I18N = False
+USE_I18N = True
 USE_L10N = True
 
 # List of finder classes that know how to find static files in
@@ -81,7 +81,7 @@ INSTALLED_APPS = (
     'meetings',
     'profiles',
 
-    #'import',
+    'import',
     
     # Third-party
     'south',
@@ -110,6 +110,8 @@ DATE_FORMAT = "j N Y"
 TIME_FORMAT = "H:i"
 DATETIME_FORMAT = "j N Y H:i"
 PAGINATE_BY = 12
+
+DEFAULT_FROM_EMAIL = "system@vokalforening.dk"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
