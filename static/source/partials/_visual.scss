@@ -13,6 +13,8 @@ body {
 #content {
 
         .box {
+            position: relative;
+
             border: 1px solid #DDDDDD;
             background-color: rgba($light-background-color, 0.4);
             @include border-radius(6px);
@@ -134,6 +136,20 @@ nav.edit {
     position: absolute;
     top: 0;
     right: 0;
+
+    background-color: darken($light-background-color, 1%);
+    border-left: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+    ul {
+        margin-bottom: 0!important;
+        li {
+            display: inline;
+            font-size: 0.8em;
+            padding: 0.25em;
+        }
+
+    }
 }
 
 

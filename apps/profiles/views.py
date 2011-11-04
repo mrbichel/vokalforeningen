@@ -86,7 +86,7 @@ def registration(request):
             c = Context({
                 'name': user.get_full_name(),
             })
-            send_mail('Indmeldelse i Dansk Vokalforening', t.render(c), settings.DEFAULT_FROM_EMAIL, ['user.email'])
+            send_mail('Indmeldelse i Dansk Vokalforening', t.render(c), settings.DEFAULT_FROM_EMAIL, [user.email])
 
             return render(request, "profiles/registration_complete.html")
     else:

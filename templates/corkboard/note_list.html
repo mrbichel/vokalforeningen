@@ -9,8 +9,10 @@
 <h1>Opslagstavlen</h1>
 
 {% if user.is_authenticated %}
-<nav id="note-admin">
-    <ul><a href="{% url note_create %}">Nyt opslag</a></ul>
+<nav class="edit">
+    <ul>
+        <li><a href="{% url note_create %}">Nyt opslag</a>
+    </li></ul>
 </nav>
 {% endif %}
 

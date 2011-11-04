@@ -43,7 +43,6 @@ class Profile(models.Model):
         return ('profile_detail', (),
             {'id': self.user.id,})
 
-
     class Meta:
         ordering = ['-mod_date']
         get_latest_by = 'mod_date'

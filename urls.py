@@ -21,11 +21,6 @@ urlpatterns = patterns('',
 
     (r'^comments/', include('django.contrib.comments.urls')),
 
-    url(r'^i/$',
-        'views.dashboard',
-        name='dashboard'
-    ),
-
     url(r'^$', 'views.index', name='index'),
     url(r'^a/doc/', include('django.contrib.admindocs.urls')),
     url(r'^a/', include(admin.site.urls)),
@@ -36,7 +31,6 @@ urlpatterns = patterns('',
     url(r'^p/', include('profiles.urls')),
     url(r'^m/', include('meetings.urls')),
 
-    url(r'^i', 'views.pages', name="pages_index"),
 )
 
 if settings.DEBUG:

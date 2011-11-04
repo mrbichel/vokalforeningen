@@ -11,6 +11,17 @@
 
     <article id="id{{ object.id }}" class="wrapper">
 
+    {% ifequal user object.author %}
+        <nav class="edit">
+            <ul>
+                <li><a href="{% url note_update object.id %}">rediger</a></li>
+                <li><a href="{% url note_delete object.id %}">slet</a></li>
+            </ul>
+        </nav>
+    {% endifequal %}
+
+
+
     <header>
         <h1>{{ object.title }}</h1>
     </header>
@@ -59,12 +70,7 @@
             </dl>
             -->
 
-            {% ifequal user object.author %}
-                <nav id="note-edit">
-                    <ul><a href="{% url note_update object.id %}">rediger</a></ul>
-                    <ul><a href="{% url note_delete object.id %}">slet</a></ul>
-                </nav>
-            {% endifequal %}
+
         </footer>
 
 

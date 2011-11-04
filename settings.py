@@ -111,7 +111,7 @@ TIME_FORMAT = "H:i"
 DATETIME_FORMAT = "j N Y H:i"
 PAGINATE_BY = 12
 
-DEFAULT_FROM_EMAIL = "system@vokalforening.dk"
+DEFAULT_FROM_EMAIL = "noreply@vokalforening.dk"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -16,9 +16,3 @@ def index(request):
     return render(request, "index.html", {'notes': notes,
                                           'meetings': meetings,
                                           'members': members})
-
-def dashboard(request):
-    return render(request, "dashboard.html")
-
-def pages(request):
-    return render(request, "pages.html")
