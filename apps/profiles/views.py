@@ -1,15 +1,18 @@
 # coding=utf-8
 
 import pprint
+import uuid
 from django.core.mail import mail_managers, send_mail
 from django.db.models.aggregates import Count
 from profiles.models import Profile
+from django.contrib.auth.views import login as login_view
 from django.contrib.auth.models import User
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import list_detail, date_based
 from django.contrib.auth import authenticate, login
 from django.template import loader, Context
+from profiles.forms import LoginForm
 
 from forms import ProfileForm, UserForm
 import settings
@@ -53,6 +56,9 @@ def update(request, id):
     else:
         return HttpResponseForbidden("Du har ikke tilladelse til at redigere denne profile.")
 
+def login(request):
+    return login_view(request, template_name='profiles/login.html', authentication_form=LoginForm)
+
 def registration(request):
     if request.user.is_authenticated():
          # They already have an account; don't let them register again
@@ -63,10 +69,20 @@ def registration(request):
         if form.is_valid():
             #pprint.pprint(form.cleaned_data)
             data = form.cleaned_data
-            user = User(username=data['email'],
-                        first_name=data['first_name'],
+            user = User(first_name=data['first_name'],
                         last_name=data['last_name'],
                         email=data['email'])
+
+            username = uuid.uuid4().hex[:30]
+            try:
+                while True:
+                    User.objects.get(username=username)
+                    username = uuid.uuid4().hex[:30]
+            except User.DoesNotExist:
+                pass
+
+            user.username = username
+
             user.set_password(data['password1'])
             user.is_active = False
             user.save()

@@ -1,4 +1,5 @@
 import pprint
+import uuid
 from django.contrib.auth.models import User
 
 __author__ = 'johan'
@@ -34,7 +35,7 @@ class Command(BaseCommand):
 
         """
 
-        tree = ET.parse("/Users/johan/dev/vokalforeningen/vokalforening_d.xml")
+        tree = ET.parse("/home/vokal/vokalforening_d.xml")
 
         for item in tree.findall("Brugere"):
 
@@ -44,12 +45,23 @@ class Command(BaseCommand):
 
             except User.DoesNotExist:
 
-                u = User(username=item.find('email').text,
-                        email=item.find('email').text,
+                u = User(email=item.find('email').text,
                         first_name=item.find('fornavn').text,
                         last_name=item.find('efternavn').text,
                         is_active=item.find('aktiv').text == '1',
                     )
+
+                username = uuid.uuid4().hex[:30]
+                try:
+                    while True:
+                        User.objects.get(username=username)
+                        username = uuid.uuid4().hex[:30]
+                except User.DoesNotExist:
+                    pass
+
+                u.username = username
+
+
                 u.set_password(item.find('password').text)
                 u.save()
 

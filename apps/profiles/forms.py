@@ -2,6 +2,7 @@
 Forms and validation code for user registration.
 
 """
+from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib.auth.models import User
 from django import forms
@@ -13,6 +14,9 @@ from models import Profile
 # in the HTML. Your mileage may vary. If/when Django ticket #3515
 # lands in trunk, this will no longer be necessary.
 attrs_dict = {'class': 'required'}
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(label=_("Email"))
 
 
 class RegistrationForm(forms.Form):
@@ -81,5 +85,4 @@ class ProfileForm(forms.ModelForm):
                   'education',
                   'position',
                   'experience',
-                  #'email'
             )

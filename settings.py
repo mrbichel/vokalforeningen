@@ -16,6 +16,10 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
+
+AUTHENTICATION_BACKENDS = ('backends.EmailBackend',
+    "django.contrib.auth.backends.ModelBackend",)
+
 DEVELOPMENT_MODE = (platform.node() != PRODUCTION_HOSTNAME)
 if DEVELOPMENT_MODE:
     DEBUG = True

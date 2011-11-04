@@ -12,6 +12,10 @@ class Meeting(models.Model):
     agenda = models.TextField(blank=True)
     minutes = models.TextField(blank=True)
 
+    def save(self, *args, **kwargs):
+        self.mod_date = datetime.datetime.now()
+        super(Meeting, self).save(*args, **kwargs)
+
     @models.permalink
     def get_absolute_url(self):
         return ('meeting_detail', (), {'id': self.id,})
