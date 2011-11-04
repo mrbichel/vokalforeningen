@@ -23,8 +23,8 @@ if DEVELOPMENT_MODE:
     STATIC_URL = '/static/'
 else:
     DEBUG = False
-    MEDIA_URL = 'http://media.vokalforeningen.johan.cc/'
-    STATIC_URL = 'http://static.vokalforeningen.johan.cc/'
+    MEDIA_URL = 'http://media.vokalforening.johan.cc/'
+    STATIC_URL = 'http://static.vokalforening.johan.cc/'
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
     CACHES = {
         'default': {
