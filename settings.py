@@ -16,12 +16,12 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-
 AUTHENTICATION_BACKENDS = ('backends.EmailBackend',
     "django.contrib.auth.backends.ModelBackend",)
 
 DEVELOPMENT_MODE = (platform.node() != PRODUCTION_HOSTNAME)
 if DEVELOPMENT_MODE:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG = True
     MEDIA_URL = '/media/'
     STATIC_URL = '/static/'
@@ -46,10 +46,14 @@ STATICFILES_DIRS = (
 )
 
 TIME_ZONE = 'Europe/Copenhagen'
-LANGUAGE_CODE = 'dk'
+LANGUAGE_CODE = 'da'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
+
+LOCALE_PATHS = (
+    BASE_PATH + '/locale',
+)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -71,6 +75,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
@@ -85,11 +90,10 @@ INSTALLED_APPS = (
     'meetings',
     'profiles',
 
-    'import',
-    
     # Third-party
     'south',
     'sorl.thumbnail',
+    'notification',
 
     # Django
     'django.contrib.auth',
@@ -139,6 +143,7 @@ LOGGING = {
         },
     }
 }
+
 
 try:
     execfile(BASE_PATH + '/settings_local.py')

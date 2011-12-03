@@ -15,13 +15,21 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
     <!-- Please don't add "maximum-scale=1" here. It's bad for accessibility. -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>{% block title %}{% endblock %}- Dansk Vokalforening</title>
+    <title>{% block title %}Dansk Vokalforening{% endblock %}</title>
 
     <meta name="description" content="{% block description %}Forum for professionelle stemmebrugere.{% endblock %}" />
 
     <link href="{{ STATIC_URL }}stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
+
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+	<script src="{{ STATIC_URL }}javascripts/main.js"></script>
+
 
     <!-- Here's Golden Gridlet, the grid overlay script. -->
     <script src="https://raw.github.com/jonikorpi/Golden-Grid-System/master/GGS.js
@@ -45,7 +53,7 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
 
             <div id="site-logo" class="wrapper">
                 <a href="{% url index %}">
-                    <h1><span class="dansk">Dansk</span><br/> Vokalforening</h1>
+                    <h1><span>Dansk Vokalforening</span></h1>
                 </a>
             </div>
 
@@ -62,7 +70,7 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
             <nav id="user-navigation">
                 <ul>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url profile_detail user.id %}">{{ user.username }}</li>
+                        <li><a href="{% url profile_detail user.id %}">{{ user.get_full_name }}</li>
                         {% if user.is_staff %}
                             <li><a href="/a">admin</a></li>
                         {% endif %}

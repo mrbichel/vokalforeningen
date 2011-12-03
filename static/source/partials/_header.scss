@@ -5,19 +5,19 @@
 #site-logo {
     text-align: center;
     @include clearfix;
+
     h1 {
+        text-indent: -9999px;
+        background: url('../images/logo.png') center no-repeat;
+
+        height: 168px;
+
         color: rgba($highlight-color, 1);
         font-family: times;
         margin: 0.2859em 0 0.57149em;
         letter-spacing: -0.02em;
         text-transform: uppercase;
 
-        span.dansk {
-            font-weight: normal;
-            font-size: 1em;
-            color: black;
-            letter-spacing: 0.1em;
-        }
     }
 }
 

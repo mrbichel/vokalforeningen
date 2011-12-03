@@ -79,10 +79,11 @@ class ProfileForm(forms.ModelForm):
                   'postal_code',
                   'city',
                   'phone_number',
-                  'mobile_phone_number',
                   'birthdate',
                   'bio',
-                  'education',
-                  'position',
-                  'experience',
+                  'image',
+                  'receive_email',
             )
+
+#class EmailInactiveUsers(forms.Form):
+#    title =

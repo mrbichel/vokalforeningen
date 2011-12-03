@@ -8,3 +8,4 @@ elementtree==1.2.7-20070827-preview
 markdown2==1.0.1.19
 sorl-thumbnail==11.09
 wsgiref==0.1.2
+mailsnake

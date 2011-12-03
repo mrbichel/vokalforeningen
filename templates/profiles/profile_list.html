@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-{% load thumbnail %}
+
+
+{% block title %}Medlemmer af {{ block.super }}{% endblock %}
+
 
 {% block content %}
 
@@ -9,33 +12,11 @@
             <h1>Vores medlemmer</h1>
         </header>
 
-        {% for profile in object_list %}
-        <article id="id_{{ object.id }}" class="member wrapper">
-
-            <a href="{{ profile.get_absolute_url }}" >
-
-                <figure class="avatar">
-                    {% thumbnail profile.image "48x48" crop="center" as img %}
-                        <img src="{{ img.url }}"/>
-                    {% empty %}
-                        <img src="http://cartella.tccd.edu/images/shared/profile-empty-head.gif"/>
-                    {% endthumbnail %}
-                </figure>
-
-                <header>
-                    <h1>{{ profile.user.first_name }} {{ profile.user.last_name }}</h1>
-                </header>
-            
-            </a>
-
-        </article>
-
-        {% endfor %}
+        {% include "profiles/_profile_list.html" %}
 
         <footer class="wrapper">
             {% include "_pagination.html" %}
         </footer>
-
 
 </section>
 

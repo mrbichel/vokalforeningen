@@ -125,7 +125,8 @@ a.button {
         }
     }
     .avatar {
-        float:right;
+        float:left;
+        padding-right: 1.5em;
     }
 
 
@@ -177,24 +178,55 @@ nav.edit {
     }
 }
 
-#note-list article {
-    a {
-        text-decoration: none;
-    }
+#note-list, #meeting-list {
+    article {
 
-    .meta {
-        margin-bottom: 0;
-        li {
-            display: inline;
-            padding-right: 0.75em;
-            font-style: italic;
+        margin-bottom: 1.5em;
+
+        a {
+            text-decoration: none;
+        }
+
+        .meta {
+            margin-bottom: 0;
+            li {
+                display: inline;
+                padding-right: 0.75em;
+                font-style: italic;
+            }
+        }
+
+        header {
+            h1 {
+                text-align: left;
+                margin-top: 0;
+                margin-bottom: 0.15em;
+            }
         }
     }
+}
 
-    header {
+#meeting-list {
+    h2 {
+        margin-bottom: 0;
+        font-size: 1.2em;
+    }
+}
+
+
+// comments
+#comments {
+    article.comment {
         h1 {
             text-align: left;
-            margin-top: 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .img {
+            float: left;
+        }
+        .comment-content {
+            padding-left: 5em;
         }
     }
 }
@@ -206,15 +238,16 @@ form {
         list-style: none;
         line-height: 3em;
         clear: both;
-
         input:not([type="radio"]), textarea {
             width: 44%;
         }
     }
 
+
+
     label {
         float: left;
-        width: 40%;
+        width: 8em;
         font-size: 0.9em;
         text-align: right;
         padding: 0 #{($line/2)/$em}em;

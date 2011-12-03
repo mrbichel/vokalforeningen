@@ -239,16 +239,12 @@ body {
 #page {
     margin: 0 $column;
     padding: 1.5em 0;
-    background: url(../images/grid.png) repeat;
+    //background: url(../images/grid.png) repeat;
     @include pie-clearfix;
 }
 
 #content {
     margin-top: 1.5em;
-}
-
-h1, h2 {
-    margin: (24/26*1em) 0 (36/26*1em);
 }
 
 h2 {

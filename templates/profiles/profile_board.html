@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Bestyrelsen - {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<section id="member-list">
+
+        <header class="wrapper">
+            <h1>Bestyrelsen</h1>
+        </header>
+
+        {% include "profiles/_profile_list.html" %}
+
+        <footer class="wrapper">
+        </footer>
+</section>
+
+
+{% endblock %}

@@ -1,10 +1,90 @@
 {% extends "base.html" %}
+
+{% block title %}{% if object %}Tilføj{% else %}Rediger{% endif %} opslag - {{ block.super }}{% endblock %}
+
+
 {% block content %}
 
+<section id="create_note" class="wrapper">
 
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Send" />
+    <header>
+    {% if object %}
+        <h1>Rediger {{ object.title }}</h1>
+    {% else %}
+        {% if is_event %}
+            <h1>Opret en ny event</h1>
+        {% else %}
+            <h1>Opret et nyt opslag</h1>
+        {% endif %}
+    {% endif %}
+    </header>
+
+<form action="" method=post>{% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        {% if timeform %}
+            
+        <fieldset>
+            <legend>Tid og sted</legend>
+
+            {{ timeform.non_field_errors }}
+
+            <ol>
+                <li>{{ timeform.start_date.errors }}
+                    <label for=id_start_date>Start dato:</label>
+                    <input id=id_start_date name=start_date value="{{ timeform.start_date.value|date:'m/d/Y' }}" required>
+                </li>
+                <li>{{ timeform.start_time.errors }}
+                    <label for=id_start_time>Start tidspunkt:</label>
+                    <input id=id_start_time name=start_time value="{{ timeform.start_time.value }}" required>
+                </li>
+
+                <li>{{ timeform.end_date.errors }}
+                    <label for=id_end_date>Slut dato:</label>
+                    <input id=id_end_date name=end_date value="{{ timeform.end_date.value|date:'m/d/Y' }}" required>
+                </li>
+                <li>{{ timeform.end_time.errors }}
+                    <label for=id_end_time>Slut tidspunkt:</label>
+                    <input id=id_end_time name=end_time value="{{ timeform.end_time.value }}" required>
+                </li>
+                <li>{{ form.location.errors }}
+                    <label for=id_location>{{ form.location.label }}:</label>
+                    <input id=id_location type=text name={{ form.location.name }} value="{{ form.location.value|default_if_none:"" }}" placeholder="fx. Operahuset, København" required>
+                </li>
+            </ol>
+        </fieldset>
+        {% endif %}
+
+        <fieldset>
+            <ol>
+                <li>{{ form.title.errors }}
+                    <label for=id_title>{{ form.title.label }}:</label>
+                    <input id=id_title type=text name={{ form.title.name }} value="{{ form.title.value|default_if_none:"" }}" placeholder="Fangende overskrift" required>
+                </li>
+                <li>{{ form.body.errors }}
+                    <label for=id_body>{{ form.body.label }}:</label>
+                    <textarea id=id_body name={{ form.body.name }} placeholder="Her skriver du selve opslaget" rows=5 required>{{ form.body.value|default_if_none:"" }}</textarea>
+                </li>
+                {% if is_event %}
+                <li>{{ form.facebook.errors }}
+                    <label for=id_facebook>{{ form.facebook.label }}:</label>
+                    <input id=id_facebook type=text name={{ form.facebook.name }} value="{{ form.facebook.value|default_if_none:"" }}" placeholder="Link opslaget til begivenheden på facebook">
+                </li>
+                {% endif %}
+            </ol>
+        </fieldset>
+
+
+        <fieldset>
+            <button type="submit">Gem</button>
+        </fieldset>
+
     </form>
+
+</section>
+
+
+
 
 {% endblock %}

@@ -6,6 +6,11 @@ urlpatterns = patterns('profiles.views',
         name='profiles_index'
     ),
 
+    url(r'^board/$',
+        'board',
+        name='profiles_board'
+    ),
+
     url(r'^(?P<id>\d+)/$',
         'detail',
         name='profile_detail'

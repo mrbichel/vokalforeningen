@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from sorl.thumbnail import ImageField
 from django.db.models.signals import post_save
+import mailchimp
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
@@ -20,7 +21,7 @@ class Profile(models.Model):
 
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
 
-    image = ImageField(
+    image = ImageField('Profilbillede',
         upload_to='images/profiles/',
         blank=True,
         null=True,
@@ -29,11 +30,15 @@ class Profile(models.Model):
 
     #lastfm = models.CharField(blank=True, )
     #googleplus = models.URLField(blank=True, )
+
+    facebook = models.URLField(blank=True, )
+
     education = models.TextField('Uddannelse', blank=True)
     experience = models.TextField('Brancheerfaring', blank=True)
     position = models.TextField('Stilling', blank=True)
 
-    receive_email = models.BooleanField()
+    receive_email = models.BooleanField('Modtag email',
+            help_text="Kryds af hvis du vil modtage emails når der er nye kommentarer på indlæg du selv har skrevet eller kommenteret på.")
 
     def __unicode__(self):
         return self.user.username
@@ -51,8 +56,17 @@ class Profile(models.Model):
         self.mod_date = datetime.datetime.now()
         super(Profile, self).save(*args, **kwargs)
 
-def create_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
 
-post_save.connect(create_profile, sender=User)
+def user_updated(sender, instance, created, **kwargs):
+    if sender is User and created:
+        Profile.objects.create(user=instance)
+    else:
+        if sender is Profile:
+            user = instance.user
+        else:
+            user = instance
+
+        mailchimp.updateProfile(user)
+        
+post_save.connect(user_updated, sender=User)
+post_save.connect(user_updated, sender=Profile)

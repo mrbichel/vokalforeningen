@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% block title %}Bliv medlem af {{ block.super }}{% endblock %}
+
+
 {% block content %}
 
     <section id="registration-form" class="wrapper">
@@ -30,7 +33,7 @@
                         <ol>
                             <li>{{ form.email.errors }}
                                 <label for=id_email>{{ form.email.label }}:</label>
-                                <input id=id_email type=email name={{ form.email.name }} value="{{ form.email.value }}" placeholder="example@domain.com" required>
+                                <input id=id_email type=email name={{ form.email.name }} value="{{ form.email.value|default_if_none:"" }}" placeholder="example@domain.com" required>
                             </li>
 
                             <li>{{ form.password1.errors }}
@@ -53,33 +56,33 @@
 
                             <li>{{ form.first_name.errors }}
                                 <label for=id_first_name>{{ form.first_name.label }}:</label>
-                                <input id=id_first_name type=text name={{ form.first_name.name }} value="{{ form.first_name.value }}" placeholder="fx. Sine Ravn" required>
+                                <input id=id_first_name type=text name={{ form.first_name.name }} value="{{ form.first_name.value|default_if_none:"" }}" placeholder="fx. Sine Ravn" required>
                             </li>
 
                             <li>{{ form.last_name.errors }}
                                 <label for=id_last_name>{{ form.last_name.label }}:</label>
-                                <input id=id_last_name type=text name={{ form.last_name.name }} placeholder="fx. Knudsen" value="{{ form.last_name.value }}" required>
+                                <input id=id_last_name type=text name={{ form.last_name.name }} placeholder="fx. Knudsen" value="{{ form.last_name.value|default_if_none:"" }}" required>
                             </li>
 
                             <li>{{ form.mobile_phone_number.errors }}
                                 <label for=id_mobile_phone_number>Telefon:</label>
-                                <input id=id_mobile_phone_number type=tel name={{ form.mobile_phone_number.name }} value="{{ form.mobile_phone.value }}" placeholder="fx. 28507382" required>
+                                <input id=id_mobile_phone_number type=tel name={{ form.mobile_phone_number.name }} value="{{ form.mobile_phone_number.value|default_if_none:"" }}" placeholder="fx. 28507382" required>
                             </li>
 
 
                             <li>{{ form.address.errors }}
                                 <label for=id_address>Adresse:</label>
-                                <textarea id=id_address name={{ form.address.name }} placeholder="fx. Stengade 47B 2. th " rows=5 required>{{ form.address.value }}</textarea>
+                                <textarea id=id_address name={{ form.address.name }} placeholder="fx. Stengade 47B 2. th " rows=5 required>{{ form.address.value|default_if_none:"" }}</textarea>
                             </li>
 
                             <li>{{ form.postal_code.errors }}
                                 <label for=id_postnr>Postnummer:</label>
-                                <input id=id_postnr name={{ form.postal_code.name }} value="{{ form.postal_code.value }}" placeholder="fx. 2200" required>
+                                <input id=id_postnr name={{ form.postal_code.name }} value="{{ form.postal_code.value|default_if_none:"" }}" placeholder="fx. 2200" required>
                             </li>
 
                             <li>{{ form.city.errors }}
                                 <label for=id_city>By:</label>
-                                <input id=id_city name={{ form.city.name }} value="{{ form.city.value }}" placeholder="fx. København" required>
+                                <input id=id_city name={{ form.city.name }} value="{{ form.city.value|default_if_none:"" }}" placeholder="fx. København" required>
                             </li>
 
 

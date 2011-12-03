@@ -261,17 +261,13 @@ body {
 #page {
   margin: 0 5.556%;
   padding: 1.5em 0;
-  background: url(../images/grid.png) repeat;
   *zoom: 1;
 }
-/* line 22, ../../../../.gem/ruby/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #page:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 
 /* line 246, ../source/partials/_base.scss */
@@ -280,16 +276,11 @@ body {
 }
 
 /* line 250, ../source/partials/_base.scss */
-h1, h2 {
-  margin: 0.923em 0 1.385em;
-}
-
-/* line 254, ../source/partials/_base.scss */
 h2 {
   font-weight: normal;
 }
 
-/* line 258, ../source/partials/_base.scss */
+/* line 254, ../source/partials/_base.scss */
 h3 {
   margin: 1.5em 0 1.5em;
 }
@@ -298,7 +289,7 @@ h3 {
 * Simple elastic gutters
 * Note: box-sizing will not work in IE6-8
 */
-/* line 268, ../source/partials/_base.scss */
+/* line 264, ../source/partials/_base.scss */
 .wrapper {
   padding: 0 0.75em;
   -webkit-box-sizing: border-box;
@@ -314,27 +305,27 @@ h3 {
 * http://jonikorpi.com/leaving-old-IE-behind/
 *
 */
-/* line 285, ../source/partials/_base.scss */
+/* line 281, ../source/partials/_base.scss */
 .ie body {
   width: 40em;
   margin: 0 auto;
   font-size: 1.063em;
 }
 
-/* line 291, ../source/partials/_base.scss */
+/* line 287, ../source/partials/_base.scss */
 .ie h1 {
   margin: 1.143em 0 0.571em;
 }
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-  /* line 299, ../source/partials/_base.scss */
+  /* line 295, ../source/partials/_base.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
   }
 
-  /* line 304, ../source/partials/_base.scss */
+  /* line 300, ../source/partials/_base.scss */
   h1 {
     margin: 1.143em 0 0.571em;
   }
@@ -350,19 +341,19 @@ h3 {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-  /* line 325, ../source/partials/_base.scss */
+  /* line 321, ../source/partials/_base.scss */
   body {
     /* Reset baseline grid to 16/16 = 1 */
     font-size: 1em;
   }
 
-  /* line 332, ../source/partials/_base.scss */
+  /* line 328, ../source/partials/_base.scss */
   body.index #members.wrapper, body.index #notes.wrapper, body.index #meetings.wrapper, body.index #comments.wrapper {
     float: left;
     width: 50%;
   }
 
-  /* line 340, ../source/partials/_base.scss */
+  /* line 336, ../source/partials/_base.scss */
   #member-list .member.wrapper {
     float: left;
     width: 50%;
@@ -370,7 +361,7 @@ h3 {
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-  /* line 351, ../source/partials/_base.scss */
+  /* line 347, ../source/partials/_base.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -378,20 +369,20 @@ h3 {
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-  /* line 361, ../source/partials/_base.scss */
+  /* line 357, ../source/partials/_base.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 366, ../source/partials/_base.scss */
+  /* line 362, ../source/partials/_base.scss */
   #page {
     margin: 0 16.667%;
   }
 }
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-  /* line 376, ../source/partials/_base.scss */
+  /* line 372, ../source/partials/_base.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -399,20 +390,20 @@ h3 {
 }
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-  /* line 387, ../source/partials/_base.scss */
+  /* line 383, ../source/partials/_base.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 392, ../source/partials/_base.scss */
+  /* line 388, ../source/partials/_base.scss */
   #page {
     margin: 0 27.778%;
   }
 }
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-  /* line 402, ../source/partials/_base.scss */
+  /* line 398, ../source/partials/_base.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -429,12 +420,12 @@ h3 {
 */
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-  /* line 423, ../source/partials/_base.scss */
+  /* line 419, ../source/partials/_base.scss */
   #page {
     margin: 0 5.556%;
   }
 
-  /* line 430, ../source/partials/_base.scss */
+  /* line 426, ../source/partials/_base.scss */
   #new-members.wrapper, #new-notes.wrapper, #sign-up.wrapper, #introduction.wrapper {
     float: left;
     width: 25%;
@@ -442,7 +433,7 @@ h3 {
 }
 /* @media screen and (min-width: 2080px) */
 @media screen and (min-width: 130em) {
-  /* line 442, ../source/partials/_base.scss */
+  /* line 438, ../source/partials/_base.scss */
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size: 1.125em;
@@ -460,20 +451,16 @@ h3 {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 8, ../source/partials/_header.scss */
+/* line 9, ../source/partials/_header.scss */
 #site-logo h1 {
+  text-indent: -9999px;
+  background: url("../images/logo.png") center no-repeat;
+  height: 168px;
   color: #ba1820;
   font-family: times;
   margin: 0.2859em 0 0.57149em;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-}
-/* line 15, ../source/partials/_header.scss */
-#site-logo h1 span.dansk {
-  font-weight: normal;
-  font-size: 1em;
-  color: black;
-  letter-spacing: 0.1em;
 }
 
 /* line 24, ../source/partials/_header.scss */
@@ -530,14 +517,11 @@ body.index #notes, body.index #meetings, body.index #comments, body.index #membe
   *zoom: 1;
   margin-bottom: 1.5em;
 }
-/* line 22, ../../../../.gem/ruby/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 body.index #notes:after, body.index #meetings:after, body.index #comments:after, body.index #members:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 /* line 11, ../source/partials/_index.scss */
 body.index #notes ul, body.index #meetings ul, body.index #comments ul, body.index #members ul {
@@ -602,14 +586,11 @@ body {
   *zoom: 1;
   padding-bottom: 0.75em;
 }
-/* line 22, ../../../../.gem/ruby/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #content .box:after {
-  content: "\0020";
-  display: block;
-  height: 0;
+  content: "";
+  display: table;
   clear: both;
-  overflow: hidden;
-  visibility: hidden;
 }
 /* line 26, ../source/partials/_visual.scss */
 #content .box.active:hover {
@@ -711,10 +692,11 @@ a.button:hover, a.button:active, a.button:focus {
 
 /* line 127, ../source/partials/_visual.scss */
 #profile .avatar {
-  float: right;
+  float: left;
+  padding-right: 1.5em;
 }
 
-/* line 135, ../source/partials/_visual.scss */
+/* line 136, ../source/partials/_visual.scss */
 nav.edit {
   position: absolute;
   top: 0;
@@ -723,85 +705,111 @@ nav.edit {
   border-left: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-/* line 144, ../source/partials/_visual.scss */
+/* line 145, ../source/partials/_visual.scss */
 nav.edit ul {
   margin-bottom: 0!important;
 }
-/* line 146, ../source/partials/_visual.scss */
+/* line 147, ../source/partials/_visual.scss */
 nav.edit ul li {
   display: inline;
   font-size: 0.8em;
   padding: 0.25em;
 }
 
-/* line 156, ../source/partials/_visual.scss */
+/* line 157, ../source/partials/_visual.scss */
 #member-list .member {
   height: 4em;
   margin-bottom: 0.75em;
 }
-/* line 161, ../source/partials/_visual.scss */
+/* line 162, ../source/partials/_visual.scss */
 #member-list .member header {
   margin-left: 3.5em;
 }
-/* line 163, ../source/partials/_visual.scss */
+/* line 164, ../source/partials/_visual.scss */
 #member-list .member header h1 {
   margin: 0;
   text-align: left;
   font-size: 1em;
 }
-/* line 171, ../source/partials/_visual.scss */
+/* line 172, ../source/partials/_visual.scss */
 #member-list .member .avatar {
   float: left;
   width: 3em;
 }
-/* line 174, ../source/partials/_visual.scss */
+/* line 175, ../source/partials/_visual.scss */
 #member-list .member .avatar img {
   height: 3em;
 }
 
-/* line 181, ../source/partials/_visual.scss */
-#note-list article a {
+/* line 182, ../source/partials/_visual.scss */
+#note-list article, #meeting-list article {
+  margin-bottom: 1.5em;
+}
+/* line 186, ../source/partials/_visual.scss */
+#note-list article a, #meeting-list article a {
   text-decoration: none;
 }
-/* line 185, ../source/partials/_visual.scss */
-#note-list article .meta {
+/* line 190, ../source/partials/_visual.scss */
+#note-list article .meta, #meeting-list article .meta {
   margin-bottom: 0;
 }
-/* line 187, ../source/partials/_visual.scss */
-#note-list article .meta li {
+/* line 192, ../source/partials/_visual.scss */
+#note-list article .meta li, #meeting-list article .meta li {
   display: inline;
   padding-right: 0.75em;
   font-style: italic;
 }
-/* line 195, ../source/partials/_visual.scss */
-#note-list article header h1 {
+/* line 200, ../source/partials/_visual.scss */
+#note-list article header h1, #meeting-list article header h1 {
   text-align: left;
   margin-top: 0;
+  margin-bottom: 0.15em;
 }
 
-/* line 205, ../source/partials/_visual.scss */
+/* line 210, ../source/partials/_visual.scss */
+#meeting-list h2 {
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
+
+/* line 220, ../source/partials/_visual.scss */
+#comments article.comment h1 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+/* line 225, ../source/partials/_visual.scss */
+#comments article.comment .img {
+  float: left;
+}
+/* line 228, ../source/partials/_visual.scss */
+#comments article.comment .comment-content {
+  padding-left: 5em;
+}
+
+/* line 237, ../source/partials/_visual.scss */
 form ol li {
   list-style: none;
   line-height: 3em;
   clear: both;
 }
-/* line 210, ../source/partials/_visual.scss */
+/* line 241, ../source/partials/_visual.scss */
 form ol li input:not([type="radio"]), form ol li textarea {
   width: 44%;
 }
-/* line 215, ../source/partials/_visual.scss */
+/* line 248, ../source/partials/_visual.scss */
 form label {
   float: left;
-  width: 40%;
+  width: 8em;
   font-size: 0.9em;
   text-align: right;
   padding: 0 0.75em;
 }
-/* line 221, ../source/partials/_visual.scss */
+/* line 254, ../source/partials/_visual.scss */
 form label:hover {
   cursor: pointer;
 }
-/* line 227, ../source/partials/_visual.scss */
+/* line 260, ../source/partials/_visual.scss */
 form input:not([type="radio"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
@@ -814,11 +822,11 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 233, ../source/partials/_visual.scss */
+/* line 266, ../source/partials/_visual.scss */
 form input:not([type="radio"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 240, ../source/partials/_visual.scss */
+/* line 273, ../source/partials/_visual.scss */
 form textarea {
   font-size: 1em;
 }

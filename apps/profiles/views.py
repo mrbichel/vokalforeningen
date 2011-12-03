@@ -21,6 +21,14 @@ from profiles.forms import RegistrationForm
 
 PAGINATE_MEMBERS_BY = getattr(settings, 'PAGINATE_BY', 30)
 
+def board(request, **kwargs):
+    return list_detail.object_list(
+        request,
+        queryset=Profile.objects.filter(board_member=True),
+        template_name="profiles/profile_board.html",
+        **kwargs
+    )
+
 def list(request, **kwargs):
     return list_detail.object_list(
         request,
@@ -32,15 +40,14 @@ def list(request, **kwargs):
 def detail(request, id):
     user = get_object_or_404(User, id=id)
     return render(request, "profiles/profile_detail.html", {'profile': user.get_profile()})
-
-
+ 
 def update(request, id):
     user = get_object_or_404(User, id=id)
     profile = user.get_profile()
 
     if request.user == user:
         if request.method == 'POST':
-            pform = ProfileForm(request.POST, instance=profile)
+            pform = ProfileForm(request.POST, request.FILES, instance=profile)
             uform = UserForm(request.POST, instance=user)
 
             if pform.is_valid() and uform.is_valid():
@@ -110,3 +117,6 @@ def registration(request):
 
 
     return render(request, "profiles/registration.html", {'form': form})
+
+
+#def emailInactive(request):

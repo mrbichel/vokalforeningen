@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load markup %}
+{% load thumbnail %}
 {% load comments %}
 
-{% block title %}{{ object.title }}{% endblock %}
+{% block title %}{{ object.title }} - {{ block.super }}{% endblock %}
 
 {% block body_class %}note-detail{% endblock %}
 
@@ -26,49 +27,21 @@
         <h1>{{ object.title }}</h1>
     </header>
 
+    {% if object.is_event %}
+        <ul class="event">
+        <li><time class="start" datetime="{{ object.start|date:"c" }}">Fra d. {{ object.start|date }} klokken {{ object.start|time }}</time></li>
+        <li>Til <time class="end" datetime="{{ object.start|date:"c" }}">{{ object.end|date }} klokken {{ object.end|time }}</time></li>
+        <li>Sted: {{ object.location }}</li>
+        {% if object.facebook %}<li><a href="{{ object.facebook }}">se på facebook</a></li>{% endif %}
+        </ul>
+    {% endif %}
+
         <section id="body">
             {{ object.html|safe }}
         </section>
 
 
         <footer>
-           <!-- <dl>
-
-                <div id="published">
-                    <dt>Posted on</dt>
-                    <dd><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time></dd>
-                </div>
-
-                <div id="updated">
-                    <dt>Last updated</dt>
-                    <dd><time class="moddate" datetime="{{ object.mod_date|date:"c" }}">{{ object.mod_date|date }}</time></dd>
-                </div>
-
-                <div id="social">
-                    <dt>Share</dt>
-                    <dd>
-                        <ul>
-                            <li id="googleplus">
-                                <g:plusone size="small"></g:plusone>
-                            </li>
-
-                            <li id="fblike">
-                                <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=190231197703376&amp;xfbml=1"></script><fb:like href="" send="false" layout="button_count" width="108" show_faces="false" font="lucida grande"></fb:like>
-                            </li>
-
-                            <li id="tweet">
-                                <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="mrbichel">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                            </li>
-
-                            --><!--<li id="linkedin">
-                                <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="right"></script>
-                            </li>-->
-
-                      <!--  </ul>
-                    </dd>
-                </div>
-            </dl>
-            -->
 
 
         </footer>
@@ -79,10 +52,45 @@
                 <h2>Kommentarer</h2>
             </header>
 
-            {% render_comment_list for object %}
+            {% get_comment_list for object as comment_list %}
+            {% for comment in comment_list %}
+                <article class="comment wrapper" id="c{{ comment.id }}">
+
+                    <div class="img">
+                        <figure class="avatar">
+                        <a href="{{ comment.user.get_profile.get_absolute_url }}">
+                            {% thumbnail comment.user.get_profile.image "48x48" crop="center" as img %}
+                                <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}">
+                            {% empty %}
+                                <img src="default">
+                            {% endthumbnail %}
+                        </figure>
+                        </a>
+                    </div>
+
+                    <div class="comment-content">
+                    <header>
+                        <a href="{{ comment.user.get_profile.get_absolute_url }}"><h1>{{ comment.user.get_full_name }}</h1></a>
+                    </header>
+
+                    {{ comment.comment|markdown }}
+
+
+                    <footer>
+                        <a href="{% get_comment_permalink comment %}">#</a> | <time class="posted" datetime="{{ comment.submit_date|date:'c' }}">For {{ comment.submit_date|timesince }} siden</time>
+                    </footer>
+
+                    </div>
+
+
+                </article>
+            {% endfor %}
 
             {% if user.is_authenticated %}
-
+                <section id="comment-form">
+                <header>
+                    <h3>Skriv kommentar</h3>
+                </header>
                 {% get_comment_form for object as form %}
 
                   <form action="{% comment_form_target %}" method="post">
@@ -97,10 +105,10 @@
                         <input type="hidden" name="next" value="{{ object.get_absolute_url }}#cid" />
 
 
-                        <input type="submit" name="submit" value="Post">
+                        <input type="submit" name="submit" value="Send kommentar">
 
                   </form>
-
+                </section>
             {% else %}
                 <p><a href="{% url login %}">Log ind</a> eller <a href="{% url registration %}">bliv medlem</a> for at kommentere.</p>
             {% endif %}

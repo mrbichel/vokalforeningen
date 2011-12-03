@@ -12,8 +12,13 @@ urlpatterns = patterns('corkboard.views',
     ),
 
     url(r'^create$',
-        'create',
+        'create', {'event': False},
         name='note_create'
+    ),
+
+    url(r'^create/event$',
+        'create', {'event': True},
+        name='event_create'
     ),
     
     url(r'^(?P<id>\d+)/update/$',
@@ -30,6 +35,5 @@ urlpatterns = patterns('corkboard.views',
         'by_category',
         name='note_by_category'
     ),
-
 
 )

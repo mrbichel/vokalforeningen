@@ -1,8 +1,10 @@
 import datetime
+import pprint
 from django.contrib.auth.views import redirect_to_login
 from django.db.models.aggregates import Count
+from django.template import Context
 from models import Note, Category
-from forms import NoteForm
+from forms import NoteForm, TimeForm
 from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import list_detail, date_based, create_update
@@ -31,40 +33,98 @@ def by_category(request, slug, **kwargs):
         **kwargs
     )
 
-def create(request):
+def create(request, event):
     if request.user.is_authenticated():
+        c = Context()
         if request.method == 'POST':
             form = NoteForm(request.POST)
+            if event:
+                timeform = TimeForm(request.POST)
+                c.update({'timeform': timeform})
+
             if form.is_valid():
                 note = form.save(commit=False)
-
                 note.author = request.user
                 note.pub_date = datetime.datetime.now()
 
-                note.save()
+                if not event:
+                    note.save()
+                    return HttpResponseRedirect(note.get_absolute_url())
 
-                return HttpResponseRedirect(note.get_absolute_url())
+                else:
+                    if timeform.is_valid():
+                        pprint.pprint(timeform.cleaned_data)
+
+                        note.end = datetime.datetime.combine(
+                                timeform.cleaned_data['end_date'],
+                                timeform.cleaned_data['end_time']
+                            )
+
+                        note.start = datetime.datetime.combine(
+                                timeform.cleaned_data['start_date'],
+                                timeform.cleaned_data['start_time']
+                            )
+
+                        note.is_event = True
+                        note.save()
+                        return HttpResponseRedirect(note.get_absolute_url())
+                    
         else:
             form = NoteForm()
+            if event:
+                c.update({'timeform': TimeForm()})
 
-        return render(request, "corkboard/note_form.html", {'form': form})
+        c.update({'form': form, 'is_event': event})
+        return render(request, "corkboard/note_form.html", c)
     else:
         return redirect_to_login(request.path)
 
 
 def update(request, id):
     note = Note.objects.get(id=id)
+
     if request.user == note.author:
+        c = Context({'object': note})
         if request.method == 'POST':
             form = NoteForm(request.POST, instance=note)
-            if form.is_valid():
-                form.save()
+            if note.is_event:
+                timeform = TimeForm(request.POST)
+                c.update({'timeform': timeform})
 
-                return HttpResponseRedirect(note.get_absolute_url())
+            if form.is_valid():
+                if not note.is_event:
+                    note.save()
+                    return HttpResponseRedirect(note.get_absolute_url())
+
+                else:
+                    if timeform.is_valid():
+                        pprint.pprint(timeform.cleaned_data)
+
+                        note.end = datetime.datetime.combine(
+                                timeform.cleaned_data['end_date'],
+                                timeform.cleaned_data['end_time']
+                            )
+
+                        note.start = datetime.datetime.combine(
+                                timeform.cleaned_data['start_date'],
+                                timeform.cleaned_data['start_time']
+                            )
+
+                        note.save()
+                        return HttpResponseRedirect(note.get_absolute_url())
         else:
             form = NoteForm(instance=note)
+            if note.is_event:
+                c.update({'timeform': TimeForm({
+                    'start_date': note.start.date(),
+                    'start_time': note.start.time(),
+                    'end_date': note.end.date(),
+                    'end_time': note.end.time(),
+                    })
+                })
 
-        return render(request, "corkboard/note_form.html", {'form': form})
+        c.update({'form': form, 'is_event': note.is_event})
+        return render(request, "corkboard/note_form.html", c)
     else:
         return HttpResponseForbidden("Du har ikke tilladelse til at redigere dette opslag.")
 

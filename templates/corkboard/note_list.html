@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load comments %}
+{% load i18n %}
 
+{% block title %}Opslagstavlen - {{ block.super }}{% endblock %}
 
 {% block body_class %}note-list{% endblock %}
 {% block content %}
@@ -11,8 +13,14 @@
 {% if user.is_authenticated %}
 <nav class="edit">
     <ul>
-        <li><a href="{% url note_create %}">Nyt opslag</a>
-    </li></ul>
+        <li>
+            <a href="{% url note_create %}">Nyt opslag</a>
+        </li>
+        <li>
+            <a href="{% url event_create %}">Ny event</a>
+        </li>
+
+    </ul>
 </nav>
 {% endif %}
 
@@ -25,23 +33,37 @@
 
 {% for object in object_list %}
 
-<article id="note-id{{ object.id }}" class="wrapper">
-    <a href="{{ object.get_absolute_url }}" rel="permalink">
+      <article id="note-id{{ object.id }}" class="wrapper">
+
+            <header>
+               <a href="{{ object.get_absolute_url }}" rel="permalink">
+                <h1>{{ object.title }}</h1>
+               </a>
+            </header>
+
+            {% if object.is_event %}
+                <ul class="event-time">
+                <li><time class="start" datetime="{{ object.start|date:"c" }}">Fra d. {{ object.start|date }} klokken {{ object.start|time }}</time></li>
+                <li>Til <time class="end" datetime="{{ object.start|date:"c" }}">{{ object.end|date }} klokken {{ object.end|time }}</time></li>
+                </ul>
+            {% endif %}
+
+            <footer>
+            <ul class="meta">
 
 
-        <ul class="meta">
-            <li><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|date }}</time></li>
+                {% get_comment_count for object as comment_count %}
+                <li class=comments><span class=count>{{ comment_count }}</span> kommentar{{ comment_count|pluralize:"er" }}</li>
 
-            {% get_comment_count for object as comment_count %}
-            <li class=comments><span class=count>{{ comment_count }}</span> kommentar{{ comment_count|pluralize:"er" }}</li>
+                <li class=author>
+                    <a href="{{ object.author.get_profile.get_absolute_url }}">{{ object.author.get_full_name }}</a>
+                </li>
 
-            <li class=author>af {{ object.author.get_full_name }}</li>
-        </ul>
+                <li><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|timesince }} siden</time></li>
+            </ul>
+            </footer>
 
-            <header><h1>{{ object.title }}</h1></header>
-
-    </a>
-</article>
+      </article>
 
 {% endfor %}
 

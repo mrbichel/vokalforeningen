@@ -20,7 +20,8 @@ urlpatterns = patterns('',
     url(r'^registration/$', 'profiles.views.registration', name="registration"),
 
     (r'^comments/', include('django.contrib.comments.urls')),
-
+    (r'^notification/', include('notification.urls')),
+    
     url(r'^$', 'views.index', name='index'),
     url(r'^a/doc/', include('django.contrib.admindocs.urls')),
     url(r'^a/', include(admin.site.urls)),

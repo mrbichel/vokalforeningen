@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+{% load markup %}
+
+{% block title %}{{ profile.user.get_full_name }} - {{ block.super }}{% endblock %}
 
 
 {% block content %}
@@ -15,6 +18,10 @@
 
 
     <header class="wrapper">
+    {% if profile.board_member %}
+        <p>Bestyrelsesmedlem</p>
+    {% endif %}
+
     <h1>{{ profile.user.get_full_name }}</h1>
     </header>
 
@@ -28,24 +35,33 @@
         {% endthumbnail %}
     </figure>
 
-    <p>{{ profile.bio }}</p>
+    {{ profile.bio|markdown }}
+
+    {% if user.is_authenticated %}
+    <h2>Kontakt</h2>
+    <p>
+        <p>Email: {{ profile.user.email }}<br>
+        Telefon: {{ profile.phone_number }}</p>
+
+    </p>
+    {% endif %}
 
     </section>
 
-    <section id="facts">
-        
-        {{ profile.member_since }}
 
-    </section>
-
-    <section id="social-links" class="wrapper">
+    <aside id="social-links" class="wrapper">
+        <h2>Links</h2>
         <nav>
             <ul>
-                <li><a href="{{ profile.url }}">{{ profile.url }}</a></li>
-                <!--<li><a href="{{ profile.facebook }}">facebook</a></li>-->
+                {% if profile.url %}<li><a href="{{ profile.url }}">{{ profile.url }}</a></li>{% endif %}
+                {% if profile.facebook %}<li><a href="{{ profile.facebook }}">facebook</a></li>{% endif %}
             </ul>
         </nav>
-    </section>
+    </aside>
+
+    <footer class="wrapper">
+
+    </footer>
 
 </section>
 
