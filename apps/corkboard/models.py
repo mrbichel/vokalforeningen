@@ -20,10 +20,10 @@ class Category(models.Model):
         return self.name
 
 class Note(models.Model):
-    title = models.CharField("Titel", max_length=60)
+    title = models.CharField(u"Titel", max_length=60)
     author = models.ForeignKey(User)
-    body = models.TextField("Brødtekst")
-    html = models.TextField(editable=False, blank=True)
+    body = models.TextField(u"Brødtekst")
+    html = models.TextField(editable=False)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
     category = models.ForeignKey(Category, blank=True, null=True)
@@ -35,7 +35,6 @@ class Note(models.Model):
     facebook = models.URLField("Facebook link", blank=True)
 
     class Meta:
-        ordering = ['-pub_date']
         get_latest_by = 'pub_date'
 
     def __unicode__(self):
@@ -43,13 +42,12 @@ class Note(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('note_detail', (), {'id': self.id,})
+        return 'note_detail', (), {'id': self.id,}
 
     def save(self, *args, **kwargs):
         self.mod_date = datetime.datetime.now()
-        self.html = markdown(self.body)
+        self.html = unicode(markdown(self.body))
         super(Note, self).save(*args, **kwargs)
-
 
 try:
     notification = get_app( 'notification' )
