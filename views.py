@@ -10,7 +10,7 @@ from meetings.models import Meeting
 
 def index(request):
 
-    notes = Note.objects.filter(is_event=True)[:3]
+    notes = Note.objects.filter(is_event=False)[:3]
     events = Note.objects.filter(is_event=True, end__gte=datetime.datetime.now())[:3]
 
     meetings = Meeting.objects.all()[:4]
