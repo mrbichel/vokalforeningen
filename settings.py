@@ -49,7 +49,7 @@ TIME_ZONE = 'Europe/Copenhagen'
 LANGUAGE_CODE = 'da'
 SITE_ID = 1
 USE_I18N = True
-USE_L10N = True
+USE_L10N = False
 
 LOCALE_PATHS = (
     BASE_PATH + '/locale',
@@ -83,6 +83,10 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_DIRS = (
     BASE_PATH + '/templates/'
 )
+
+DATE_INPUT_FORMATS = ('%m/%d/%Y', '%Y-%m-%d', '%m/%d/%y', '%b %d %Y',
+'%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y',
+'%B %d, %Y', '%d %B %Y', '%d %B, %Y')
 
 INSTALLED_APPS = (
     # Apps

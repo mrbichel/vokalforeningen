@@ -52,6 +52,8 @@ def create(request, event):
                     return HttpResponseRedirect(note.get_absolute_url())
 
                 else:
+                    #pprint.pprint(timeform.data)
+
                     if timeform.is_valid():
                         #pprint.pprint(timeform.cleaned_data)
 
