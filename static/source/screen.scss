@@ -132,10 +132,14 @@ body {
     font-size: #{26 / $em}em;
     line-height: ($line*1.5) / 26 * 1em;
 
-    margin: 0.9230769230769231em 0 0.46153846153846156em;
+    margin: 0.4230769230769231em 0 0.46153846153846156em;
 
 }
 
+#meeting header h2 {
+    text-align: center;
+    font-size: #{16 / $em}em;
+}
 
 a {
     color: $link-color;

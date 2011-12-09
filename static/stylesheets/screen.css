@@ -372,28 +372,34 @@ body {
   color: black;
   font-size: 1.625em;
   line-height: 1.385em;
-  margin: 0.9230769230769231em 0 0.46153846153846156em;
+  margin: 0.4230769230769231em 0 0.46153846153846156em;
 }
 
-/* line 140, ../source/screen.scss */
+/* line 139, ../source/screen.scss */
+#meeting header h2 {
+  text-align: center;
+  font-size: 1em;
+}
+
+/* line 144, ../source/screen.scss */
 a {
   color: #ba1820;
 }
-/* line 142, ../source/screen.scss */
+/* line 146, ../source/screen.scss */
 a:visited {
   color: #8d1218;
 }
-/* line 145, ../source/screen.scss */
+/* line 149, ../source/screen.scss */
 a:hover, a:active, a:focus {
   color: #600c10;
 }
 
-/* line 151, ../source/screen.scss */
+/* line 155, ../source/screen.scss */
 a.action {
   float: right;
 }
 
-/* line 155, ../source/screen.scss */
+/* line 159, ../source/screen.scss */
 a.button {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -410,90 +416,90 @@ a.button {
   font-size: 0.9em;
   text-transform: uppercase;
 }
-/* line 166, ../source/screen.scss */
+/* line 170, ../source/screen.scss */
 a.button:hover, a.button:active, a.button:focus {
   color: #d11b24;
 }
 
 /* forms */
-/* line 172, ../source/screen.scss */
+/* line 176, ../source/screen.scss */
 #id_honeypot {
   display: none;
 }
 
-/* line 176, ../source/screen.scss */
+/* line 180, ../source/screen.scss */
 #pagination {
   clear: both;
 }
-/* line 178, ../source/screen.scss */
+/* line 182, ../source/screen.scss */
 #pagination ul, #pagination ol {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 182, ../source/screen.scss */
+/* line 186, ../source/screen.scss */
 #pagination ul li, #pagination ul ol, #pagination ol li, #pagination ol ol {
   display: inline;
 }
-/* line 184, ../source/screen.scss */
+/* line 188, ../source/screen.scss */
 #pagination ul li li, #pagination ul ol li, #pagination ol li li, #pagination ol ol li {
   margin-right: 2px;
 }
-/* line 187, ../source/screen.scss */
+/* line 191, ../source/screen.scss */
 #pagination ul li.active, #pagination ul ol.active, #pagination ol li.active, #pagination ol ol.active {
   font-weight: bold;
 }
-/* line 189, ../source/screen.scss */
+/* line 193, ../source/screen.scss */
 #pagination ul li.active a, #pagination ul ol.active a, #pagination ol li.active a, #pagination ol ol.active a {
   border: none;
   color: #ba1820;
 }
-/* line 195, ../source/screen.scss */
+/* line 199, ../source/screen.scss */
 #pagination ul li, #pagination ol li {
   margin-right: 1.2em;
 }
-/* line 198, ../source/screen.scss */
+/* line 202, ../source/screen.scss */
 #pagination ul #step-links, #pagination ol #step-links {
   display: inline;
 }
 
-/* line 211, ../source/screen.scss */
+/* line 215, ../source/screen.scss */
 #profile .avatar {
   float: left;
   padding-right: 1.5em;
   padding-bottom: 1.5em;
 }
 
-/* line 219, ../source/screen.scss */
+/* line 223, ../source/screen.scss */
 body.index #content .wrapper {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 222, ../source/screen.scss */
+/* line 226, ../source/screen.scss */
 body.index #content .wrapper article a {
   text-decoration: none;
 }
-/* line 224, ../source/screen.scss */
+/* line 228, ../source/screen.scss */
 body.index #content .wrapper article a h2 {
   margin: 0 0 0.4615em;
 }
-/* line 231, ../source/screen.scss */
+/* line 235, ../source/screen.scss */
 body.index #members {
   margin-bottom: 1.5em;
   clear: both;
 }
-/* line 235, ../source/screen.scss */
+/* line 239, ../source/screen.scss */
 body.index #members li {
   display: block;
   float: left;
   width: 25%;
 }
-/* line 240, ../source/screen.scss */
+/* line 244, ../source/screen.scss */
 body.index #members li a {
   display: block;
   text-align: center;
 }
-/* line 243, ../source/screen.scss */
+/* line 247, ../source/screen.scss */
 body.index #members li a img {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -503,7 +509,7 @@ body.index #members li a img {
   border-radius: 4px / 4px;
 }
 
-/* line 253, ../source/screen.scss */
+/* line 257, ../source/screen.scss */
 nav.edit {
   position: absolute;
   top: 0;
@@ -512,99 +518,99 @@ nav.edit {
   border-left: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-/* line 262, ../source/screen.scss */
+/* line 266, ../source/screen.scss */
 nav.edit ul {
   margin-bottom: 0!important;
 }
-/* line 264, ../source/screen.scss */
+/* line 268, ../source/screen.scss */
 nav.edit ul li {
   display: inline;
   font-size: 0.8em;
   padding: 0.25em;
 }
 
-/* line 274, ../source/screen.scss */
+/* line 278, ../source/screen.scss */
 #member-list .member {
   height: 4em;
   margin-bottom: 0.75em;
 }
-/* line 279, ../source/screen.scss */
+/* line 283, ../source/screen.scss */
 #member-list .member header {
   margin-left: 3.5em;
 }
-/* line 281, ../source/screen.scss */
+/* line 285, ../source/screen.scss */
 #member-list .member header h1 {
   margin: 0;
   text-align: left;
   font-size: 1em;
 }
-/* line 289, ../source/screen.scss */
+/* line 293, ../source/screen.scss */
 #member-list .member .avatar {
   float: left;
   width: 3em;
 }
-/* line 292, ../source/screen.scss */
+/* line 296, ../source/screen.scss */
 #member-list .member .avatar img {
   height: 3em;
 }
 
-/* line 299, ../source/screen.scss */
+/* line 303, ../source/screen.scss */
 #note-list article, #meeting-list article {
   margin-bottom: 1.5em;
 }
-/* line 303, ../source/screen.scss */
+/* line 307, ../source/screen.scss */
 #note-list article a, #meeting-list article a {
   text-decoration: none;
 }
-/* line 307, ../source/screen.scss */
+/* line 311, ../source/screen.scss */
 #note-list article .meta, #meeting-list article .meta {
   margin-bottom: 0;
 }
-/* line 309, ../source/screen.scss */
+/* line 313, ../source/screen.scss */
 #note-list article .meta li, #meeting-list article .meta li {
   display: inline;
   padding-right: 0.75em;
   font-style: italic;
 }
-/* line 317, ../source/screen.scss */
+/* line 321, ../source/screen.scss */
 #note-list article header h1, #meeting-list article header h1 {
   text-align: left;
   margin-top: 0;
   margin-bottom: 0.15em;
 }
 
-/* line 327, ../source/screen.scss */
+/* line 331, ../source/screen.scss */
 #meeting-list h2 {
   margin-bottom: 0;
   font-size: 1.2em;
 }
 
-/* line 337, ../source/screen.scss */
+/* line 341, ../source/screen.scss */
 #comments article.comment h1 {
   text-align: left;
   font-weight: bold;
   font-size: 1.1em;
 }
-/* line 342, ../source/screen.scss */
+/* line 346, ../source/screen.scss */
 #comments article.comment .img {
   float: left;
 }
-/* line 345, ../source/screen.scss */
+/* line 349, ../source/screen.scss */
 #comments article.comment .comment-content {
   padding-left: 5em;
 }
 
-/* line 354, ../source/screen.scss */
+/* line 358, ../source/screen.scss */
 form ol li {
   list-style: none;
   line-height: 3em;
   clear: both;
 }
-/* line 358, ../source/screen.scss */
+/* line 362, ../source/screen.scss */
 form ol li input:not([type="radio"]), form ol li textarea {
   width: 44%;
 }
-/* line 362, ../source/screen.scss */
+/* line 366, ../source/screen.scss */
 form label {
   float: left;
   width: 10.5em;
@@ -612,11 +618,11 @@ form label {
   text-align: right;
   padding: 0 0.75em;
 }
-/* line 368, ../source/screen.scss */
+/* line 372, ../source/screen.scss */
 form label:hover {
   cursor: pointer;
 }
-/* line 373, ../source/screen.scss */
+/* line 377, ../source/screen.scss */
 form input:not([type="radio"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
@@ -629,11 +635,11 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 379, ../source/screen.scss */
+/* line 383, ../source/screen.scss */
 form input:not([type="radio"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 383, ../source/screen.scss */
+/* line 387, ../source/screen.scss */
 form textarea {
   font-size: 1em;
 }
@@ -646,7 +652,7 @@ form textarea {
 * 5.55555% | % 25 50 75 100 | 5.55555%
 *
 */
-/* line 399, ../source/screen.scss */
+/* line 403, ../source/screen.scss */
 #page {
   margin: 0 5.556%;
   padding: 1.5em 0;
@@ -659,17 +665,17 @@ form textarea {
   clear: both;
 }
 
-/* line 406, ../source/screen.scss */
+/* line 410, ../source/screen.scss */
 #content {
   margin-top: 1.5em;
 }
 
-/* line 410, ../source/screen.scss */
+/* line 414, ../source/screen.scss */
 h2 {
   font-weight: normal;
 }
 
-/* line 414, ../source/screen.scss */
+/* line 418, ../source/screen.scss */
 h3 {
   margin: 1.5em 0 1.5em;
 }
@@ -678,7 +684,7 @@ h3 {
 * Simple elastic gutters
 * Note: box-sizing will not work in IE6-8
 */
-/* line 424, ../source/screen.scss */
+/* line 428, ../source/screen.scss */
 .wrapper {
   padding: 0 0.75em;
   -webkit-box-sizing: border-box;
@@ -694,27 +700,27 @@ h3 {
 * http://jonikorpi.com/leaving-old-IE-behind/
 *
 */
-/* line 441, ../source/screen.scss */
+/* line 445, ../source/screen.scss */
 .ie body {
   width: 40em;
   margin: 0 auto;
   font-size: 1.063em;
 }
 
-/* line 447, ../source/screen.scss */
+/* line 451, ../source/screen.scss */
 .ie h1 {
   margin: 1.143em 0 0.571em;
 }
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-  /* line 455, ../source/screen.scss */
+  /* line 459, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
   }
 
-  /* line 460, ../source/screen.scss */
+  /* line 464, ../source/screen.scss */
   h1 {
     margin: 1.143em 0 0.571em;
   }
@@ -730,23 +736,23 @@ h3 {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-  /* line 480, ../source/screen.scss */
+  /* line 484, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1 */
     font-size: 1em;
   }
 
-  /* line 485, ../source/screen.scss */
+  /* line 489, ../source/screen.scss */
   body.index #notes, body.index #events {
     float: left;
     width: 50%;
   }
-  /* line 490, ../source/screen.scss */
+  /* line 494, ../source/screen.scss */
   body.index #members li {
     width: 12.5%;
   }
 
-  /* line 498, ../source/screen.scss */
+  /* line 502, ../source/screen.scss */
   #member-list .member.wrapper {
     float: left;
     width: 50%;
@@ -754,7 +760,7 @@ h3 {
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-  /* line 507, ../source/screen.scss */
+  /* line 511, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -762,20 +768,20 @@ h3 {
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-  /* line 517, ../source/screen.scss */
+  /* line 521, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 522, ../source/screen.scss */
+  /* line 526, ../source/screen.scss */
   #page {
     margin: 0 16.667%;
   }
 }
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-  /* line 532, ../source/screen.scss */
+  /* line 536, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -783,20 +789,20 @@ h3 {
 }
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-  /* line 543, ../source/screen.scss */
+  /* line 547, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 548, ../source/screen.scss */
+  /* line 552, ../source/screen.scss */
   #page {
     margin: 0 27.778%;
   }
 }
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-  /* line 558, ../source/screen.scss */
+  /* line 562, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -813,14 +819,14 @@ h3 {
 */
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-  /* line 579, ../source/screen.scss */
+  /* line 583, ../source/screen.scss */
   #page {
     margin: 0 5.556%;
   }
 }
 /* @media screen and (min-width: 2080px) */
 @media screen and (min-width: 130em) {
-  /* line 590, ../source/screen.scss */
+  /* line 594, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size: 1.125em;
