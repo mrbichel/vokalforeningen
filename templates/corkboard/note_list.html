@@ -2,13 +2,13 @@
 {% load comments %}
 {% load i18n %}
 
-{% block title %}Opslagstavlen - {{ block.super }}{% endblock %}
+{% block title %}{{ list-title }} - {{ block.super }}{% endblock %}
 
 {% block body_class %}note-list{% endblock %}
 {% block content %}
 
 <header class="wrapper">
-<h1>Opslagstavlen</h1>
+<h1>{{ list-title }}</h1>
 
 {% if user.is_authenticated %}
 <nav class="edit">
