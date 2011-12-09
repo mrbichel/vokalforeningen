@@ -6,9 +6,15 @@ urlpatterns = patterns('corkboard.views',
         name='note_detail'
     ),
 
-    url(r'^$',
-        'list',
-        name='corkboard_index'
+    url(r'^e$',
+        'event_list',
+        name='corkboard_events',
+
+    ),
+
+    url(r'^n$',
+        'note_list',
+        name='corkboard_notes'
     ),
 
     url(r'^create$',

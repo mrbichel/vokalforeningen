@@ -6,7 +6,7 @@
 * except for form elements
 *
 */
-/* line 37, ../source/partials/_base.scss */
+/* line 8, ../source/partials/_reset.scss */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, nav, section, menu, time, mark, audio, video, canvas {
   margin: 0;
   padding: 0;
@@ -19,26 +19,26 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote,
 * adopted from http://necolas.github.com/normalize.css/
 *
 */
-/* line 50, ../source/partials/_base.scss */
+/* line 21, ../source/partials/_reset.scss */
 html {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
-/* line 55, ../source/partials/_base.scss */
+/* line 26, ../source/partials/_reset.scss */
 body {
   min-height: 100%;
   font-size: 100%;
 }
 
-/* line 60, ../source/partials/_base.scss */
+/* line 31, ../source/partials/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section, audio, canvas, video {
   display: block;
 }
 
-/* line 63, ../source/partials/_base.scss */
+/* line 34, ../source/partials/_reset.scss */
 sub, sup {
   font-size: 75%;
   line-height: 0;
@@ -46,34 +46,34 @@ sub, sup {
   vertical-align: baseline;
 }
 
-/* line 69, ../source/partials/_base.scss */
+/* line 40, ../source/partials/_reset.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 72, ../source/partials/_base.scss */
+/* line 43, ../source/partials/_reset.scss */
 sub {
   bottom: -0.25em;
 }
 
-/* line 75, ../source/partials/_base.scss */
+/* line 46, ../source/partials/_reset.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* line 80, ../source/partials/_base.scss */
+/* line 51, ../source/partials/_reset.scss */
 b, strong {
   font-weight: bold;
 }
 
-/* line 83, ../source/partials/_base.scss */
+/* line 54, ../source/partials/_reset.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 86, ../source/partials/_base.scss */
+/* line 57, ../source/partials/_reset.scss */
 input, textarea, button, select {
   margin: 0;
   font-size: 100%;
@@ -81,7 +81,7 @@ input, textarea, button, select {
   vertical-align: baseline;
 }
 
-/* line 95, ../source/partials/_base.scss */
+/* line 66, ../source/partials/_reset.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -90,7 +90,7 @@ input[type="submit"] {
   -webkit-appearance: button;
 }
 
-/* line 100, ../source/partials/_base.scss */
+/* line 71, ../source/partials/_reset.scss */
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
@@ -100,12 +100,12 @@ input[type="radio"] {
   box-sizing: border-box;
 }
 
-/* line 107, ../source/partials/_base.scss */
+/* line 78, ../source/partials/_reset.scss */
 textarea {
   overflow: auto;
 }
 
-/* line 110, ../source/partials/_base.scss */
+/* line 81, ../source/partials/_reset.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -113,58 +113,58 @@ table {
 
 /*	Typography
 */
-/* line 120, ../source/partials/_base.scss */
+/* line 4, ../source/partials/_type.scss */
 body {
   font-family: georgia, "Times New Roman", Times, serif;
 }
 
-/* line 125, ../source/partials/_base.scss */
+/* line 9, ../source/partials/_type.scss */
 #content header h1 {
   font-family: georgia, "Times New Roman", Times, serif;
 }
 
-/* line 128, ../source/partials/_base.scss */
+/* line 12, ../source/partials/_type.scss */
 #site-logo h1 {
   font-weight: bold;
 }
 
-/* line 131, ../source/partials/_base.scss */
+/* line 15, ../source/partials/_type.scss */
 h2 {
   margin: 0.9230769230769231em 0 0.46153846153846156em;
   font-weight: normal;
 }
 
-/* line 135, ../source/partials/_base.scss */
+/* line 19, ../source/partials/_type.scss */
 h3 {
   margin: 1.5em 0 0.75em;
 }
 
-/* line 138, ../source/partials/_base.scss */
+/* line 22, ../source/partials/_type.scss */
 h2 + h3 {
   margin-top: 0.75em;
 }
 
-/* line 142, ../source/partials/_base.scss */
+/* line 26, ../source/partials/_type.scss */
 #content p, #content ul, #content ol, #content pre {
   margin-bottom: 0.75em;
 }
-/* line 145, ../source/partials/_base.scss */
+/* line 29, ../source/partials/_type.scss */
 #content ul {
   list-style: square;
 }
-/* line 146, ../source/partials/_base.scss */
+/* line 30, ../source/partials/_type.scss */
 #content li {
   list-style-position: inside;
 }
 
-/* line 148, ../source/partials/_base.scss */
+/* line 32, ../source/partials/_type.scss */
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
 }
 
-/* line 153, ../source/partials/_base.scss */
+/* line 37, ../source/partials/_type.scss */
 pre {
   overflow-x: auto;
   padding-top: 0.75em;
@@ -173,47 +173,25 @@ pre {
 
 /*
 *
-* Simple fluid media
-*
-*/
-/* line 166, ../source/partials/_base.scss */
-figure {
-  position: relative;
-}
-
-/* line 169, ../source/partials/_base.scss */
-figure img, figure object, figure embed, figure video {
-  max-width: 100%;
-  display: block;
-}
-
-/* line 173, ../source/partials/_base.scss */
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-
-/*
-*
 * Zoomable baseline grid
 * type size presets
 *
 */
-/* line 185, ../source/partials/_base.scss */
+/* line 51, ../source/partials/_type.scss */
 body {
   /* 16px / 24px */
   font-size: 1em;
   line-height: 1.5em;
 }
 
-/* line 191, ../source/partials/_base.scss */
+/* line 57, ../source/partials/_type.scss */
 .small {
   /* 13px / 18px */
   font-size: 0.813em;
   line-height: 1.385em;
 }
 
-/* line 197, ../source/partials/_base.scss */
+/* line 63, ../source/partials/_type.scss */
 .normal, h3 {
   /* 16px / 24px */
   font-size: 1em;
@@ -221,237 +199,81 @@ body {
   /* 24 */
 }
 
-/* line 203, ../source/partials/_base.scss */
-.large, body.index #notes article a h2, body.index #meetings article a h2, body.index #comments article a h2, body.index #members article a h2, h2, h1 {
+/* line 69, ../source/partials/_type.scss */
+.large, body.index #content .wrapper article a h2, h2, h1 {
   /* 26 / 36px */
   font-size: 1.625em;
   line-height: 1.385em;
 }
 
-/* line 209, ../source/partials/_base.scss */
+/* line 75, ../source/partials/_type.scss */
 .huge, .ie h1, h1 {
   /* 42px / 48px */
   font-size: 2.625em;
   line-height: 1.143em;
 }
 
-/* line 215, ../source/partials/_base.scss */
+/* line 81, ../source/partials/_type.scss */
 .massive {
   /* 68px / 72px */
   font-size: 4.25em;
   line-height: 1.059em;
 }
 
-/* line 221, ../source/partials/_base.scss */
+/* line 87, ../source/partials/_type.scss */
 .gigantic {
   /* 110px / 120px */
   font-size: 6.875em;
   line-height: 1.091em;
 }
 
-/*
-*
-* Four-column grid active
-* ----------------------------------------
-* Margin | # 1 2 3 4 | Margin
-* 5.55555% | % 25 50 75 100 | 5.55555%
-*
-*/
-/* line 239, ../source/partials/_base.scss */
-#page {
-  margin: 0 5.556%;
-  padding: 1.5em 0;
-  *zoom: 1;
-}
-/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#page:after {
-  content: "";
-  display: table;
-  clear: both;
+/* line 6, ../source/screen.scss */
+body {
+  min-width: 400px;
 }
 
-/* line 246, ../source/partials/_base.scss */
-#content {
+/*
+*
+* Simple fluid media
+*
+*/
+/* line 16, ../source/screen.scss */
+figure {
+  position: relative;
+}
+
+/* line 19, ../source/screen.scss */
+figure img, figure object, figure embed, figure video {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 23, ../source/screen.scss */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+/*
+* Default
+*/
+/* line 33, ../source/screen.scss */
+#site-footer {
   margin-top: 1.5em;
 }
 
-/* line 250, ../source/partials/_base.scss */
-h2 {
-  font-weight: normal;
-}
-
-/* line 254, ../source/partials/_base.scss */
-h3 {
-  margin: 1.5em 0 1.5em;
-}
-
-/*
-* Simple elastic gutters
-* Note: box-sizing will not work in IE6-8
-*/
-/* line 264, ../source/partials/_base.scss */
-.wrapper {
-  padding: 0 0.75em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/*
-*
-* Fixes for IE6-8
-* http://jonikorpi.com/leaving-old-IE-behind/
-*
-*/
-/* line 281, ../source/partials/_base.scss */
-.ie body {
-  width: 40em;
-  margin: 0 auto;
-  font-size: 1.063em;
-}
-
-/* line 287, ../source/partials/_base.scss */
-.ie h1 {
-  margin: 1.143em 0 0.571em;
-}
-
-/* @media screen and (min-width: 640px) */
-@media screen and (min-width: 40em) {
-  /* line 295, ../source/partials/_base.scss */
-  body {
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size: 1.063em;
-  }
-
-  /* line 300, ../source/partials/_base.scss */
-  h1 {
-    margin: 1.143em 0 0.571em;
-  }
-}
-/*
-*
-* Eight-column grid active
-* ----------------------------------------------------------------------
-* Margin | # 1 2 3 4 5 6 7 8 | Margin
-* 5.55555% | % 12.5 25.0 37.5 50.0 62.5 75.0 87.5 100 | 5.55555%
-*
-*
-*/
-/* @media screen and (min-width: 720px) */
-@media screen and (min-width: 45em) {
-  /* line 321, ../source/partials/_base.scss */
-  body {
-    /* Reset baseline grid to 16/16 = 1 */
-    font-size: 1em;
-  }
-
-  /* line 328, ../source/partials/_base.scss */
-  body.index #members.wrapper, body.index #notes.wrapper, body.index #meetings.wrapper, body.index #comments.wrapper {
-    float: left;
-    width: 50%;
-  }
-
-  /* line 336, ../source/partials/_base.scss */
-  #member-list .member.wrapper {
-    float: left;
-    width: 50%;
-  }
-}
-/* @media screen and (min-width: 888px) */
-@media screen and (min-width: 55.5em) {
-  /* line 347, ../source/partials/_base.scss */
-  body {
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size: 1.063em;
-  }
-}
-/* @media screen and (min-width: 984px) */
-@media screen and (min-width: 61.5em) {
-  /* line 357, ../source/partials/_base.scss */
-  body {
-    /* Reset baseline grid to 16/16 = 1.0 */
-    font-size: 1em;
-  }
-
-  /* line 362, ../source/partials/_base.scss */
-  #page {
-    margin: 0 16.667%;
-  }
-}
-/* @media screen and (min-width: 1200px) */
-@media screen and (min-width: 75em) {
-  /* line 372, ../source/partials/_base.scss */
-  body {
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size: 1.063em;
-  }
-}
-/* @media screen and (min-width: 1392px) */
-@media screen and (min-width: 87em) {
-  /* line 383, ../source/partials/_base.scss */
-  body {
-    /* Reset baseline grid to 16/16 = 1.0 */
-    font-size: 1em;
-  }
-
-  /* line 388, ../source/partials/_base.scss */
-  #page {
-    margin: 0 27.778%;
-  }
-}
-/* @media screen and (min-width: 1680px) */
-@media screen and (min-width: 105em) {
-  /* line 398, ../source/partials/_base.scss */
-  body {
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size: 1.063em;
-  }
-}
-/*
-*
-* Sixteen-column grid active
-* ----------------------------------------------------------------------------------------------------------------------
-* Margin | # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 | Margin
-* 5.55555% | % 6.25 12.5 18.75 25.0 31.25 37.5 43.75 50.0 56.25 62.5 68.75 75.0 81.25 87.5 93.75 100 | 5.55555%
-*
-*
-*/
-/* @media screen and (min-width: 1872px) */
-@media screen and (min-width: 117em) {
-  /* line 419, ../source/partials/_base.scss */
-  #page {
-    margin: 0 5.556%;
-  }
-
-  /* line 426, ../source/partials/_base.scss */
-  #new-members.wrapper, #new-notes.wrapper, #sign-up.wrapper, #introduction.wrapper {
-    float: left;
-    width: 25%;
-  }
-}
-/* @media screen and (min-width: 2080px) */
-@media screen and (min-width: 130em) {
-  /* line 438, ../source/partials/_base.scss */
-  body {
-    /* Zoom baseline grid to 18/16 = 1.125 */
-    font-size: 1.125em;
-    max-width: 160 em;
-  }
-}
-/* line 1, ../source/partials/_header.scss */
+/* line 37, ../source/screen.scss */
 #site-header {
   margin-top: 1.5em;
 }
 
-/* line 5, ../source/partials/_header.scss */
+/* line 41, ../source/screen.scss */
 #site-logo {
   text-align: center;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 9, ../source/partials/_header.scss */
+/* line 45, ../source/screen.scss */
 #site-logo h1 {
   text-indent: -9999px;
   background: url("../images/logo.png") center no-repeat;
@@ -463,28 +285,28 @@ h3 {
   text-transform: uppercase;
 }
 
-/* line 24, ../source/partials/_header.scss */
+/* line 57, ../source/screen.scss */
 #main-navigation {
   text-align: center;
 }
-/* line 26, ../source/partials/_header.scss */
+/* line 59, ../source/screen.scss */
 #main-navigation ul li {
   display: inline;
   padding: 0 2% 0 0;
 }
-/* line 30, ../source/partials/_header.scss */
+/* line 63, ../source/screen.scss */
 #main-navigation ul li a {
   color: black;
   text-decoration: none;
   font-size: 1em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.4);
 }
-/* line 36, ../source/partials/_header.scss */
+/* line 69, ../source/screen.scss */
 #main-navigation ul li a:hover, #main-navigation ul li a:active, #main-navigation ul li a:focus {
   border-bottom: 2px solid #ba1820;
 }
 
-/* line 43, ../source/partials/_header.scss */
+/* line 76, ../source/screen.scss */
 #user-navigation {
   position: absolute;
   top: 0;
@@ -495,83 +317,28 @@ h3 {
   background-color: rgba(253, 252, 252, 0.4);
   padding: 0 0.75em;
 }
-/* line 57, ../source/partials/_header.scss */
+/* line 89, ../source/screen.scss */
 #user-navigation ul li {
   float: right;
   display: block;
   padding: 0 1%;
 }
-/* line 61, ../source/partials/_header.scss */
+/* line 93, ../source/screen.scss */
 #user-navigation ul li a {
   text-decoration: none;
   color: #900a0a;
 }
 
-/* line 1, ../source/partials/_footer.scss */
-#site-footer {
-  margin-top: 1.5em;
-}
-
-/* line 5, ../source/partials/_index.scss */
-body.index #notes, body.index #meetings, body.index #comments, body.index #members {
-  *zoom: 1;
-  margin-bottom: 1.5em;
-}
-/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-body.index #notes:after, body.index #meetings:after, body.index #comments:after, body.index #members:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/* line 11, ../source/partials/_index.scss */
-body.index #notes ul, body.index #meetings ul, body.index #comments ul, body.index #members ul {
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 13, ../source/partials/_index.scss */
-body.index #notes ul li, body.index #meetings ul li, body.index #comments ul li, body.index #members ul li {
-  display: block;
-  float: left;
-  width: 25%;
-}
-/* line 18, ../source/partials/_index.scss */
-body.index #notes ul li a, body.index #meetings ul li a, body.index #comments ul li a, body.index #members ul li a {
-  display: block;
-  text-align: center;
-}
-/* line 21, ../source/partials/_index.scss */
-body.index #notes ul li a img, body.index #meetings ul li a img, body.index #comments ul li a img, body.index #members ul li a img {
-  -webkit-border-radius: 4px 4px;
-  -moz-border-radius: 4px / 4px;
-  -o-border-radius: 4px / 4px;
-  -ms-border-radius: 4px / 4px;
-  -khtml-border-radius: 4px / 4px;
-  border-radius: 4px / 4px;
-}
-/* line 33, ../source/partials/_index.scss */
-body.index #notes article a, body.index #meetings article a, body.index #comments article a, body.index #members article a {
-  text-decoration: none;
-}
-/* line 35, ../source/partials/_index.scss */
-body.index #notes article a h2, body.index #meetings article a h2, body.index #comments article a h2, body.index #members article a h2 {
-  margin: 0 0 0.4615em;
-}
-
-/*
-*
-* Visual Structure
-*
-*/
-/* line 9, ../source/partials/_visual.scss */
+/* line 101, ../source/screen.scss */
 body {
   background: url("../images/background.png") repeat;
 }
 
-/* line 13, ../source/partials/_visual.scss */
+/* line 105, ../source/screen.scss */
 #content {
   margin-bottom: 1.5em;
 }
-/* line 15, ../source/partials/_visual.scss */
+/* line 106, ../source/screen.scss */
 #content .box {
   position: relative;
   border: 1px solid #DDDDDD;
@@ -592,12 +359,12 @@ body {
   display: table;
   clear: both;
 }
-/* line 26, ../source/partials/_visual.scss */
+/* line 117, ../source/screen.scss */
 #content .box.active:hover {
   background-color: rgba(253, 252, 252, 0.8);
 }
 
-/* line 36, ../source/partials/_visual.scss */
+/* line 126, ../source/screen.scss */
 #content header h1 {
   font-weight: normal;
   font-family: Times;
@@ -608,25 +375,25 @@ body {
   margin: 0.9230769230769231em 0 0.46153846153846156em;
 }
 
-/* line 53, ../source/partials/_visual.scss */
+/* line 140, ../source/screen.scss */
 a {
   color: #ba1820;
 }
-/* line 55, ../source/partials/_visual.scss */
+/* line 142, ../source/screen.scss */
 a:visited {
   color: #8d1218;
 }
-/* line 58, ../source/partials/_visual.scss */
+/* line 145, ../source/screen.scss */
 a:hover, a:active, a:focus {
   color: #600c10;
 }
 
-/* line 64, ../source/partials/_visual.scss */
+/* line 151, ../source/screen.scss */
 a.action {
   float: right;
 }
 
-/* line 68, ../source/partials/_visual.scss */
+/* line 155, ../source/screen.scss */
 a.button {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -643,60 +410,100 @@ a.button {
   font-size: 0.9em;
   text-transform: uppercase;
 }
-/* line 79, ../source/partials/_visual.scss */
+/* line 166, ../source/screen.scss */
 a.button:hover, a.button:active, a.button:focus {
   color: #d11b24;
 }
 
 /* forms */
-/* line 86, ../source/partials/_visual.scss */
+/* line 172, ../source/screen.scss */
 #id_honeypot {
   display: none;
 }
 
-/* line 91, ../source/partials/_visual.scss */
+/* line 176, ../source/screen.scss */
 #pagination {
   clear: both;
 }
-/* line 93, ../source/partials/_visual.scss */
+/* line 178, ../source/screen.scss */
 #pagination ul, #pagination ol {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 97, ../source/partials/_visual.scss */
+/* line 182, ../source/screen.scss */
 #pagination ul li, #pagination ul ol, #pagination ol li, #pagination ol ol {
   display: inline;
 }
-/* line 99, ../source/partials/_visual.scss */
+/* line 184, ../source/screen.scss */
 #pagination ul li li, #pagination ul ol li, #pagination ol li li, #pagination ol ol li {
   margin-right: 2px;
 }
-/* line 102, ../source/partials/_visual.scss */
+/* line 187, ../source/screen.scss */
 #pagination ul li.active, #pagination ul ol.active, #pagination ol li.active, #pagination ol ol.active {
   font-weight: bold;
 }
-/* line 104, ../source/partials/_visual.scss */
+/* line 189, ../source/screen.scss */
 #pagination ul li.active a, #pagination ul ol.active a, #pagination ol li.active a, #pagination ol ol.active a {
   border: none;
   color: #ba1820;
 }
-/* line 110, ../source/partials/_visual.scss */
+/* line 195, ../source/screen.scss */
 #pagination ul li, #pagination ol li {
   margin-right: 1.2em;
 }
-/* line 113, ../source/partials/_visual.scss */
+/* line 198, ../source/screen.scss */
 #pagination ul #step-links, #pagination ol #step-links {
   display: inline;
 }
 
-/* line 127, ../source/partials/_visual.scss */
+/* line 211, ../source/screen.scss */
 #profile .avatar {
   float: left;
   padding-right: 1.5em;
+  padding-bottom: 1.5em;
 }
 
-/* line 136, ../source/partials/_visual.scss */
+/* line 219, ../source/screen.scss */
+body.index #content .wrapper {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 222, ../source/screen.scss */
+body.index #content .wrapper article a {
+  text-decoration: none;
+}
+/* line 224, ../source/screen.scss */
+body.index #content .wrapper article a h2 {
+  margin: 0 0 0.4615em;
+}
+/* line 231, ../source/screen.scss */
+body.index #members {
+  margin-bottom: 1.5em;
+  clear: both;
+}
+/* line 235, ../source/screen.scss */
+body.index #members li {
+  display: block;
+  float: left;
+  width: 25%;
+}
+/* line 240, ../source/screen.scss */
+body.index #members li a {
+  display: block;
+  text-align: center;
+}
+/* line 243, ../source/screen.scss */
+body.index #members li a img {
+  -webkit-border-radius: 4px 4px;
+  -moz-border-radius: 4px / 4px;
+  -o-border-radius: 4px / 4px;
+  -ms-border-radius: 4px / 4px;
+  -khtml-border-radius: 4px / 4px;
+  border-radius: 4px / 4px;
+}
+
+/* line 253, ../source/screen.scss */
 nav.edit {
   position: absolute;
   top: 0;
@@ -705,111 +512,111 @@ nav.edit {
   border-left: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-/* line 145, ../source/partials/_visual.scss */
+/* line 262, ../source/screen.scss */
 nav.edit ul {
   margin-bottom: 0!important;
 }
-/* line 147, ../source/partials/_visual.scss */
+/* line 264, ../source/screen.scss */
 nav.edit ul li {
   display: inline;
   font-size: 0.8em;
   padding: 0.25em;
 }
 
-/* line 157, ../source/partials/_visual.scss */
+/* line 274, ../source/screen.scss */
 #member-list .member {
   height: 4em;
   margin-bottom: 0.75em;
 }
-/* line 162, ../source/partials/_visual.scss */
+/* line 279, ../source/screen.scss */
 #member-list .member header {
   margin-left: 3.5em;
 }
-/* line 164, ../source/partials/_visual.scss */
+/* line 281, ../source/screen.scss */
 #member-list .member header h1 {
   margin: 0;
   text-align: left;
   font-size: 1em;
 }
-/* line 172, ../source/partials/_visual.scss */
+/* line 289, ../source/screen.scss */
 #member-list .member .avatar {
   float: left;
   width: 3em;
 }
-/* line 175, ../source/partials/_visual.scss */
+/* line 292, ../source/screen.scss */
 #member-list .member .avatar img {
   height: 3em;
 }
 
-/* line 182, ../source/partials/_visual.scss */
+/* line 299, ../source/screen.scss */
 #note-list article, #meeting-list article {
   margin-bottom: 1.5em;
 }
-/* line 186, ../source/partials/_visual.scss */
+/* line 303, ../source/screen.scss */
 #note-list article a, #meeting-list article a {
   text-decoration: none;
 }
-/* line 190, ../source/partials/_visual.scss */
+/* line 307, ../source/screen.scss */
 #note-list article .meta, #meeting-list article .meta {
   margin-bottom: 0;
 }
-/* line 192, ../source/partials/_visual.scss */
+/* line 309, ../source/screen.scss */
 #note-list article .meta li, #meeting-list article .meta li {
   display: inline;
   padding-right: 0.75em;
   font-style: italic;
 }
-/* line 200, ../source/partials/_visual.scss */
+/* line 317, ../source/screen.scss */
 #note-list article header h1, #meeting-list article header h1 {
   text-align: left;
   margin-top: 0;
   margin-bottom: 0.15em;
 }
 
-/* line 210, ../source/partials/_visual.scss */
+/* line 327, ../source/screen.scss */
 #meeting-list h2 {
   margin-bottom: 0;
   font-size: 1.2em;
 }
 
-/* line 220, ../source/partials/_visual.scss */
+/* line 337, ../source/screen.scss */
 #comments article.comment h1 {
   text-align: left;
   font-weight: bold;
   font-size: 1.1em;
 }
-/* line 225, ../source/partials/_visual.scss */
+/* line 342, ../source/screen.scss */
 #comments article.comment .img {
   float: left;
 }
-/* line 228, ../source/partials/_visual.scss */
+/* line 345, ../source/screen.scss */
 #comments article.comment .comment-content {
   padding-left: 5em;
 }
 
-/* line 237, ../source/partials/_visual.scss */
+/* line 354, ../source/screen.scss */
 form ol li {
   list-style: none;
   line-height: 3em;
   clear: both;
 }
-/* line 241, ../source/partials/_visual.scss */
+/* line 358, ../source/screen.scss */
 form ol li input:not([type="radio"]), form ol li textarea {
   width: 44%;
 }
-/* line 248, ../source/partials/_visual.scss */
+/* line 362, ../source/screen.scss */
 form label {
   float: left;
-  width: 8em;
+  width: 9em;
   font-size: 0.9em;
   text-align: right;
   padding: 0 0.75em;
 }
-/* line 254, ../source/partials/_visual.scss */
+/* line 368, ../source/screen.scss */
 form label:hover {
   cursor: pointer;
 }
-/* line 260, ../source/partials/_visual.scss */
+/* line 372, ../source/screen.scss */
 form input:not([type="radio"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
@@ -822,11 +629,201 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 266, ../source/partials/_visual.scss */
+/* line 378, ../source/screen.scss */
 form input:not([type="radio"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 273, ../source/partials/_visual.scss */
+/* line 382, ../source/screen.scss */
 form textarea {
   font-size: 1em;
+}
+
+/*
+*
+* Four-column grid active
+* ----------------------------------------
+* Margin | # 1 2 3 4 | Margin
+* 5.55555% | % 25 50 75 100 | 5.55555%
+*
+*/
+/* line 398, ../source/screen.scss */
+#page {
+  margin: 0 5.556%;
+  padding: 1.5em 0;
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#page:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 405, ../source/screen.scss */
+#content {
+  margin-top: 1.5em;
+}
+
+/* line 409, ../source/screen.scss */
+h2 {
+  font-weight: normal;
+}
+
+/* line 413, ../source/screen.scss */
+h3 {
+  margin: 1.5em 0 1.5em;
+}
+
+/*
+* Simple elastic gutters
+* Note: box-sizing will not work in IE6-8
+*/
+/* line 423, ../source/screen.scss */
+.wrapper {
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+*
+* Fixes for IE6-8
+* http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
+/* line 440, ../source/screen.scss */
+.ie body {
+  width: 40em;
+  margin: 0 auto;
+  font-size: 1.063em;
+}
+
+/* line 446, ../source/screen.scss */
+.ie h1 {
+  margin: 1.143em 0 0.571em;
+}
+
+/* @media screen and (min-width: 640px) */
+@media screen and (min-width: 40em) {
+  /* line 454, ../source/screen.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+
+  /* line 459, ../source/screen.scss */
+  h1 {
+    margin: 1.143em 0 0.571em;
+  }
+}
+/*
+*
+* Eight-column grid active
+* ----------------------------------------------------------------------
+* Margin | # 1 2 3 4 5 6 7 8 | Margin
+* 5.55555% | % 12.5 25.0 37.5 50.0 62.5 75.0 87.5 100 | 5.55555%
+*
+*
+*/
+/* @media screen and (min-width: 720px) */
+@media screen and (min-width: 45em) {
+  /* line 479, ../source/screen.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1 */
+    font-size: 1em;
+  }
+
+  /* line 484, ../source/screen.scss */
+  body.index #notes, body.index #events {
+    float: left;
+    width: 50%;
+  }
+  /* line 489, ../source/screen.scss */
+  body.index #members li {
+    width: 12.5%;
+  }
+
+  /* line 497, ../source/screen.scss */
+  #member-list .member.wrapper {
+    float: left;
+    width: 50%;
+  }
+}
+/* @media screen and (min-width: 888px) */
+@media screen and (min-width: 55.5em) {
+  /* line 506, ../source/screen.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/* @media screen and (min-width: 984px) */
+@media screen and (min-width: 61.5em) {
+  /* line 516, ../source/screen.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1.0 */
+    font-size: 1em;
+  }
+
+  /* line 521, ../source/screen.scss */
+  #page {
+    margin: 0 16.667%;
+  }
+}
+/* @media screen and (min-width: 1200px) */
+@media screen and (min-width: 75em) {
+  /* line 531, ../source/screen.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 87em) {
+  /* line 542, ../source/screen.scss */
+  body {
+    /* Reset baseline grid to 16/16 = 1.0 */
+    font-size: 1em;
+  }
+
+  /* line 547, ../source/screen.scss */
+  #page {
+    margin: 0 27.778%;
+  }
+}
+/* @media screen and (min-width: 1680px) */
+@media screen and (min-width: 105em) {
+  /* line 557, ../source/screen.scss */
+  body {
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.063em;
+  }
+}
+/*
+*
+* Sixteen-column grid active
+* ----------------------------------------------------------------------------------------------------------------------
+* Margin | # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 | Margin
+* 5.55555% | % 6.25 12.5 18.75 25.0 31.25 37.5 43.75 50.0 56.25 62.5 68.75 75.0 81.25 87.5 93.75 100 | 5.55555%
+*
+*
+*/
+/* @media screen and (min-width: 1872px) */
+@media screen and (min-width: 117em) {
+  /* line 578, ../source/screen.scss */
+  #page {
+    margin: 0 5.556%;
+  }
+}
+/* @media screen and (min-width: 2080px) */
+@media screen and (min-width: 130em) {
+  /* line 589, ../source/screen.scss */
+  body {
+    /* Zoom baseline grid to 18/16 = 1.125 */
+    font-size: 1.125em;
+    max-width: 160 em;
+  }
 }

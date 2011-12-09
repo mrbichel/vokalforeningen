@@ -12,11 +12,22 @@ import settings
 
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
 
-def list(request, **kwargs):
+
+def event_list(request, **kwargs):
     return list_detail.object_list(
         request,
-        queryset=Note.objects.all(),
+        queryset=Note.objects.filter(is_event=True).order_by('start'),
         paginate_by=PAGINATE_BY,
+        extra_context={'is_events': True},
+        **kwargs
+    )
+
+def note_list(request, **kwargs):
+    return list_detail.object_list(
+        request,
+        queryset=Note.objects.filter(is_event=False).order_by('-pub_date'),
+        paginate_by=PAGINATE_BY,
+        extra_context={'is_events': False},
         **kwargs
     )
 

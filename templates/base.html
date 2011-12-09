@@ -32,8 +32,8 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
 
 
     <!-- Here's Golden Gridlet, the grid overlay script. -->
-    <script src="https://raw.github.com/jonikorpi/Golden-Grid-System/master/GGS.js
-"></script>
+    <!--<script src="https://raw.github.com/jonikorpi/Golden-Grid-System/master/GGS.js
+"></script>-->
 
     <!-- enable HTML5 elements in IE7+8 -->
     <!--[if lt IE 9]>
@@ -61,7 +61,8 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
             <nav id="main-navigation" class="wrapper">
                 <ul>
                     <li><a href="{% url profiles_index %}">Medlemmer</a></li>
-                    <li><a href="{% url corkboard_index %}">Opslagstavlen</a></li>
+                    <li><a href="{% url corkboard_events %}">Events</a></li>
+                    <li><a href="{% url corkboard_notes %}">Opslag</a></li>
                     <li><a href="/i/">Om foreningen</a></li>
                     <li><a href="{% url meetings_index %}">Møder og referater</a></li>
                 </ul>

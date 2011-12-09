@@ -33,11 +33,40 @@
         </section>
     {% endif %}
 
+    <section id="notes" class="wrapper">
+        <header><h1>Opslag</h1></header>
+        {% for n in notes %}
+            <article>
+                <a href="{{ n.get_absolute_url }}">
+                    <time class="pubdate" datetime="{{ n.pub_date|date:"c" }}">For {{ n.pub_date|timesince }} siden</time>
+                    <h2>{{ n.title }}</h2>
+                </a>
+            </article>
+        {% endfor %}
+
+        <a class="action" href="{% url corkboard_notes %}">Se alle opslag</a>
+    </section>
+
+    <section id="events" class=wrapper>
+
+        <header><h1>Events</h1></header>
+        {% for e in events %}
+            <article>
+                <a href="{{ e.get_absolute_url }}">
+                    <time class="pubdate" datetime="{{ e.start|date:"c" }}">Om {{ e.start|timeuntil }}</time>
+                    <h2>{{ e.title }}</h2>
+                </a>
+            </article>
+        {% endfor %}
+
+        <a class="action" href="{% url corkboard_events %}">Se alle events</a>
+    </section>
+
     <section id="members" class="wrapper">
         <header><h1>Medlemmer</h1></header>
         <ul>
         {% for m in members %}
-            <li><a href="{{ m.get_absolute_url }}" title="{{ m.user.get_full_name }}">
+            <li class="member"><a href="{{ m.get_absolute_url }}" title="{{ m.user.get_full_name }}">
                 {% thumbnail m.image "48x48" crop="center" as img %}
                 <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}"/>
                 {% empty %}
@@ -49,38 +78,7 @@
         <a class="action" href="{% url profiles_index %}">Se alle medlemmer</a>
     </section>
 
-    <section id="notes" class="wrapper">
-        <header><h1>Opslagstavlen</h1></header>
-        {% for n in notes %}
-            <article>
-                <a href="{{ n.get_absolute_url }}">
-                    <time class="pubdate" datetime="{{ n.pub_date|date:"c" }}">{{ n.pub_date|date }}</time>
-                    <h2>{{ n.title }}</h2>
-                </a>
-            </article>
-        {% endfor %}
 
-        <a class="action" href="{% url corkboard_index %}">Se alle opslag</a>
-    </section>
-
-
-    <!--<section id="meetings" class="wrapper">
-        <header><h1>Møder og referater</h1></header>
-        <article>
-            <a href="">
-
-
-            </a>
-        </article>
-    </section>-->
-
-    <!--<section id="comments" class="wrapper">
-        <header><h1>Seneste kommentarer</h1></header>
-        <article>
-            <time>tid</time>
-            kommentar
-        </article>
-    </section>-->
 
 
 {% endblock %}
