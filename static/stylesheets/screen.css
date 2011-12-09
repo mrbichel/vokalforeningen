@@ -607,7 +607,7 @@ form ol li input:not([type="radio"]), form ol li textarea {
 /* line 362, ../source/screen.scss */
 form label {
   float: left;
-  width: 9em;
+  width: 10.5em;
   font-size: 0.9em;
   text-align: right;
   padding: 0 0.75em;
