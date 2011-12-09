@@ -616,7 +616,7 @@ form label {
 form label:hover {
   cursor: pointer;
 }
-/* line 372, ../source/screen.scss */
+/* line 373, ../source/screen.scss */
 form input:not([type="radio"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
@@ -629,11 +629,11 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 378, ../source/screen.scss */
+/* line 379, ../source/screen.scss */
 form input:not([type="radio"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 382, ../source/screen.scss */
+/* line 383, ../source/screen.scss */
 form textarea {
   font-size: 1em;
 }
@@ -646,7 +646,7 @@ form textarea {
 * 5.55555% | % 25 50 75 100 | 5.55555%
 *
 */
-/* line 398, ../source/screen.scss */
+/* line 399, ../source/screen.scss */
 #page {
   margin: 0 5.556%;
   padding: 1.5em 0;
@@ -659,17 +659,17 @@ form textarea {
   clear: both;
 }
 
-/* line 405, ../source/screen.scss */
+/* line 406, ../source/screen.scss */
 #content {
   margin-top: 1.5em;
 }
 
-/* line 409, ../source/screen.scss */
+/* line 410, ../source/screen.scss */
 h2 {
   font-weight: normal;
 }
 
-/* line 413, ../source/screen.scss */
+/* line 414, ../source/screen.scss */
 h3 {
   margin: 1.5em 0 1.5em;
 }
@@ -678,7 +678,7 @@ h3 {
 * Simple elastic gutters
 * Note: box-sizing will not work in IE6-8
 */
-/* line 423, ../source/screen.scss */
+/* line 424, ../source/screen.scss */
 .wrapper {
   padding: 0 0.75em;
   -webkit-box-sizing: border-box;
@@ -694,27 +694,27 @@ h3 {
 * http://jonikorpi.com/leaving-old-IE-behind/
 *
 */
-/* line 440, ../source/screen.scss */
+/* line 441, ../source/screen.scss */
 .ie body {
   width: 40em;
   margin: 0 auto;
   font-size: 1.063em;
 }
 
-/* line 446, ../source/screen.scss */
+/* line 447, ../source/screen.scss */
 .ie h1 {
   margin: 1.143em 0 0.571em;
 }
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-  /* line 454, ../source/screen.scss */
+  /* line 455, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
   }
 
-  /* line 459, ../source/screen.scss */
+  /* line 460, ../source/screen.scss */
   h1 {
     margin: 1.143em 0 0.571em;
   }
@@ -730,23 +730,23 @@ h3 {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-  /* line 479, ../source/screen.scss */
+  /* line 480, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1 */
     font-size: 1em;
   }
 
-  /* line 484, ../source/screen.scss */
+  /* line 485, ../source/screen.scss */
   body.index #notes, body.index #events {
     float: left;
     width: 50%;
   }
-  /* line 489, ../source/screen.scss */
+  /* line 490, ../source/screen.scss */
   body.index #members li {
     width: 12.5%;
   }
 
-  /* line 497, ../source/screen.scss */
+  /* line 498, ../source/screen.scss */
   #member-list .member.wrapper {
     float: left;
     width: 50%;
@@ -754,7 +754,7 @@ h3 {
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-  /* line 506, ../source/screen.scss */
+  /* line 507, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -762,20 +762,20 @@ h3 {
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-  /* line 516, ../source/screen.scss */
+  /* line 517, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 521, ../source/screen.scss */
+  /* line 522, ../source/screen.scss */
   #page {
     margin: 0 16.667%;
   }
 }
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-  /* line 531, ../source/screen.scss */
+  /* line 532, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -783,20 +783,20 @@ h3 {
 }
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-  /* line 542, ../source/screen.scss */
+  /* line 543, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 547, ../source/screen.scss */
+  /* line 548, ../source/screen.scss */
   #page {
     margin: 0 27.778%;
   }
 }
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-  /* line 557, ../source/screen.scss */
+  /* line 558, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -813,14 +813,14 @@ h3 {
 */
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-  /* line 578, ../source/screen.scss */
+  /* line 579, ../source/screen.scss */
   #page {
     margin: 0 5.556%;
   }
 }
 /* @media screen and (min-width: 2080px) */
 @media screen and (min-width: 130em) {
-  /* line 589, ../source/screen.scss */
+  /* line 590, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size: 1.125em;

@@ -8,15 +8,24 @@
 
     <article id="meeting" class="wrapper">
 
-    <header><h1>
-        {{ object.title }}
-    </h1></header>
+    <header><h2><time class="date" datetime="{{ object.date|date:"c" }}">{{ object.date|date }} klokken {{ object.date|time }}</time></h2>
+                    <h1>{{ object.title }}</h1>
+    </header>
+
+
 
     <h2>Dagsorden</h2>
-    <p>{{ object.agenda|markdown }}</p>
+    {{ object.agenda|markdown }}
 
-    <h2>Referat</h2>
-    <p>{{ object.minutes|markdown }}</p>
+
+
+
+        <h2>Referat</h2>
+        {% if object.minutes %}
+        {{ object.minutes|markdown }}
+        {% else %}
+        <p>Referat fra mødet er endnu ikke lagt op</p>
+        {% endif %}
 
     </article>
 
