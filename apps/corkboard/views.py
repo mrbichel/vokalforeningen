@@ -18,7 +18,7 @@ def event_list(request, **kwargs):
         request,
         queryset=Note.objects.filter(is_event=True).order_by('start'),
         paginate_by=PAGINATE_BY,
-        extra_context={'list-title': 'Events'},
+        extra_context={'listtitle': 'Events'},
         **kwargs
     )
 
@@ -27,7 +27,7 @@ def note_list(request, **kwargs):
         request,
         queryset=Note.objects.filter(is_event=False).order_by('-pub_date'),
         paginate_by=PAGINATE_BY,
-        extra_context={'list-title': 'Opslag'},
+        extra_context={'listtitle': 'Opslag'},
         **kwargs
     )
 
