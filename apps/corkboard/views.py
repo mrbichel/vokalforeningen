@@ -53,7 +53,7 @@ def create(request, event):
 
                 else:
                     if timeform.is_valid():
-                        pprint.pprint(timeform.cleaned_data)
+                        #pprint.pprint(timeform.cleaned_data)
 
                         note.end = datetime.datetime.combine(
                                 timeform.cleaned_data['end_date'],
