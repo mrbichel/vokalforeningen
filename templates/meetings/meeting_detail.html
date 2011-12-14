@@ -22,7 +22,7 @@
 
         <h2>Referat</h2>
         {% if object.minutes %}
-        {{ object.minutes|markdown|urlize }}
+        {{ object.minutes|urlize|markdown }}
         {% else %}
         <p>Referat fra mødet er endnu ikke lagt op.</p>
         {% endif %}
