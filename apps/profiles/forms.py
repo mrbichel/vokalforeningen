@@ -83,6 +83,7 @@ class ProfileForm(forms.ModelForm):
                   'bio',
                   'image',
                   'receive_email',
+                  'facebook',
             )
 
 #class EmailInactiveUsers(forms.Form):

@@ -92,21 +92,38 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
             </div>
         </div>
 
-        <!--<footer id="site-footer">
+        <!--<footer id="site-footer" class="wrapper">
 
-                <nav>
-                    <ul>
-                        <li><a href="#top">til toppen</a></li>
-                    </ul>
-                </nav>
+            <nav class="wrapper">
+                <ul>
+                    <li><a href="#top">til toppen</a></li>
+                    <li><a href="{% url index %}">Forside</a></li>
+                    <li><a href="/i/">Om Dansk Vokalforening</a></li>
+                    <li><a href="{% url profiles_index %}">Medlemmer</a></li>
+                    <li><a href="{% url profiles_board %}">Bestyrelsen</a></li>
+                    <li><a href="{% url corkboard_events %}">Events</a></li>
+                    <li><a href="{% url corkboard_notes %}">Opslag</a></li>
+                    <li><a href="{% url meetings_index %}">Møder og referater</a></li>
+                </ul>
+            </nav>
 
+            <section id="tech" class="wrapper">
+                <p>Vokalforening.dk er designet og udviklet i Python med Django af
+                    <a href="http://johan.cc">Johan</a> og
+                    hostet hos <a href="http://www.linode.com/?r=850e408f57a78445a1970440354f39da5d81b6bf">Linode</a>.
+                    Kildekoden er tilgængelig på <a href="https://github.com/mrbichel/vokalforeningen">GitHub</a>. <br>
+                    <a href="https://github.com/mrbichel/vokalforeningen/issues">Rapporter fejl og foreslå ny funktionalitet</a>.</p>
+            </section>
+
+            <section id="contact" class="wrapper">
+                <p>Kontakt info@vokalforeningen.dk eller formanden </p>
+            </section>
+
+            <section id="copy" class="wrapper">
                 <small>
-                    Copyright &copy; Vokalforeningen 2011
+                    Copyright &copy; Vokalforeningen
                 </small>
-
-                <div id="site-meta">
-                    <p>Hosted on a <a href="http://www.linode.com/?r=850e408f57a78445a1970440354f39da5d81b6bf">Linode</a>, powered by django. Designed and developed by <a href="http://johan.cc">johan</a>.</p>
-                </div>
+            </section>
 
         </footer>-->
 

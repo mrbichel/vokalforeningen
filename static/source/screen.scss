@@ -32,6 +32,13 @@ img {
 
 #site-footer {
     margin-top: 1.5em;
+
+    font-size: 0.8em;
+
+    nav ul {
+        list-style-type: none;
+    }
+
 }
 
 #site-header {
@@ -138,7 +145,7 @@ body {
 
 #meeting header h2 {
     text-align: center;
-    font-size: #{16 / $em}em;
+    font-size: #{18 / $em}em;
 }
 
 a {
@@ -466,6 +473,11 @@ h3 {
         margin: (48/42*1em) 0 (24/42*1em);
     }
 
+    #site-footer .wrapper {
+        width: 50%;
+        float: left;
+    }
+
 }
 
 
@@ -503,15 +515,24 @@ h3 {
         float:left;
         width: 50%;
     }
+
+
+    #site-footer .wrapper {
+        width: 25%;
+        float: left;
+    }
+
 }
 
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
 
-body {
+    body {
         /* Zoom baseline grid to 17/16 = 1.0625 */
         font-size: #{($font-size + 1) / $em}em;
     }
+
+
 }
 
 

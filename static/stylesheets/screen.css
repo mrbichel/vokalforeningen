@@ -260,20 +260,25 @@ img {
 /* line 33, ../source/screen.scss */
 #site-footer {
   margin-top: 1.5em;
+  font-size: 0.8em;
+}
+/* line 38, ../source/screen.scss */
+#site-footer nav ul {
+  list-style-type: none;
 }
 
-/* line 37, ../source/screen.scss */
+/* line 44, ../source/screen.scss */
 #site-header {
   margin-top: 1.5em;
 }
 
-/* line 41, ../source/screen.scss */
+/* line 48, ../source/screen.scss */
 #site-logo {
   text-align: center;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 45, ../source/screen.scss */
+/* line 52, ../source/screen.scss */
 #site-logo h1 {
   text-indent: -9999px;
   background: url("../images/logo.png") center no-repeat;
@@ -285,28 +290,28 @@ img {
   text-transform: uppercase;
 }
 
-/* line 57, ../source/screen.scss */
+/* line 64, ../source/screen.scss */
 #main-navigation {
   text-align: center;
 }
-/* line 59, ../source/screen.scss */
+/* line 66, ../source/screen.scss */
 #main-navigation ul li {
   display: inline;
   padding: 0 2% 0 0;
 }
-/* line 63, ../source/screen.scss */
+/* line 70, ../source/screen.scss */
 #main-navigation ul li a {
   color: black;
   text-decoration: none;
   font-size: 1em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.4);
 }
-/* line 69, ../source/screen.scss */
+/* line 76, ../source/screen.scss */
 #main-navigation ul li a:hover, #main-navigation ul li a:active, #main-navigation ul li a:focus {
   border-bottom: 2px solid #ba1820;
 }
 
-/* line 76, ../source/screen.scss */
+/* line 83, ../source/screen.scss */
 #user-navigation {
   position: absolute;
   top: 0;
@@ -317,28 +322,28 @@ img {
   background-color: rgba(253, 252, 252, 0.4);
   padding: 0 0.75em;
 }
-/* line 89, ../source/screen.scss */
+/* line 96, ../source/screen.scss */
 #user-navigation ul li {
   float: right;
   display: block;
   padding: 0 1%;
 }
-/* line 93, ../source/screen.scss */
+/* line 100, ../source/screen.scss */
 #user-navigation ul li a {
   text-decoration: none;
   color: #900a0a;
 }
 
-/* line 101, ../source/screen.scss */
+/* line 108, ../source/screen.scss */
 body {
   background: url("../images/background.png") repeat;
 }
 
-/* line 105, ../source/screen.scss */
+/* line 112, ../source/screen.scss */
 #content {
   margin-bottom: 1.5em;
 }
-/* line 106, ../source/screen.scss */
+/* line 113, ../source/screen.scss */
 #content .box {
   position: relative;
   border: 1px solid #DDDDDD;
@@ -359,12 +364,12 @@ body {
   display: table;
   clear: both;
 }
-/* line 117, ../source/screen.scss */
+/* line 124, ../source/screen.scss */
 #content .box.active:hover {
   background-color: rgba(253, 252, 252, 0.8);
 }
 
-/* line 126, ../source/screen.scss */
+/* line 133, ../source/screen.scss */
 #content header h1 {
   font-weight: normal;
   font-family: Times;
@@ -375,31 +380,31 @@ body {
   margin: 0.4230769230769231em 0 0.46153846153846156em;
 }
 
-/* line 139, ../source/screen.scss */
+/* line 146, ../source/screen.scss */
 #meeting header h2 {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.125em;
 }
 
-/* line 144, ../source/screen.scss */
+/* line 151, ../source/screen.scss */
 a {
   color: #ba1820;
 }
-/* line 146, ../source/screen.scss */
+/* line 153, ../source/screen.scss */
 a:visited {
   color: #8d1218;
 }
-/* line 149, ../source/screen.scss */
+/* line 156, ../source/screen.scss */
 a:hover, a:active, a:focus {
   color: #600c10;
 }
 
-/* line 155, ../source/screen.scss */
+/* line 162, ../source/screen.scss */
 a.action {
   float: right;
 }
 
-/* line 159, ../source/screen.scss */
+/* line 166, ../source/screen.scss */
 a.button {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -416,90 +421,90 @@ a.button {
   font-size: 0.9em;
   text-transform: uppercase;
 }
-/* line 170, ../source/screen.scss */
+/* line 177, ../source/screen.scss */
 a.button:hover, a.button:active, a.button:focus {
   color: #d11b24;
 }
 
 /* forms */
-/* line 176, ../source/screen.scss */
+/* line 183, ../source/screen.scss */
 #id_honeypot {
   display: none;
 }
 
-/* line 180, ../source/screen.scss */
+/* line 187, ../source/screen.scss */
 #pagination {
   clear: both;
 }
-/* line 182, ../source/screen.scss */
+/* line 189, ../source/screen.scss */
 #pagination ul, #pagination ol {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 186, ../source/screen.scss */
+/* line 193, ../source/screen.scss */
 #pagination ul li, #pagination ul ol, #pagination ol li, #pagination ol ol {
   display: inline;
 }
-/* line 188, ../source/screen.scss */
+/* line 195, ../source/screen.scss */
 #pagination ul li li, #pagination ul ol li, #pagination ol li li, #pagination ol ol li {
   margin-right: 2px;
 }
-/* line 191, ../source/screen.scss */
+/* line 198, ../source/screen.scss */
 #pagination ul li.active, #pagination ul ol.active, #pagination ol li.active, #pagination ol ol.active {
   font-weight: bold;
 }
-/* line 193, ../source/screen.scss */
+/* line 200, ../source/screen.scss */
 #pagination ul li.active a, #pagination ul ol.active a, #pagination ol li.active a, #pagination ol ol.active a {
   border: none;
   color: #ba1820;
 }
-/* line 199, ../source/screen.scss */
+/* line 206, ../source/screen.scss */
 #pagination ul li, #pagination ol li {
   margin-right: 1.2em;
 }
-/* line 202, ../source/screen.scss */
+/* line 209, ../source/screen.scss */
 #pagination ul #step-links, #pagination ol #step-links {
   display: inline;
 }
 
-/* line 215, ../source/screen.scss */
+/* line 222, ../source/screen.scss */
 #profile .avatar {
   float: left;
   padding-right: 1.5em;
   padding-bottom: 1.5em;
 }
 
-/* line 223, ../source/screen.scss */
+/* line 230, ../source/screen.scss */
 body.index #content .wrapper {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 226, ../source/screen.scss */
+/* line 233, ../source/screen.scss */
 body.index #content .wrapper article a {
   text-decoration: none;
 }
-/* line 228, ../source/screen.scss */
+/* line 235, ../source/screen.scss */
 body.index #content .wrapper article a h2 {
   margin: 0 0 0.4615em;
 }
-/* line 235, ../source/screen.scss */
+/* line 242, ../source/screen.scss */
 body.index #members {
   margin-bottom: 1.5em;
   clear: both;
 }
-/* line 239, ../source/screen.scss */
+/* line 246, ../source/screen.scss */
 body.index #members li {
   display: block;
   float: left;
   width: 25%;
 }
-/* line 244, ../source/screen.scss */
+/* line 251, ../source/screen.scss */
 body.index #members li a {
   display: block;
   text-align: center;
 }
-/* line 247, ../source/screen.scss */
+/* line 254, ../source/screen.scss */
 body.index #members li a img {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -509,7 +514,7 @@ body.index #members li a img {
   border-radius: 4px / 4px;
 }
 
-/* line 257, ../source/screen.scss */
+/* line 264, ../source/screen.scss */
 nav.edit {
   position: absolute;
   top: 0;
@@ -518,99 +523,99 @@ nav.edit {
   border-left: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-/* line 266, ../source/screen.scss */
+/* line 273, ../source/screen.scss */
 nav.edit ul {
   margin-bottom: 0!important;
 }
-/* line 268, ../source/screen.scss */
+/* line 275, ../source/screen.scss */
 nav.edit ul li {
   display: inline;
   font-size: 0.8em;
   padding: 0.25em;
 }
 
-/* line 278, ../source/screen.scss */
+/* line 285, ../source/screen.scss */
 #member-list .member {
   height: 4em;
   margin-bottom: 0.75em;
 }
-/* line 283, ../source/screen.scss */
+/* line 290, ../source/screen.scss */
 #member-list .member header {
   margin-left: 3.5em;
 }
-/* line 285, ../source/screen.scss */
+/* line 292, ../source/screen.scss */
 #member-list .member header h1 {
   margin: 0;
   text-align: left;
   font-size: 1em;
 }
-/* line 293, ../source/screen.scss */
+/* line 300, ../source/screen.scss */
 #member-list .member .avatar {
   float: left;
   width: 3em;
 }
-/* line 296, ../source/screen.scss */
+/* line 303, ../source/screen.scss */
 #member-list .member .avatar img {
   height: 3em;
 }
 
-/* line 303, ../source/screen.scss */
+/* line 310, ../source/screen.scss */
 #note-list article, #meeting-list article {
   margin-bottom: 1.5em;
 }
-/* line 307, ../source/screen.scss */
+/* line 314, ../source/screen.scss */
 #note-list article a, #meeting-list article a {
   text-decoration: none;
 }
-/* line 311, ../source/screen.scss */
+/* line 318, ../source/screen.scss */
 #note-list article .meta, #meeting-list article .meta {
   margin-bottom: 0;
 }
-/* line 313, ../source/screen.scss */
+/* line 320, ../source/screen.scss */
 #note-list article .meta li, #meeting-list article .meta li {
   display: inline;
   padding-right: 0.75em;
   font-style: italic;
 }
-/* line 321, ../source/screen.scss */
+/* line 328, ../source/screen.scss */
 #note-list article header h1, #meeting-list article header h1 {
   text-align: left;
   margin-top: 0;
   margin-bottom: 0.15em;
 }
 
-/* line 331, ../source/screen.scss */
+/* line 338, ../source/screen.scss */
 #meeting-list h2 {
   margin-bottom: 0;
   font-size: 1.2em;
 }
 
-/* line 341, ../source/screen.scss */
+/* line 348, ../source/screen.scss */
 #comments article.comment h1 {
   text-align: left;
   font-weight: bold;
   font-size: 1.1em;
 }
-/* line 346, ../source/screen.scss */
+/* line 353, ../source/screen.scss */
 #comments article.comment .img {
   float: left;
 }
-/* line 349, ../source/screen.scss */
+/* line 356, ../source/screen.scss */
 #comments article.comment .comment-content {
   padding-left: 5em;
 }
 
-/* line 358, ../source/screen.scss */
+/* line 365, ../source/screen.scss */
 form ol li {
   list-style: none;
   line-height: 3em;
   clear: both;
 }
-/* line 362, ../source/screen.scss */
+/* line 369, ../source/screen.scss */
 form ol li input:not([type="radio"]), form ol li textarea {
   width: 44%;
 }
-/* line 366, ../source/screen.scss */
+/* line 373, ../source/screen.scss */
 form label {
   float: left;
   width: 10.5em;
@@ -618,11 +623,11 @@ form label {
   text-align: right;
   padding: 0 0.75em;
 }
-/* line 372, ../source/screen.scss */
+/* line 379, ../source/screen.scss */
 form label:hover {
   cursor: pointer;
 }
-/* line 377, ../source/screen.scss */
+/* line 384, ../source/screen.scss */
 form input:not([type="radio"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
@@ -635,11 +640,11 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 383, ../source/screen.scss */
+/* line 390, ../source/screen.scss */
 form input:not([type="radio"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 387, ../source/screen.scss */
+/* line 394, ../source/screen.scss */
 form textarea {
   font-size: 1em;
 }
@@ -652,7 +657,7 @@ form textarea {
 * 5.55555% | % 25 50 75 100 | 5.55555%
 *
 */
-/* line 403, ../source/screen.scss */
+/* line 410, ../source/screen.scss */
 #page {
   margin: 0 5.556%;
   padding: 1.5em 0;
@@ -665,17 +670,17 @@ form textarea {
   clear: both;
 }
 
-/* line 410, ../source/screen.scss */
+/* line 417, ../source/screen.scss */
 #content {
   margin-top: 1.5em;
 }
 
-/* line 414, ../source/screen.scss */
+/* line 421, ../source/screen.scss */
 h2 {
   font-weight: normal;
 }
 
-/* line 418, ../source/screen.scss */
+/* line 425, ../source/screen.scss */
 h3 {
   margin: 1.5em 0 1.5em;
 }
@@ -684,7 +689,7 @@ h3 {
 * Simple elastic gutters
 * Note: box-sizing will not work in IE6-8
 */
-/* line 428, ../source/screen.scss */
+/* line 435, ../source/screen.scss */
 .wrapper {
   padding: 0 0.75em;
   -webkit-box-sizing: border-box;
@@ -700,29 +705,35 @@ h3 {
 * http://jonikorpi.com/leaving-old-IE-behind/
 *
 */
-/* line 445, ../source/screen.scss */
+/* line 452, ../source/screen.scss */
 .ie body {
   width: 40em;
   margin: 0 auto;
   font-size: 1.063em;
 }
 
-/* line 451, ../source/screen.scss */
+/* line 458, ../source/screen.scss */
 .ie h1 {
   margin: 1.143em 0 0.571em;
 }
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-  /* line 459, ../source/screen.scss */
+  /* line 466, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
   }
 
-  /* line 464, ../source/screen.scss */
+  /* line 471, ../source/screen.scss */
   h1 {
     margin: 1.143em 0 0.571em;
+  }
+
+  /* line 476, ../source/screen.scss */
+  #site-footer .wrapper {
+    width: 50%;
+    float: left;
   }
 }
 /*
@@ -736,31 +747,37 @@ h3 {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-  /* line 484, ../source/screen.scss */
+  /* line 496, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1 */
     font-size: 1em;
   }
 
-  /* line 489, ../source/screen.scss */
+  /* line 501, ../source/screen.scss */
   body.index #notes, body.index #events {
     float: left;
     width: 50%;
   }
-  /* line 494, ../source/screen.scss */
+  /* line 506, ../source/screen.scss */
   body.index #members li {
     width: 12.5%;
   }
 
-  /* line 502, ../source/screen.scss */
+  /* line 514, ../source/screen.scss */
   #member-list .member.wrapper {
     float: left;
     width: 50%;
   }
+
+  /* line 520, ../source/screen.scss */
+  #site-footer .wrapper {
+    width: 25%;
+    float: left;
+  }
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-  /* line 511, ../source/screen.scss */
+  /* line 530, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -768,20 +785,20 @@ h3 {
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-  /* line 521, ../source/screen.scss */
+  /* line 542, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 526, ../source/screen.scss */
+  /* line 547, ../source/screen.scss */
   #page {
     margin: 0 16.667%;
   }
 }
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-  /* line 536, ../source/screen.scss */
+  /* line 557, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -789,20 +806,20 @@ h3 {
 }
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-  /* line 547, ../source/screen.scss */
+  /* line 568, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 552, ../source/screen.scss */
+  /* line 573, ../source/screen.scss */
   #page {
     margin: 0 27.778%;
   }
 }
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-  /* line 562, ../source/screen.scss */
+  /* line 583, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -819,14 +836,14 @@ h3 {
 */
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-  /* line 583, ../source/screen.scss */
+  /* line 604, ../source/screen.scss */
   #page {
     margin: 0 5.556%;
   }
 }
 /* @media screen and (min-width: 2080px) */
 @media screen and (min-width: 130em) {
-  /* line 594, ../source/screen.scss */
+  /* line 615, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size: 1.125em;

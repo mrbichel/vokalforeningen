@@ -9,13 +9,14 @@
 <section id="member-list">
 
         <header class="wrapper">
-            <h1>Vores medlemmer</h1>
+            <h1>Vore medlemmer</h1>
         </header>
 
         {% include "profiles/_profile_list.html" %}
 
         <footer class="wrapper">
             {% include "_pagination.html" %}
+            <a href="{% url profiles_board %}">Se bestyrelsesmedlemmer</a>
         </footer>
 
 </section>

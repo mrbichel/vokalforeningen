@@ -15,14 +15,14 @@
 
 
     <h2>Dagsorden</h2>
-    {{ object.agenda|markdown }}
+    {{ object.agenda|markdown|urlize }}
 
 
 
 
         <h2>Referat</h2>
         {% if object.minutes %}
-        {{ object.minutes|markdown }}
+        {{ object.minutes|markdown|urlize }}
         {% else %}
         <p>Referat fra mødet er endnu ikke lagt op.</p>
         {% endif %}
