@@ -35,7 +35,7 @@
         {% endthumbnail %}
     </figure>
 
-    {{ profile.bio|urlize|markdown }}
+    {{ profile.bio|markdown:"urlize" }}
 
     {% if user.is_authenticated %}
     <h2>Kontakt</h2>

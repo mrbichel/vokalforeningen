@@ -15,7 +15,7 @@
         <h1>{{ flatpage.title }}</h1>
     </header>
 
-    {{ flatpage.content|markdown|urlize }}
+    {{ flatpage.content|markdown:"urlize" }}
 
 
 {% if user.is_staff %}
