@@ -37,7 +37,7 @@
     {% endif %}
 
         <section id="body">
-            {{ object.html|safe|urlize }}
+            {{ object.html|urlize|safe }}
         </section>
 
 
@@ -73,7 +73,7 @@
                         <a href="{{ comment.user.get_profile.get_absolute_url }}"><h1>{{ comment.user.get_full_name }}</h1></a>
                     </header>
 
-                    {{ comment.comment|markdown|urlize }}
+                    {{ comment.comment|urlize|markdown }}
 
 
                     <footer>
