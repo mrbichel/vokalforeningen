@@ -3,11 +3,11 @@
 import datetime
 import pprint
 from django.contrib.comments.signals import comment_was_posted
-
+from django.db.models.signals import post_save
 from django.contrib.comments.models import Comment
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models import get_app
-
+from django.dispatch import receiver
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -91,3 +91,22 @@ def send_comment_notification(sender, comment, request, **kwargs):
 
 # connect signal
 comment_was_posted.connect(send_comment_notification)
+
+
+@receiver(post_save, sender=Note)
+def send_post_notification(sender, **kwargs):
+    # no point in proceeding if notification is not available
+    if not notification:
+        return
+    
+    note = kwargs['instance'] 
+    
+    data = {
+        'note': note,
+    }
+
+    users = User.objects.filter(is_active=True, profile__receive_email=True).exclude(id=note.author.id)
+    notification.send(users, 'note_posted', data)
+
+
+

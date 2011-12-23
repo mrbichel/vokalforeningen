@@ -1,1 +1,1 @@
-{{comment.user.get_full_name}} har kommenteret på et indlæg du følger
+Ny kommentar på DVF
