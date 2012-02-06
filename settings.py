@@ -14,7 +14,10 @@ sys.path.append(BASE_PATH + '/apps')
 ADMINS = (
     ('Johan Bichel Lindegaard', 'sysadmin@tango.johan.cc'),
 )
-MANAGERS = ADMINS
+MANAGERS = ADMINS + (
+    ('Malene Bichel', 'malenebi@gmail.com'),
+    ('Dorte Hyldstrup', 'dortehyldstrup@dortehyldstrup.dk')
+)
 
 AUTHENTICATION_BACKENDS = ('backends.EmailBackend',
     "django.contrib.auth.backends.ModelBackend",)
@@ -123,7 +126,8 @@ TIME_FORMAT = "H:i"
 DATETIME_FORMAT = "j N Y H:i"
 PAGINATE_BY = 12
 
-DEFAULT_FROM_EMAIL = "noreply@vokalforening.dk"
+DEFAULT_FROM_EMAIL = "server@vokalforening.dk"
+SERVER_EMAIL = "server@vokalforening.dk"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

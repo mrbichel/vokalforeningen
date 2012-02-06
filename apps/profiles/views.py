@@ -107,7 +107,7 @@ def registration(request):
 
             t = loader.get_template('profiles/registration_email.txt')
             c = Context({
-                'name': user.get_full_name(),
+                'name': user.get_full_name,
             })
             send_mail('Indmeldelse i Dansk Vokalforening', t.render(c), settings.DEFAULT_FROM_EMAIL, [user.email])
 
