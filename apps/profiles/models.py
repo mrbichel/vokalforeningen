@@ -4,7 +4,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.db import models
 from sorl.thumbnail import ImageField
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 import mailchimp
 
 class Profile(models.Model):
@@ -66,7 +66,12 @@ def user_updated(sender, instance, created, **kwargs):
         else:
             user = instance
 
-        mailchimp.updateProfile(user)
+        mailchimp.updateProfile(user)  
         
 post_save.connect(user_updated, sender=User)
 post_save.connect(user_updated, sender=Profile)
+
+def user_deleted(sender, instance, **kwargs):
+    mailchimp.unsubscribe(instance)
+
+post_delete.connect(user_deleted, sender=User)

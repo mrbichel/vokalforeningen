@@ -34,5 +34,13 @@ def updateProfile(user):
         double_optin = False,
     )
 
-#def unsubscribe(user):
-#    ms, list = getChimp()
+def unsubscribe(user):
+    ms, list = getChimp()
+
+    return ms.listUnsubscribe(
+        id = list,
+        email_address = user.email,
+        send_goodbye = False,
+        send_notify = False,
+        delete_member = True
+    )
