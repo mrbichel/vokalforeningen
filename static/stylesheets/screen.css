@@ -606,16 +606,20 @@ nav.edit ul li {
 }
 
 /* line 365, ../source/screen.scss */
+form legend {
+  font-weight: bold;
+}
+/* line 367, ../source/screen.scss */
 form ol li {
   list-style: none;
   line-height: 3em;
   clear: both;
 }
-/* line 369, ../source/screen.scss */
-form ol li input:not([type="radio"]), form ol li textarea {
+/* line 371, ../source/screen.scss */
+form ol li input:not([type="radio"]):not([type="checkbox"]), form ol li textarea {
   width: 44%;
 }
-/* line 373, ../source/screen.scss */
+/* line 375, ../source/screen.scss */
 form label {
   float: left;
   width: 10.5em;
@@ -623,12 +627,12 @@ form label {
   text-align: right;
   padding: 0 0.75em;
 }
-/* line 379, ../source/screen.scss */
+/* line 381, ../source/screen.scss */
 form label:hover {
   cursor: pointer;
 }
-/* line 384, ../source/screen.scss */
-form input:not([type="radio"]), form textarea {
+/* line 386, ../source/screen.scss */
+form input:not([type="radio"]):not([type="checkbox"]), form textarea {
   padding: 0.2em;
   font-size: 0.9em;
   -moz-border-radius: 2px;
@@ -640,13 +644,26 @@ form input:not([type="radio"]), form textarea {
   border: 1px solid #DDDDDD;
   font-style: italic;
 }
-/* line 390, ../source/screen.scss */
-form input:not([type="radio"]):focus, form textarea:focus {
+/* line 392, ../source/screen.scss */
+form input:not([type="radio"]):not([type="checkbox"]):focus, form textarea:focus {
   background-color: #f7f7f7;
 }
-/* line 394, ../source/screen.scss */
+/* line 396, ../source/screen.scss */
 form textarea {
   font-size: 1em;
+}
+/* line 401, ../source/screen.scss */
+form #accept-section label {
+  text-align: left;
+  width: 85%;
+  padding: 0;
+  float: right;
+  line-height: 1.3;
+}
+/* line 408, ../source/screen.scss */
+form #accept-section input {
+  width: 15%;
+  text-align: center;
 }
 
 /*
@@ -657,7 +674,7 @@ form textarea {
 * 5.55555% | % 25 50 75 100 | 5.55555%
 *
 */
-/* line 410, ../source/screen.scss */
+/* line 428, ../source/screen.scss */
 #page {
   margin: 0 5.556%;
   padding: 1.5em 0;
@@ -670,17 +687,17 @@ form textarea {
   clear: both;
 }
 
-/* line 417, ../source/screen.scss */
+/* line 435, ../source/screen.scss */
 #content {
   margin-top: 1.5em;
 }
 
-/* line 421, ../source/screen.scss */
+/* line 439, ../source/screen.scss */
 h2 {
   font-weight: normal;
 }
 
-/* line 425, ../source/screen.scss */
+/* line 443, ../source/screen.scss */
 h3 {
   margin: 1.5em 0 1.5em;
 }
@@ -689,7 +706,7 @@ h3 {
 * Simple elastic gutters
 * Note: box-sizing will not work in IE6-8
 */
-/* line 435, ../source/screen.scss */
+/* line 453, ../source/screen.scss */
 .wrapper {
   padding: 0 0.75em;
   -webkit-box-sizing: border-box;
@@ -705,32 +722,32 @@ h3 {
 * http://jonikorpi.com/leaving-old-IE-behind/
 *
 */
-/* line 452, ../source/screen.scss */
+/* line 470, ../source/screen.scss */
 .ie body {
   width: 40em;
   margin: 0 auto;
   font-size: 1.063em;
 }
 
-/* line 458, ../source/screen.scss */
+/* line 476, ../source/screen.scss */
 .ie h1 {
   margin: 1.143em 0 0.571em;
 }
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-  /* line 466, ../source/screen.scss */
+  /* line 484, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
   }
 
-  /* line 471, ../source/screen.scss */
+  /* line 489, ../source/screen.scss */
   h1 {
     margin: 1.143em 0 0.571em;
   }
 
-  /* line 476, ../source/screen.scss */
+  /* line 494, ../source/screen.scss */
   #site-footer .wrapper {
     width: 50%;
     float: left;
@@ -747,29 +764,29 @@ h3 {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-  /* line 496, ../source/screen.scss */
+  /* line 514, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1 */
     font-size: 1em;
   }
 
-  /* line 501, ../source/screen.scss */
+  /* line 519, ../source/screen.scss */
   body.index #notes, body.index #events {
     float: left;
     width: 50%;
   }
-  /* line 506, ../source/screen.scss */
+  /* line 524, ../source/screen.scss */
   body.index #members li {
     width: 12.5%;
   }
 
-  /* line 514, ../source/screen.scss */
+  /* line 532, ../source/screen.scss */
   #member-list .member.wrapper {
     float: left;
     width: 50%;
   }
 
-  /* line 520, ../source/screen.scss */
+  /* line 538, ../source/screen.scss */
   #site-footer .wrapper {
     width: 25%;
     float: left;
@@ -777,7 +794,7 @@ h3 {
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-  /* line 530, ../source/screen.scss */
+  /* line 548, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -785,20 +802,20 @@ h3 {
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-  /* line 542, ../source/screen.scss */
+  /* line 560, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 547, ../source/screen.scss */
+  /* line 565, ../source/screen.scss */
   #page {
     margin: 0 16.667%;
   }
 }
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-  /* line 557, ../source/screen.scss */
+  /* line 575, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -806,20 +823,20 @@ h3 {
 }
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-  /* line 568, ../source/screen.scss */
+  /* line 586, ../source/screen.scss */
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size: 1em;
   }
 
-  /* line 573, ../source/screen.scss */
+  /* line 591, ../source/screen.scss */
   #page {
     margin: 0 27.778%;
   }
 }
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-  /* line 583, ../source/screen.scss */
+  /* line 601, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size: 1.063em;
@@ -836,14 +853,14 @@ h3 {
 */
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-  /* line 604, ../source/screen.scss */
+  /* line 622, ../source/screen.scss */
   #page {
     margin: 0 5.556%;
   }
 }
 /* @media screen and (min-width: 2080px) */
 @media screen and (min-width: 130em) {
-  /* line 615, ../source/screen.scss */
+  /* line 633, ../source/screen.scss */
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size: 1.125em;

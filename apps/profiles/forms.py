@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Forms and validation code for user registration.
 
@@ -39,7 +41,8 @@ class RegistrationForm(forms.Form):
     mobile_phone_number = forms.CharField(max_length=12, label='Mobil')
     postal_code = forms.CharField(max_length=5, label='Postnummer')
     city = forms.CharField(max_length=255, label='By')
-
+    
+    accept = forms.BooleanField(label='Accepter vedtægter og modtagelse af nyhedsbrev')
 
 
     def clean_email(self):
@@ -51,7 +54,17 @@ class RegistrationForm(forms.Form):
         if User.objects.filter(email__iexact=self.cleaned_data['email']):
             raise forms.ValidationError(_("This email address is already in use. Please supply a different email address."))
         return self.cleaned_data['email']
-
+    
+    def clean_accept(self):
+        """
+        """
+        
+        if self.cleaned_data['accept'] is False:
+            raise forms.ValidationError("Du skal accepterer Dansk Vokalforenings vedtægter og modtagelse af vores nyhedsbrev.")
+        
+        return self.cleaned_data['accept']
+    
+    
     def clean(self):
         """
         Verifiy that the values entered into the two password fields
@@ -60,9 +73,11 @@ class RegistrationForm(forms.Form):
         field.
 
         """
+        
         if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
             if self.cleaned_data['password1'] != self.cleaned_data['password2']:
                 raise forms.ValidationError(_("The two password fields didn't match."))
+                
         return self.cleaned_data
 
 

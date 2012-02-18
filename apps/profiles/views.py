@@ -103,13 +103,14 @@ def registration(request):
 
             profile.save()
 
-            mail_managers('DVF: Nyt medlem.', '{} vil gerne være medlem i Dansk Vokalforening. Husk at aktivere personens bruger når kontingent er gået ind på kontoen.'.format(user.get_full_name) , settings.DEFAULT_FROM_EMAIL)
-
             t = loader.get_template('profiles/registration_email.txt')
             c = Context({
                 'name': user.get_full_name(),
             })
             send_mail('Indmeldelse i Dansk Vokalforening', t.render(c), settings.DEFAULT_FROM_EMAIL, [user.email])
+            
+            mail_managers('DVF: Nyt medlem.', '{} vil gerne være medlem i Dansk Vokalforening. Husk at aktivere personens bruger når kontingent er gået ind på kontoen.'.format(user.get_full_name()) , settings.DEFAULT_FROM_EMAIL)
+            
 
             return render(request, "profiles/registration_complete.html")
     else:

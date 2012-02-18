@@ -19,6 +19,7 @@
 
                 <br>
                 Dit medlemskab vil blive aktiveret så snart at kasseren har registreret din indbetaling.
+                
              </p>
         
 
@@ -87,6 +88,17 @@
 
 
                         </ol>
+                    </fieldset>
+
+                     <fieldset id="accept-section">
+                            <legend>Vedtægter og nyhedsbrev</legend>
+                            
+                            <ol>
+                                <li>{{ form.accept.errors }}
+                                    <label for=id_accept>Jeg har læst og accepterer Dansk Vokalforenings vedtægter, og er indforstået med at jeg som medlem modtager Dansk Vokalforenings nyhedsbrev.</label>
+                                    <input id=id_accept type=checkbox name={{ form.accept.name }} required value={{ form.accept.value }} >
+                                </li>
+                             </ol>
                     </fieldset>
 
                     <fieldset>
