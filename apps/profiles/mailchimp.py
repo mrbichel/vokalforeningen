@@ -11,36 +11,38 @@ def getStatusString(user):
         return 'inactive'
 
 def updateProfile(user):
-    ms, list = getChimp()
-    profile = user.get_profile
+    if not settings.DEVELOPMENT_MODE:
+        ms, list = getChimp()
+        profile = user.get_profile
 
-    vars = {
-        'FNAME': getattr(user,'first_name', ''),
-        'LNAME': getattr(user,'last_name', ''),
-        'STATUS': getStatusString(user),
-        'ADDRESS': {
-            'addr1': getattr(profile,'address', ''),
-            'city': getattr(profile,'city',''),
-            'state': '',
-            'zip': getattr(profile,'postal_code', '')
+        vars = {
+            'FNAME': getattr(user,'first_name', ''),
+            'LNAME': getattr(user,'last_name', ''),
+            'STATUS': getStatusString(user),
+            'ADDRESS': {
+                'addr1': getattr(profile,'address', ''),
+                'city': getattr(profile,'city',''),
+                'state': '',
+                'zip': getattr(profile,'postal_code', '')
+                }
             }
-        }
 
-    return ms.listSubscribe(
-        id = list,
-        email_address = user.email,
-        merge_vars = vars,
-        update_existing = True,
-        double_optin = False,
-    )
+        return ms.listSubscribe(
+            id = list,
+            email_address = user.email,
+            merge_vars = vars,
+            update_existing = True,
+            double_optin = False,
+        )
 
 def unsubscribe(user):
-    ms, list = getChimp()
+    if not settings.DEVELOPMENT_MODE:
+        ms, list = getChimp()
 
-    return ms.listUnsubscribe(
-        id = list,
-        email_address = user.email,
-        send_goodbye = False,
-        send_notify = False,
-        delete_member = True
-    )
+        return ms.listUnsubscribe(
+            id = list,
+            email_address = user.email,
+            send_goodbye = False,
+            send_notify = False,
+            delete_member = True
+        )
