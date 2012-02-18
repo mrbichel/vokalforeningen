@@ -41,6 +41,7 @@ else:
     }
 
 TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = DEBUG
 
 # Static files
 MEDIA_ROOT = BASE_PATH + '/media'
@@ -146,6 +147,11 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+	'sorl.thumbnail': {
+            'handlers':  ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
         },
