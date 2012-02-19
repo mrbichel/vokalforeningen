@@ -9,6 +9,18 @@
 <section id="meeting-list">
 
 <header class="wrapper">
+    
+    <nav class="context-nav">
+
+
+    {% if user.is_staff %}
+        <ul class="edit-nav right">
+            <li><a href="{% url admin:meetings_meeting_add %}">nyt møde</a></li>
+        </ul>
+    {% endif %}
+    </nav>
+    
+    
     <h1>Møder og referater</h1>
 </header>
 

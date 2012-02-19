@@ -12,18 +12,37 @@
 
     <article id="id{{ object.id }}" class="wrapper">
 
-    {% ifequal user object.author %}
-        <nav class="edit">
-            <ul>
-                <li><a href="{% url note_update object.id %}">rediger</a></li>
-                <li><a href="{% url note_delete object.id %}">slet</a></li>
-            </ul>
-        </nav>
-    {% endifequal %}
+    
 
 
 
     <header>
+        
+        
+        <nav class="context-nav">
+        
+            <ul class="left">
+                {% if object.is_event %}
+                <li><a href="{% url corkboard_events %}">se alle events</a></li>
+                {% else %}
+                <li><a href="{% url corkboard_notes %}">se alle opslag</a></li>
+                {% endif %}
+            </ul>
+        
+
+            {% ifequal user object.author %}
+                <nav class="edit-nav right">
+                    <ul>
+                        <li><a href="{% url note_update object.id %}">rediger</a></li>
+                        <li><a href="{% url note_delete object.id %}">slet</a></li>
+                    </ul>
+                </nav>
+            {% endifequal %}
+        </nav>
+        
+        
+        
+        
         <h1>{{ object.title }}</h1>
     </header>
 
@@ -70,7 +89,7 @@
 
                     <div class="comment-content">
                     <header>
-                        <a href="{{ comment.user.get_profile.get_absolute_url }}"><h1>{{ comment.user.get_full_name }}</h1></a>
+                        <h3><a href="{{ comment.user.get_profile.get_absolute_url }}">{{ comment.user.get_full_name }}</a></h3>
                     </header>
 
                     {{ comment.comment|markdown:"urlize" }}

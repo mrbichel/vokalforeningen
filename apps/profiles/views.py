@@ -32,7 +32,7 @@ def board(request, **kwargs):
 def list(request, **kwargs):
     return list_detail.object_list(
         request,
-        queryset=Profile.objects.filter(user__is_active=True),
+        queryset=Profile.objects.filter(user__is_active=True).order_by('user__first_name'),
         paginate_by=PAGINATE_MEMBERS_BY,
         **kwargs
     )

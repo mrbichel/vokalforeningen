@@ -7,22 +7,32 @@
 
 {% block content %}
 <section id="profile">
-
-    {% ifequal profile.user user %}
-        <nav class="edit">
-            <ul>
-                <li><a href="{% url profile_update profile.user.id %}">Rediger profil</a></li>
-            </ul>
-        </nav>
-    {% endifequal %}
-
+    
 
     <header class="wrapper">
-    {% if profile.board_member %}
-        <p>Bestyrelsesmedlem</p>
-    {% endif %}
+        
+        <nav class="context-nav">
+        
+            <ul class="left">
+                <li><a href="{% url profiles_index %}">se alle medlemmer</a></li>
+            </ul>
+        
 
-    <h1>{{ profile.user.get_full_name }}</h1>
+        {% ifequal profile.user user %}
+            <ul class="edit-nav right">
+                <li><a href="{% url profile_update profile.user.id %}">Rediger profil</a></li>
+            </ul>
+        {% endifequal %}
+        </nav>
+
+        <h1>
+            {% if profile.board_member %}
+            <span>Bestyrelsesmedlem:</span>
+            {% endif %} 
+            
+            {{ profile.user.get_full_name }}
+        </h1>
+    
     </header>
 
     <section id="about" class="wrapper">

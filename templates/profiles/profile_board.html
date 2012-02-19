@@ -7,6 +7,16 @@
 <section id="member-list">
 
         <header class="wrapper">
+            
+            <nav class="context-nav">
+
+                <ul class="left">
+                    <li><a href="{% url profiles_index %}">se alle medlemmer</a></li>
+                </ul>
+
+            </nav>
+            
+            
             <h1>Bestyrelsen</h1>
 
         </header>
@@ -14,7 +24,6 @@
         {% include "profiles/_profile_list.html" %}
 
         <footer class="wrapper">
-            <a href="{% url profiles_index %}">Se alle medlemmer</a>
         </footer>
 </section>
 

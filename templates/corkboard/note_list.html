@@ -8,21 +8,28 @@
 {% block content %}
 
 <header class="wrapper">
+    
+    
+    <nav class="context-nav">
+
+        {% if user.is_authenticated %}
+            <ul class="edit-nav right">
+                <li>
+                    <a href="{% url note_create %}">Nyt opslag</a>
+                </li>
+                <li>
+                    <a href="{% url event_create %}">Ny event</a>
+                </li>
+            </ul>
+        {% endif %}
+        
+    </nav>
+    
+    
+    
+    
+    
 <h1>{{ listtitle }}</h1>
-
-{% if user.is_authenticated %}
-<nav class="edit">
-    <ul>
-        <li>
-            <a href="{% url note_create %}">Nyt opslag</a>
-        </li>
-        <li>
-            <a href="{% url event_create %}">Ny event</a>
-        </li>
-
-    </ul>
-</nav>
-{% endif %}
 
 </header>
 

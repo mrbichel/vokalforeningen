@@ -130,8 +130,14 @@ body {
 }
 
 
+  h1, h2, h3 {
+    a {
+      text-decoration: none;
+    }
+  }
+
 #content header h1 {
-    //font-variant: small-caps;
+    text-transform: uppercase;
     font-weight: normal;
     font-family: Times;
     text-align: center;
@@ -140,10 +146,11 @@ body {
     line-height: ($line*1.5) / 26 * 1em;
 
     margin: 0.4230769230769231em 0 0.46153846153846156em;
-
 }
 
+
 #meeting header h2 {
+    //text-transform: uppercase;
     text-align: center;
     font-size: #{18 / $em}em;
 }
@@ -159,25 +166,62 @@ a {
 
 }
 
-a.action {
-    float: right;
-}
-
-a.button {
-    @include border-radius(4px, 4px);
+.button {
+    @include border-radius(2px, 2px);
     text-decoration: none;
-    color: rgba($light-background-color,0.6);
-    background-color: rgba($dark-background-color, 1);
-    padding: 0.417em 1em;
-    margin: 0 0 0.834em 0;
+    color: rgba(darken($link-color, 3%),0.9);
+    background-color: rgba(#fff, 0.6);
+    border: 1px solid #ddd;
+    padding: 0.067em 1em;
+    margin: 0.154em;
     display: inline-block;
-    font-size: 0.9em;
-    text-transform: uppercase;
+    font-size: 0.8em;
+    text-transform: capitalize;
+    @include box-shadow(0px 0px 1px #ccc inset);
 
-    &:hover, &:active, &:focus {
-        color: lighten($link-color, 5%);
+    &:hover, &:focus {
+        color: darken($link-color, 10%);
+        background-color: rgba($light-background-color, 1);
     }
+    
+    &:active {
+      color: lighten($link-color, 20%);
+      @include box-shadow(0px 0px 1px #ccc inset);
+    }
+    
 }
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+#content .context-nav {
+  @include pie-clearfix;
+  margin: 0 -0.75em;
+  
+  border-bottom: 1px dashed #ddd;
+  
+  ul {
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    list-style-position: outside;
+    list-style-type: none;
+    a {
+      @extend .button;
+    }
+  }
+}
+
+.action {
+    float: right;
+    @extend .button;
+}
+
 
 /* forms */
 #id_honeypot {
@@ -261,39 +305,22 @@ body.index {
 }
 
 
-nav.edit {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    background-color: darken($light-background-color, 1%);
-    border-left: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-
-    ul {
-        margin-bottom: 0!important;
-        li {
-            display: inline;
-            font-size: 0.8em;
-            padding: 0.25em;
-        }
-
-    }
-}
 
 
 #member-list .member {
 
     height: 4em;
     margin-bottom: 0.75em;
-
+    a {
+      text-decoration: none;
+    }
     header {
         margin-left: 3.5em;
         h1 {
             margin: 0;
             text-align: left;
             font-size: 1em;
-            //font-variant: small-caps;
+            text-transform: none;
         }
     }
 
