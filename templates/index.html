@@ -70,7 +70,7 @@
                 {% thumbnail m.image "48x48" crop="center" as img %}
                 <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}"/>
                 {% empty %}
-                <img src="http://cartella.tccd.edu/images/shared/profile-empty-head.gif" width="48" height="48"/>
+                <img src="" width="48" height="48"/>
                 {% endthumbnail %}
             </a></li>
         {% endfor %}
