@@ -12,7 +12,6 @@
     
     <nav class="context-nav">
 
-
     {% if user.is_staff %}
         <ul class="edit-nav right">
             <li><a href="{% url admin:meetings_meeting_add %}">nyt møde</a></li>
@@ -20,31 +19,40 @@
     {% endif %}
     </nav>
     
-    
     <h1>Møder og referater</h1>
 </header>
 
-{% for object in object_list %}
+{% for object in future_meetings %}
 
+<header class="wrapper"><h2>Aktuelle møder</h2></header>
 <article id="id_{{ object.id }}" class="meeting wrapper">
         <a href="{{ object.get_absolute_url }}">
-
             <header>
                 <hgroup>
                     <h2><time class="date" datetime="{{ object.date|date:"c" }}">{{ object.date|date }}</time></h2>
                     <h1>{{ object.title }}</h1>
                 </hgroup>
             </header>
-
         </a>
 </article>
 
 {% endfor %}
 
-<footer>
-    {% include "_pagination.html" %}
-</footer>
 
+{% for object in past_meetings %}
+<header class="wrapper"><h2>Ældre møder</h2></header>
+<article id="id_{{ object.id }}" class="meeting wrapper">
+        <a href="{{ object.get_absolute_url }}">
+            <header>
+                <hgroup>
+                    <h2><time class="date" datetime="{{ object.date|date:"c" }}">{{ object.date|date }}</time></h2>
+                    <h1>{{ object.title }}</h1>
+                </hgroup>
+            </header>
+        </a>
+</article>
+
+{% endfor %}
 
 </section>
 

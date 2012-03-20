@@ -1,3 +1,5 @@
+import datetime
+
 from django.db.models.aggregates import Count
 from meetings.models import Meeting
 from django.http import Http404, HttpResponseRedirect, HttpResponse
@@ -8,12 +10,14 @@ import settings
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
 
 def list(request, **kwargs):
-    return list_detail.object_list(
-        request,
-        queryset=Meeting.objects.all(),
-        paginate_by=PAGINATE_BY,
-        **kwargs
-    )
+    
+    meetings = Meeting.objects.all()
+    
+    future = meetings.filter(date__gte=datetime.datetime.now()-datetime.timedelta(days=1)).order_by("-date")
+    past = meetings.exclude(date__gte=datetime.datetime.now()-datetime.timedelta(days=1)).order_by("-date")
+    
+    return render(request, "meetings/meeting_list.html", {'future_meetings': future, 'past_meetings': past})
+    
 
 def detail(request, id):
     meeting = get_object_or_404(Meeting, id=id)
