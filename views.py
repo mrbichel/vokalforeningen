@@ -10,7 +10,7 @@ from meetings.models import Meeting
 def index(request):
     
     notes = Note.objects.filter(is_event=False)[:3]
-    events = Note.objects.filter(is_event=True, end__gte=datetime.datetime.now()).order_by('start')[:3]
+    events = Note.objects.filter(is_event=True, end__gte=datetime.datetime.now()-datetime.timedelta(days=1)).order_by('start')[:3]
     
     meetings = Meeting.objects.all()[:4]
     members = Profile.objects.filter(user__is_active=True)[:16]
