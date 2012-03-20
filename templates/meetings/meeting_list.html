@@ -5,9 +5,7 @@
 {% block body_class %}meeting-list{% endblock %}
 
 {% block content %}
-
 <section id="meeting-list">
-
 <header class="wrapper">
     
     <nav class="context-nav">
@@ -23,7 +21,6 @@
 </header>
 
 {% for object in future_meetings %}
-
 <header class="wrapper"><h2>Aktuelle møder</h2></header>
 <article id="id_{{ object.id }}" class="meeting wrapper">
         <a href="{{ object.get_absolute_url }}">
@@ -35,7 +32,6 @@
             </header>
         </a>
 </article>
-
 {% endfor %}
 
 
@@ -51,9 +47,8 @@
             </header>
         </a>
 </article>
-
 {% endfor %}
 
 </section>
 
-{% endblock %} %}
+{% endblock %}

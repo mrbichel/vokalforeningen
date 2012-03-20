@@ -17,8 +17,6 @@
 
 
     <header>
-        
-        
         <nav class="context-nav">
         
             <ul class="left">
@@ -28,8 +26,7 @@
                 <li><a href="{% url corkboard_notes %}">se alle opslag</a></li>
                 {% endif %}
             </ul>
-        
-
+            
             {% ifequal user object.author %}
                 <nav class="edit-nav right">
                     <ul>
@@ -40,18 +37,15 @@
             {% endifequal %}
         </nav>
         
-        
-        
-        
         <h1>{{ object.title }}</h1>
     </header>
 
     {% if object.is_event %}
         <ul class="event">
-        <li><time class="start" datetime="{{ object.start|date:"c" }}">Fra d. {{ object.start|date }} klokken {{ object.start|time }}</time></li>
-        <li>Til <time class="end" datetime="{{ object.start|date:"c" }}">{{ object.end|date }} klokken {{ object.end|time }}</time></li>
-        <li>Sted: {{ object.location }}</li>
-        {% if object.facebook %}<li><a href="{{ object.facebook }}">se på facebook</a></li>{% endif %}
+            <li><time class="start" datetime="{{ object.start|date:"c" }}">Fra d. {{ object.start|date }} klokken {{ object.start|time }}</time></li>
+            <li>Til <time class="end" datetime="{{ object.start|date:"c" }}">{{ object.end|date }} klokken {{ object.end|time }}</time></li>
+            <li>Sted: {{ object.location }}</li>
+            {% if object.facebook %}<li><a href="{{ object.facebook }}">se på facebook</a></li>{% endif %}
         </ul>
     {% endif %}
 

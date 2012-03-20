@@ -25,16 +25,9 @@
         
     </nav>
     
-    
-    
-    
-    
 <h1>{{ listtitle }}</h1>
 
 </header>
-
-
-
 
 <section id="note-list">
 
@@ -57,7 +50,6 @@
 
             <footer>
             <ul class="meta">
-
 
                 {% get_comment_count for object as comment_count %}
                 <li class=comments><span class=count>{{ comment_count }}</span> kommentar{{ comment_count|pluralize:"er" }}</li>
