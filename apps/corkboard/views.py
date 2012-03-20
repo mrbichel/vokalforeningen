@@ -16,7 +16,7 @@ PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
 def event_list(request, **kwargs):
     return list_detail.object_list(
         request,
-        queryset=Note.objects.filter(is_event=True).order_by('start'),
+        queryset=Note.objects.filter(is_event=True, end__gte= datetime.datetime.now()-datetime.timedelta(days=1) ).order_by('start'),
         paginate_by=PAGINATE_BY,
         extra_context={'listtitle': 'Events'},
         **kwargs
