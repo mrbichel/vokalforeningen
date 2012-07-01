@@ -1,13 +1,11 @@
 *.pyc
 *~
-
 /.idea/
 /media/
 .DS_Store
 /test.db
 /settings_local.py
 static/images/bggrain.psd
-vokalforening_d.xml
 static/.sass-cache
 dump.json
 vokalforeningen.tmproj

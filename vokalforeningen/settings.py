@@ -7,7 +7,7 @@ PRODUCTION_HOSTNAME = "tango"
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'vokalforeningen.urls'
 
 sys.path.append(BASE_PATH + '/apps')
 
@@ -44,9 +44,9 @@ TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_DEBUG = DEBUG
 
 # Static files
-MEDIA_ROOT = BASE_PATH + '/media'
+MEDIA_ROOT = BASE_PATH + '/../media'
 STATICFILES_DIRS = (
-    BASE_PATH + '/static',
+    BASE_PATH + '/../static',
 )
 
 TIME_ZONE = 'Europe/Copenhagen'

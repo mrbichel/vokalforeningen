@@ -1,10 +1,13 @@
-Django==1.3.1
-Markdown==2.0.3
+Django==1.4
+Markdown
 PIL==1.1.7
-South==0.7.3
-distribute==0.6.24
-elementtree==1.2.7-20070827-preview
+South
+elementtree
 -e git://github.com/bradwhittington/mailsnake.git@95b15567049fe28946f6f23de8ee3064d0737fb6#egg=mailsnake-dev
-markdown2==1.0.1.19
-sorl-thumbnail==11.09
-wsgiref==0.1.2
+markdown2
+sorl-thumbnail
+wsgiref
+python-memcached
+psycopg2
+fabric
+ipython

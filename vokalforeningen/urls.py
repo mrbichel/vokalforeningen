@@ -1,7 +1,6 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.sitemaps import FlatPageSitemap
-from django.views.generic.simple import redirect_to, direct_to_template
 from django.conf import settings
 
 admin.autodiscover()
@@ -9,7 +8,6 @@ admin.autodiscover()
 sitemaps = {
     'pages': FlatPageSitemap,
 }
-
 
 
 urlpatterns = patterns('',
@@ -22,7 +20,7 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^notification/', include('notification.urls')),
     
-    url(r'^$', 'views.index', name='index'),
+    url(r'^$', 'vokalforeningen.views.index', name='index'),
     url(r'^a/doc/', include('django.contrib.admindocs.urls')),
     url(r'^a/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
