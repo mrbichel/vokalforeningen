@@ -9,7 +9,6 @@ urlpatterns = patterns('corkboard.views',
     url(r'^e$',
         'event_list',
         name='corkboard_events',
-
     ),
 
     url(r'^n$',

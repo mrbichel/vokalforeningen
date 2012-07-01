@@ -4,7 +4,6 @@ import datetime
 from django.shortcuts import render
 from corkboard.models import Note, Category
 from profiles.models import Profile
-from django.contrib.auth.models import User
 from meetings.models import Meeting
 
 def index(request):

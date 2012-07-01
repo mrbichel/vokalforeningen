@@ -10,5 +10,6 @@ wsgiref
 python-memcached
 psycopg2
 fabric
+-e git://github.com/aladagemre/django-notification.git
 django-notification
 ipython

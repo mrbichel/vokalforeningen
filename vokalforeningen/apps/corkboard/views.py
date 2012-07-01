@@ -8,8 +8,7 @@ from forms import NoteForm, TimeForm
 from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import list_detail, date_based, create_update
-import settings
-
+from django.conf import settings
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
 
 
