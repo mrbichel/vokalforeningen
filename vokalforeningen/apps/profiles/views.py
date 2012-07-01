@@ -1,21 +1,18 @@
 # coding=utf-8
 
-import pprint
 import uuid
 from django.core.mail import mail_managers, send_mail
-from django.db.models.aggregates import Count
 from profiles.models import Profile
 from django.contrib.auth.views import login as login_view
 from django.contrib.auth.models import User
-from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import list_detail, date_based
-from django.contrib.auth import authenticate, login
+from django.views.generic import list_detail
 from django.template import loader, Context
 from profiles.forms import LoginForm
 
 from forms import ProfileForm, UserForm
-import settings
+import djnago.conf import settings
 
 from profiles.forms import RegistrationForm
 
