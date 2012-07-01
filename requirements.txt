@@ -10,5 +10,5 @@ wsgiref
 python-memcached
 psycopg2
 fabric
-notification
+django-notification
 ipython
