@@ -12,7 +12,7 @@ from django.template import loader, Context
 from profiles.forms import LoginForm
 
 from forms import ProfileForm, UserForm
-import django.conf import settings
+from django.conf import settings
 
 from profiles.forms import RegistrationForm
 
