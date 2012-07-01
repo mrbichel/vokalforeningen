@@ -1,5 +1,5 @@
 Django==1.4
-Markdown
+markdown==2.0.3
 PIL==1.1.7
 South
 elementtree
