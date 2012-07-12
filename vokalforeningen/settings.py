@@ -19,7 +19,7 @@ MANAGERS = ADMINS + (
     ('Dorte Hyldstrup', 'dortehyldstrup@dortehyldstrup.dk')
 )
 
-AUTHENTICATION_BACKENDS = ('backends.EmailBackend',
+AUTHENTICATION_BACKENDS = ('vokalforening.backends.EmailBackend',
     "django.contrib.auth.backends.ModelBackend",)
 
 DEVELOPMENT_MODE = (platform.node() != PRODUCTION_HOSTNAME)
