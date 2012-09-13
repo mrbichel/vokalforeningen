@@ -49,8 +49,10 @@ GRAPPELLI_INDEX_DASHBOARD = 'vokalforeningen.dashboard.CustomIndexDashboard'
 
 # Static files
 MEDIA_ROOT = BASE_PATH + '/../media'
-STATIC_ROOT = BASE_PATH + '/../static'
+STATIC_ROOT = BASE_PATH + '/../static_build'
+
 STATICFILES_DIRS = (
+    BASE_PATH + '/../static',
 )
 
 TIME_ZONE = 'Europe/Copenhagen'

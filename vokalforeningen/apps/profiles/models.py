@@ -19,8 +19,6 @@ class Profile(models.Model):
     birthdate = models.DateField('Fødselsdato', blank=True)
     bio = models.TextField('Biografi', blank=True)
     
-    board_member = models.BooleanField(default=False)
-
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
 
     image = ImageField('Profilbillede',
