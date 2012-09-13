@@ -23,9 +23,6 @@
         </nav>
 
         <h1>
-            {% if profile.board_member %}
-            <span>Bestyrelsesmedlem:</span>
-            {% endif %} 
             
             {{ profile.user.get_full_name }}
         </h1>

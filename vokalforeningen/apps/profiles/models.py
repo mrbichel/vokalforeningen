@@ -16,7 +16,7 @@ class Profile(models.Model):
     city = models.CharField('By', max_length=255, blank=True)
     phone_number = models.CharField('Telefon', max_length=20, blank=True)
     mobile_phone_number = models.CharField('Mobil telefon', max_length=20, blank=True)
-    birthdate = models.DateField('Fødselsdato', blank=True)
+    birthdate = models.DateField('Fødselsdato', blank=True, null=True)
     bio = models.TextField('Biografi', blank=True)
     
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
