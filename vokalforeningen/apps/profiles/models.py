@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 import datetime
 from django.contrib.auth.models import User
@@ -17,6 +18,7 @@ class Profile(models.Model):
     mobile_phone_number = models.CharField('Mobil telefon', max_length=20, blank=True)
     birthdate = models.DateField('Fødselsdato', blank=True)
     bio = models.TextField('Biografi', blank=True)
+    
     board_member = models.BooleanField(default=False)
 
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)

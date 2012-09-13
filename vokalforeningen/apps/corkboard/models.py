@@ -19,6 +19,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "kategorier"
+        verbose_name = "kategori"
+
 class Note(models.Model):
     title = models.CharField(u"Titel", max_length=60)
     author = models.ForeignKey(User)
@@ -36,6 +40,9 @@ class Note(models.Model):
 
     class Meta:
         get_latest_by = 'pub_date'
+        verbose_name_plural = "noter"
+        verbose_name = "note"
+
 
     def __unicode__(self):
         return self.title

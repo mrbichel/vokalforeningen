@@ -43,10 +43,14 @@ else:
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_DEBUG = DEBUG
 
+
+GRAPPELLI_ADMIN_TITLE = "Dansk Vokalforening"
+GRAPPELLI_INDEX_DASHBOARD = 'vokalforeningen.dashboard.CustomIndexDashboard'
+
 # Static files
 MEDIA_ROOT = BASE_PATH + '/../media'
+STATIC_ROOT = BASE_PATH + '/../static'
 STATICFILES_DIRS = (
-    BASE_PATH + '/../static',
 )
 
 TIME_ZONE = 'Europe/Copenhagen'
@@ -74,15 +78,26 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
 
 TEMPLATE_DIRS = (
     BASE_PATH + '/templates/'
@@ -102,6 +117,11 @@ INSTALLED_APPS = (
     'south',
     'sorl.thumbnail',
     'notification',
+
+    'flatblocks',
+    'grappelli.dashboard',
+    'grappelli',
+    'debug_toolbar',
 
     # Django
     'django.contrib.auth',

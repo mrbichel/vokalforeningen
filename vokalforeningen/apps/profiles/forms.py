@@ -4,6 +4,8 @@
 Forms and validation code for user registration.
 
 """
+from __future__ import unicode_literals
+
 from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib.auth.models import User

@@ -1,10 +1,10 @@
 # coding=utf-8
-
+from __future__ import unicode_literals
 import uuid
 from django.core.mail import mail_managers, send_mail
 from profiles.models import Profile
 from django.contrib.auth.views import login as login_view
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import list_detail
@@ -18,25 +18,38 @@ from profiles.forms import RegistrationForm
 
 PAGINATE_MEMBERS_BY = getattr(settings, 'PAGINATE_BY', 30)
 
-def board(request, **kwargs):
+def group(request, id, **kwargs):
+
+    groups = Group.objects.all()
+    group = get_object_or_404(Group, id=id)
+
     return list_detail.object_list(
         request,
-        queryset=Profile.objects.filter(board_member=True),
-        template_name="profiles/profile_board.html",
+        queryset=Profile.objects.filter(user__groups=group),
+        template_name="profiles/profile_group.html",
+        extra_context={"groups": groups, "group": group,},
         **kwargs
     )
 
 def list(request, **kwargs):
+
+    groups = Group.objects.all()
+
     return list_detail.object_list(
         request,
         queryset=Profile.objects.filter(user__is_active=True).order_by('user__first_name'),
+        extra_context={"groups": groups},
         paginate_by=PAGINATE_MEMBERS_BY,
         **kwargs
     )
 
 def detail(request, id):
+
+    groups = Group.objects.all()
+
+
     user = get_object_or_404(User, id=id)
-    return render(request, "profiles/profile_detail.html", {'profile': user.get_profile()})
+    return render(request, "profiles/profile_detail.html", {'profile': user.get_profile(), 'groups': groups,})
  
 def update(request, id):
     user = get_object_or_404(User, id=id)

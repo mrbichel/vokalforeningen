@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.db import models
 import datetime
 import os
@@ -24,6 +25,9 @@ class CommonFileInfo(models.Model):
         get_latest_by = 'upload_date'
         abstract = True
 
+        verbose_name_plural = "filer"
+        verbose_name = "fil"
+
     def get_absolute_url(self):
         return ''
 
@@ -41,6 +45,10 @@ class Image(CommonFileInfo):
     file = ImageField(
         upload_to="images/%Y/%m/",
     )
+
+    class Meta:
+        verbose_name_plural = "billeder"
+        verbose_name = "billede"
 
     def save(self, *args, **kwargs):
         commonFileSave(self)

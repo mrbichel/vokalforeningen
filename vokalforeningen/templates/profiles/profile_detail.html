@@ -12,11 +12,8 @@
     <header class="wrapper">
         
         <nav class="context-nav">
-        
-            <ul class="left">
-                <li><a href="{% url profiles_index %}">se alle medlemmer</a></li>
-            </ul>
-        
+
+            {% include "profiles/_profile_nav.html" %}
 
         {% ifequal profile.user user %}
             <ul class="edit-nav right">

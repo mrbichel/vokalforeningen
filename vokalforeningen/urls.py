@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     (r'^notification/', include('notification.urls')),
     
     url(r'^$', 'vokalforeningen.views.index', name='index'),
+
+    (r'^grappelli/', include('grappelli.urls')),
     url(r'^a/doc/', include('django.contrib.admindocs.urls')),
     url(r'^a/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',

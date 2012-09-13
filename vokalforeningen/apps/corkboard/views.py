@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import datetime
 import pprint
 from django.contrib.auth.views import redirect_to_login

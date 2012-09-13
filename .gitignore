@@ -11,3 +11,4 @@ dump.json
 vokalforeningen.tmproj
 static/admin
 vokalforeningen/settings_local.py
+/static/grappelli/

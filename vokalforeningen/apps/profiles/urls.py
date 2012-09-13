@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('profiles.views',
@@ -6,9 +7,9 @@ urlpatterns = patterns('profiles.views',
         name='profiles_index'
     ),
 
-    url(r'^board/$',
-        'board',
-        name='profiles_board'
+    url(r'^group/(?P<id>\d+)/$',
+        'group',
+        name='profiles_group'
     ),
 
     url(r'^(?P<id>\d+)/$',

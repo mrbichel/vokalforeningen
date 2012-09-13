@@ -12,3 +12,6 @@ psycopg2
 fabric
 -e git://github.com/aladagemre/django-notification.git#egg=django-notification
 ipython
+django-debug-toolbar
+django-flatblocks
+django-grappelli

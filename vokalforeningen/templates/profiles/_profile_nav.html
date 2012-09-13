@@ -1,0 +1,6 @@
+<ul class="left">
+    {% for group in groups %}
+        <li><a href="{% url profiles_group group.id %}">{{ group }}</a></li>
+    {% endfor %}
+    <li><a href="{% url profiles_index %}">alle medlemmer</a></li>
+</ul>

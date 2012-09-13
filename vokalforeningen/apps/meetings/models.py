@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 import datetime
 from django.db import models
 
@@ -15,6 +19,11 @@ class Meeting(models.Model):
     def save(self, *args, **kwargs):
         self.mod_date = datetime.datetime.now()
         super(Meeting, self).save(*args, **kwargs)
+
+
+    class Meta:
+        verbose_name_plural = "møder"
+        verbose_name = "møde"
 
     @models.permalink
     def get_absolute_url(self):

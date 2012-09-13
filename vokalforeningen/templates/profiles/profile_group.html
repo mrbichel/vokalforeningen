@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Bestyrelsen - {{ block.super }}{% endblock %}
+{% block title %}{{ group }} - {{ block.super }}{% endblock %}
 
 {% block content %}
 
@@ -10,14 +10,12 @@
             
             <nav class="context-nav">
 
-                <ul class="left">
-                    <li><a href="{% url profiles_index %}">se alle medlemmer</a></li>
-                </ul>
+                {% include "profiles/_profile_nav.html" %}
 
             </nav>
             
             
-            <h1>Bestyrelsen</h1>
+            <h1>{{ group }}</h1>
 
         </header>
 
