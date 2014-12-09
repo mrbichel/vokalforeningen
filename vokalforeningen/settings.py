@@ -16,7 +16,8 @@ ADMINS = (
 )
 MANAGERS = ADMINS + (
     ('Malene Bichel', 'malenebi@gmail.com'),
-    ('Dorte Hyldstrup', 'dortehyldstrup@dortehyldstrup.dk')
+    ('Anne Marie', 'amk@vmn.dk'),
+
 )
 
 AUTHENTICATION_BACKENDS = ('vokalforeningen.backends.EmailBackend',

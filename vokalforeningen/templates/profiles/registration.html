@@ -6,7 +6,7 @@
 {% block content %}
 
     <section id="registration-form" class="wrapper">
-      
+
             <header>
                 <h1>Bliv medlem af Dansk Vokalforening i dag!</h1>
             </header>
@@ -15,13 +15,13 @@
                 Det koster 250 DKK om året at være medlem af foreningen og 150 DKK for studerende.
                  Kontingentet indbetales til vores konto i Danske Bank: <br>
 
-                <em>registreringsnummer: 9581 <br>kontonummer: 10060206</em>
+                <em>registreringsnummer: 8401 <br>kontonummer: 1277138</em>
 
                 <br>
                 Dit medlemskab vil blive aktiveret så snart at kasseren har registreret din indbetaling.
-                
+
              </p>
-        
+
 
 
             <form action="{% url registration %}" method=post>{% csrf_token %}
@@ -92,7 +92,7 @@
 
                      <fieldset id="accept-section">
                             <legend>Vedtægter og nyhedsbrev</legend>
-                            
+
                             <ol>
                                 <li>{{ form.accept.errors }}
                                     <label for=id_accept>Jeg har læst og accepterer Dansk Vokalforenings vedtægter, og er indforstået med at jeg som medlem modtager Dansk Vokalforenings nyhedsbrev.</label>
