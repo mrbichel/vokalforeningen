@@ -1,4 +1,4 @@
-Django
+django
 markdown
 pillow
 mailsnake

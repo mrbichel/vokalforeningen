@@ -31,7 +31,7 @@ class Note(models.Model):
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
     category = models.ForeignKey(Category, blank=True, null=True)
-    
+
     is_event = models.BooleanField(default=False, editable=False)
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField("Slut", blank=True, null=True)
@@ -83,7 +83,7 @@ def send_comment_notification(sender, comment, request, **kwargs):
 
     users = []
     def appendUser(u):
-        if u not in users and u.get_profile().receive_email and u.is_active:
+        if u not in users and u.profile.receive_email and u.is_active:
             users.append(u)
 
     if comment.user.id is not obj.author.id:
@@ -105,15 +105,12 @@ def send_post_notification(sender, **kwargs):
     # no point in proceeding if notification is not available
     if not notification:
         return
-    
-    note = kwargs['instance'] 
-    
+
+    note = kwargs['instance']
+
     data = {
         'note': note,
     }
 
     users = User.objects.filter(is_active=True, profile__receive_email=True).exclude(id=note.author.id)
     notification.send(users, 'note_posted', data)
-
-
-

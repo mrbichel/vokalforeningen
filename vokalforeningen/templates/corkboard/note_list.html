@@ -55,7 +55,7 @@
                 <li class=comments><span class=count>{{ comment_count }}</span> kommentar{{ comment_count|pluralize:"er" }}</li>
 
                 <li class=author>
-                    <a href="{{ object.author.get_profile.get_absolute_url }}">{{ object.author.get_full_name }}</a>
+                    <a href="{{ object.author.profile.get_absolute_url }}">{{ object.author.get_full_name }}</a>
                 </li>
 
                 <li><time class="pubdate" datetime="{{ object.pub_date|date:"c" }}">{{ object.pub_date|timesince }} siden</time></li>

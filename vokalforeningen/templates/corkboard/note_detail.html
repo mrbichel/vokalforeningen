@@ -71,8 +71,8 @@
 
                     <div class="img">
                         <figure class="avatar">
-                        <a href="{{ comment.user.get_profile.get_absolute_url }}">
-                            {% thumbnail comment.user.get_profile.image "48x48" crop="center" as img %}
+                        <a href="{{ comment.user.profile.get_absolute_url }}">
+                            {% thumbnail comment.user.profile.image "48x48" crop="center" as img %}
                                 <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}">
                             {% empty %}
                                 <img src="default">
@@ -83,7 +83,7 @@
 
                     <div class="comment-content">
                     <header>
-                        <h3><a href="{{ comment.user.get_profile.get_absolute_url }}">{{ comment.user.get_full_name }}</a></h3>
+                        <h3><a href="{{ comment.user.profile.get_absolute_url }}">{{ comment.user.get_full_name }}</a></h3>
                     </header>
 
                     {{ comment.comment|markdown:"urlize" }}

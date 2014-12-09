@@ -14,7 +14,7 @@ def getStatusString(user):
 def updateProfile(user):
     if not settings.DEVELOPMENT_MODE:
         ms, list = getChimp()
-        profile = user.get_profile
+        profile = user.profile
 
         vars = {
             'FNAME': getattr(user,'first_name', ''),
