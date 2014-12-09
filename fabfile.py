@@ -13,5 +13,4 @@ def deploy():
             run('pip install -r requirements.txt')
             run('python manage.py migrate')
             run('python manage.py collectstatic')
-            run('python manage.py cleanup')
             run('touch vokalforeningen/wsgi.py') # this triggers a gracefull reload

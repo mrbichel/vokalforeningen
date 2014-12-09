@@ -12,6 +12,9 @@ ROOT_URLCONF = 'vokalforeningen.urls'
 
 sys.path.append(BASE_PATH + '/apps')
 
+ALLOWED_HOSTS = ['vokalforening.dk']
+
+
 ADMINS = (
     ('Johan Bichel Lindegaard', 'sysadmin@tango.johan.cc'),
 )
