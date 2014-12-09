@@ -7,7 +7,8 @@ from django.contrib.auth.views import login as login_view
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import list_detail
+from django.views.generic.list import ListView
+
 from django.template import loader, Context
 from profiles.forms import LoginForm
 
@@ -18,42 +19,41 @@ from profiles.forms import RegistrationForm
 
 PAGINATE_MEMBERS_BY = getattr(settings, 'PAGINATE_BY', 30)
 
-def group(request, id, **kwargs):
+class Grouplist(ListView):
 
-    groups = Group.objects.all()
-    group = get_object_or_404(Group, id=id)
+    def get_queryset(self, **kwargs):
+        group = get_object_or_404(Group, id=self.kwargs['id'])
+        return Profile.objects.filter(user__groups=group)
 
-    return list_detail.object_list(
-        request,
-        queryset=Profile.objects.filter(user__groups=group),
-        template_name="profiles/profile_group.html",
-        extra_context={"groups": groups, "group": group,},
-        **kwargs
-    )
+    def get_context_data(self, **kwargs):
+        group = get_object_or_404(Group, id=self.kwargs['id'])
+        # Call the base implementation first to get a context
+        context = super(Grouplist, self).get_context_data(**kwargs)
+        # Add in the publisher
+        context['groups'] = Group.objects.all()
+        context['group'] = group
 
-def list(request, **kwargs):
+        return context
 
-    groups = Group.objects.all()
+    template_name="profiles/profile_group.html"
 
-    return list_detail.object_list(
-        request,
-        queryset=Profile.objects.filter(user__is_active=True).order_by('user__first_name'),
-        extra_context={"groups": groups},
-        paginate_by=PAGINATE_MEMBERS_BY,
-        **kwargs
-    )
+
+class Memberlist(ListView):
+    queryset=Profile.objects.filter(user__is_active=True).order_by('user__first_name')
+    extra_context={"groups": Group.objects.all()}
+    paginate_by=PAGINATE_MEMBERS_BY
+
 
 def detail(request, id):
 
     groups = Group.objects.all()
 
-
     user = get_object_or_404(User, id=id)
-    return render(request, "profiles/profile_detail.html", {'profile': user.get_profile(), 'groups': groups,})
- 
+    return render(request, "profiles/profile_detail.html", {'profile': get_object_or_404(Profile, user=user), 'groups': groups,})
+
 def update(request, id):
     user = get_object_or_404(User, id=id)
-    profile = user.get_profile()
+    profile = get_object_or_404(Profile, user=user)
 
     if request.user == user:
         if request.method == 'POST':
@@ -104,7 +104,7 @@ def registration(request):
             user.is_active = False
             user.save()
 
-            profile = user.get_profile()
+            profile = user.profile
 
             profile.address = data['address']
             profile.postal_code = data['postal_code']
@@ -118,9 +118,9 @@ def registration(request):
                 'name': user.get_full_name(),
             })
             send_mail('Indmeldelse i Dansk Vokalforening', t.render(c), settings.DEFAULT_FROM_EMAIL, [user.email])
-            
+
             mail_managers('DVF: Nyt medlem.', '{} vil gerne være medlem i Dansk Vokalforening. Husk at aktivere personens bruger når kontingent er gået ind på kontoen.'.format(user.get_full_name()) , settings.DEFAULT_FROM_EMAIL)
-            
+
 
             return render(request, "profiles/registration_complete.html")
     else:

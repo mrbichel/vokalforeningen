@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
-{% load markup %}
+{% load markdown_deux_tags %}
 
 {% block title %}{{ profile.user.get_full_name }} - {{ block.super }}{% endblock %}
 
 
 {% block content %}
 <section id="profile">
-    
+
 
     <header class="wrapper">
-        
+
         <nav class="context-nav">
 
             {% include "profiles/_profile_nav.html" %}
 
         {% ifequal profile.user user %}
             <ul class="edit-nav right">
-                <li><a href="{% url profile_update profile.user.id %}">Rediger profil</a></li>
+                <li><a href="{% url 'profile_update' profile.user.id %}">Rediger profil</a></li>
             </ul>
         {% endifequal %}
         </nav>
 
         <h1>
-            
+
             {{ profile.user.get_full_name }}
         </h1>
-    
+
     </header>
 
     <section id="about" class="wrapper">

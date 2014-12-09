@@ -65,7 +65,7 @@ class Command(BaseCommand):
                 u.set_password(item.find('password').text)
                 u.save()
 
-                p = u.get_profile()
+                p = u.profile()
                 try:
                     p.url = item.find('hjemmeside').text
                 except AttributeError:

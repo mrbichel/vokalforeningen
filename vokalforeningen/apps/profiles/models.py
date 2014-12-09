@@ -18,7 +18,7 @@ class Profile(models.Model):
     mobile_phone_number = models.CharField('Mobil telefon', max_length=20, blank=True)
     birthdate = models.DateField('Fødselsdato', blank=True, null=True)
     bio = models.TextField('Biografi', blank=True)
-    
+
     mod_date = models.DateTimeField(editable=False, default=datetime.datetime.now)
 
     image = ImageField('Profilbillede',
@@ -66,8 +66,8 @@ def user_updated(sender, instance, created, **kwargs):
         else:
             user = instance
 
-        mailchimp.updateProfile(user)  
-        
+        mailchimp.updateProfile(user)
+
 post_save.connect(user_updated, sender=User)
 post_save.connect(user_updated, sender=Profile)
 

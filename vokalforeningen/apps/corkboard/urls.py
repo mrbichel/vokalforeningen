@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.conf.urls import patterns, url
+from views import EventList, ByCategory, NoteList
 
 urlpatterns = patterns('corkboard.views',
     url(r'^(?P<id>\d+)/$',
@@ -8,12 +9,12 @@ urlpatterns = patterns('corkboard.views',
     ),
 
     url(r'^e$',
-        'event_list',
+        EventList.as_view(),
         name='corkboard_events',
     ),
 
     url(r'^n$',
-        'note_list',
+        NoteList.as_view(),
         name='corkboard_notes'
     ),
 
@@ -26,7 +27,7 @@ urlpatterns = patterns('corkboard.views',
         'create', {'event': True},
         name='event_create'
     ),
-    
+
     url(r'^(?P<id>\d+)/update/$',
         'update',
         name='note_update'
@@ -38,7 +39,7 @@ urlpatterns = patterns('corkboard.views',
     ),
 
     url(r'^(?P<slug>[^/]+)/$',
-        'by_category',
+        ByCategory.as_view(),
         name='note_by_category'
     ),
 

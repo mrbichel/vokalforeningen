@@ -1,15 +1,16 @@
-Django==1.4
-markdown==2.0.3
+Django
+markdown
 pillow
-South
--e git://github.com/bradwhittington/mailsnake.git@95b15567049fe28946f6f23de8ee3064d0737fb6#egg=mailsnake-dev
+mailsnake
 markdown2
-sorl-thumbnail
+sorl-thumbnail==11.12.1b
 wsgiref
 python-memcached
-psycopg2
 fabric
--e git://github.com/aladagemre/django-notification.git#egg=django-notification
+django-notification
 django-debug-toolbar
 django-flatblocks
 django-grappelli
+psycopg2
+django-markwhat
+django-markdown-deux

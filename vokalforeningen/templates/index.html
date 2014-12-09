@@ -13,7 +13,7 @@
 
     {% if user.is_anonymous %}
         <section id="introduction" class="wrapper">
-                
+
                 <header><h1>Forum for professionelle stemmebrugere</h1></header>
                 <div>
                     <p><abbr title="Dansk Vokalforening">DVF</abbr> samler det vokale Danmark i et fagligt forum præget af
@@ -23,7 +23,7 @@
                     <p>Er du sanger, sangunderviser, talepædagog, logopæd, halslæge, retoriker, skuespiller, dubber,
                         korleder, akustiker, tonemester, producer eller på anden måde professionelt beskæftiget med den
                         menneskelige stemme, så er <abbr title="Dansk Vokalforening">DVF</abbr> en forening for dig.
-                        <a  href="{% url registration %}">Bliv medlem &hellip;</a></p>
+                        <a  href="{% url 'registration' %}">Bliv medlem &hellip;</a></p>
 
                 </div>
 
@@ -41,7 +41,7 @@
             </article>
         {% endfor %}
 
-        <a class="action" href="{% url corkboard_notes %}">Se alle opslag</a>
+        <a class="action" href="{% url 'corkboard_notes' %}">Se alle opslag</a>
     </section>
 
     <section id="events" class=wrapper>
@@ -56,7 +56,7 @@
             </article>
         {% endfor %}
 
-        <a class="action" href="{% url corkboard_events %}">Se alle events</a>
+        <a class="action" href="{% url 'corkboard_events' %}">Se alle events</a>
     </section>
 
     <section id="members" class="wrapper">
@@ -72,7 +72,7 @@
             </a></li>
         {% endfor %}
         </ul>
-        <a class="action" href="{% url profiles_index %}">Se alle medlemmer</a>
+        <a class="action" href="{% url 'profiles_index' %}">Se alle medlemmer</a>
     </section>
 
 

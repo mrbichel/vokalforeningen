@@ -2,6 +2,7 @@
 import os.path
 import sys
 import platform
+import re
 
 PRODUCTION_HOSTNAME = "tango"
 
@@ -103,7 +104,7 @@ MIDDLEWARE_CLASSES = (
 
 
 TEMPLATE_DIRS = (
-    BASE_PATH + '/templates/'
+    BASE_PATH + '/templates/',
 )
 
 DATE_INPUT_FORMATS = ('%m/%d/%Y', '%Y-%m-%d', '%m/%d/%y', '%b %d %Y',
@@ -117,7 +118,6 @@ INSTALLED_APPS = (
     'profiles',
 
     # Third-party
-    'south',
     'sorl.thumbnail',
     'notification',
 
@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'grappelli.dashboard',
     'grappelli',
     'debug_toolbar',
+    'markdown_deux',
 
     # Django
     'django.contrib.auth',
@@ -135,7 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'django.contrib.markup',
+    'django_markwhat',
     'django.contrib.sitemaps',
     'django.contrib.comments',
     'django.contrib.flatpages',
@@ -178,6 +179,25 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+    }
+}
+
+MARKDOWN_DEUX_STYLES = {
+    "default": {
+        "extras": {
+            "code-friendly": None,
+        },
+        "safe_mode": "escape",
+    },
+    "urlize": {
+        "extras": {
+            "code-friendly": None,
+        },
+        "link_patterns": [
+            (re.compile(r'(^|[\n ])(([\w]+?://[\w\#$%&~.\-;:=,?@\[\]+]*[^ \<]*[^ \<\.])(/[\w\#$%&~/.\-;:=,?@\[\]+]*)?)', re.IGNORECASE | re.DOTALL), r'\2'),
+            (re.compile(r'(^|[\n ])(((www|ftp|http)\.[\w\#$%&~.\-;:=,?@\[\]+]*[^ \<]*[^ \<\.])(/[\w\#$%&~/.\-;:=,?@\[\]+]*)?)', re.IGNORECASE | re.DOTALL), r'http://\2')
+        ],
+        "safe_mode": "escape",
     }
 }
 

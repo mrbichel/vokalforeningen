@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load markup %}
+{% load markdown_deux_tags %}
 {% load comments %}
 {% load flatpages %}
 
@@ -12,7 +12,7 @@
 <article id="{{ flatpage.slug }}" class="wrapper">
 
     <header>
-        
+
         {% get_flatpages for user as flatpages %}
         <nav class="context-nav">
         <ul id="flatpages-nav" class="left">
@@ -20,26 +20,26 @@
                 <li><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endfor %}
         </ul>
-        
-        
+
+
          {% if user.is_staff %}
                 <ul class="edit-nav right">
-                    <li><a href="{% url admin:flatpages_flatpage_change flatpage.id %}">rediger</a></li>
-                    <li><a href="{% url admin:flatpages_flatpage_delete flatpage.id %}">slet</a></li>
-                    <li><a href="{% url admin:flatpages_flatpage_add %}">ny side</a></li>
-                    
+                    <li><a href="{% url 'admin:flatpages_flatpage_change' flatpage.id %}">rediger</a></li>
+                    <li><a href="{% url 'admin:flatpages_flatpage_delete' flatpage.id %}">slet</a></li>
+                    <li><a href="{% url 'admin:flatpages_flatpage_add' %}">ny side</a></li>
+
                 </ul>
             {% endif %}
-        
-        
+
+
         </nav>
-        
-        
-        
+
+
+
         <h1>{{ flatpage.title }}</h1>
     </header>
 
-    {{ flatpage.content|markdown:"urlize" }}
+    {{ flatpage.content|markdown }}
 
 
 {% if user.is_staff %}

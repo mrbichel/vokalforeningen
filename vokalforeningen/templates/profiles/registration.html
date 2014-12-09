@@ -24,7 +24,7 @@
 
 
 
-            <form action="{% url registration %}" method=post>{% csrf_token %}
+            <form action="{% url 'registration' %}" method=post>{% csrf_token %}
 
                 {{ form.non_field_errors }}
 

@@ -1,14 +1,16 @@
 from __future__ import unicode_literals
 from django.conf.urls import patterns, url
+from views import Memberlist, Grouplist
+
 
 urlpatterns = patterns('profiles.views',
     url(r'^$',
-        'list',
+        Memberlist.as_view(),
         name='profiles_index'
     ),
 
     url(r'^group/(?P<id>\d+)/$',
-        'group',
+        Grouplist.as_view(),
         name='profiles_group'
     ),
 

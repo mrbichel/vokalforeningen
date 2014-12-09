@@ -1,6 +1,6 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
-from django.core.validators import email_re
+from django.core.validators import validate_email
 
 class EmailBackend(ModelBackend):
     """
@@ -8,7 +8,7 @@ class EmailBackend(ModelBackend):
     """
     def authenticate(self, username=None, password=None):
         #If username is an email address, then try to pull it up
-        if email_re.search(username):
+        if validate_email(username):
             try:
                 user = User.objects.get(email=username)
             except User.DoesNotExist:

@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load markup %}
-
+{% load markdown_deux_tags %}
 {% block title %}{{ object.title }} - {{ block.super }}{% endblock %}
 
 
@@ -9,22 +8,22 @@
     <article id="meeting" class="wrapper">
 
     <header>
-        
+
         <nav class="context-nav">
 
             <ul class="left">
-                <li><a href="{% url meetings_index %}">se alle møder</a></li>
+                <li><a href="{% url 'meetings_index' %}">se alle møder</a></li>
             </ul>
 
         {% if user.is_staff %}
             <ul class="edit-nav right">
-                <li><a href="{% url admin:meetings_meeting_change object.id %}">rediger</a></li>
-                <li><a href="{% url admin:meetings_meeting_delete object.id %}">slet</a></li>
+                <li><a href="{% url 'admin:meetings_meeting_change' object.id %}">rediger</a></li>
+                <li><a href="{% url 'admin:meetings_meeting_delete' object.id %}">slet</a></li>
             </ul>
         {% endif %}
         </nav>
-        
-        
+
+
         <h2><time class="date" datetime="{{ object.date|date:"c" }}">{{ object.date|date }} klokken {{ object.date|time }}</time></h2>
                     <h1>{{ object.title }}</h1>
     </header>
@@ -39,7 +38,7 @@
 
         <h2>Referat</h2>
         {% if object.minutes %}
-        {{ object.minutes|urlize|markdown }}
+        {{ object.minutes|markdown }}
         {% else %}
         <p>Referat fra mødet er endnu ikke lagt op.</p>
         {% endif %}

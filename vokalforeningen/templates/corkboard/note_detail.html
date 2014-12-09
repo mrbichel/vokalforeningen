@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load markup %}
+{% load markdown_deux_tags %}
 {% load thumbnail %}
 {% load comments %}
 
@@ -12,31 +12,31 @@
 
     <article id="id{{ object.id }}" class="wrapper">
 
-    
+
 
 
 
     <header>
         <nav class="context-nav">
-        
+
             <ul class="left">
                 {% if object.is_event %}
-                <li><a href="{% url corkboard_events %}">se alle events</a></li>
+                <li><a href="{% url 'corkboard_events' %}">se alle events</a></li>
                 {% else %}
-                <li><a href="{% url corkboard_notes %}">se alle opslag</a></li>
+                <li><a href="{% url 'corkboard_notes' %}">se alle opslag</a></li>
                 {% endif %}
             </ul>
-            
+
             {% ifequal user object.author %}
                 <nav class="edit-nav right">
                     <ul>
-                        <li><a href="{% url note_update object.id %}">rediger</a></li>
-                        <li><a href="{% url note_delete object.id %}">slet</a></li>
+                        <li><a href="{% url 'note_update' object.id %}">rediger</a></li>
+                        <li><a href="{% url 'note_delete' object.id %}">slet</a></li>
                     </ul>
                 </nav>
             {% endifequal %}
         </nav>
-        
+
         <h1>{{ object.title }}</h1>
     </header>
 
@@ -123,7 +123,7 @@
                   </form>
                 </section>
             {% else %}
-                <p><a href="{% url login %}">Log ind</a> eller <a href="{% url registration %}">bliv medlem</a> for at kommentere.</p>
+                <p><a href="{% url 'login' %}">Log ind</a> eller <a href="{% url 'registration' %}">bliv medlem</a> for at kommentere.</p>
             {% endif %}
 
         </section>

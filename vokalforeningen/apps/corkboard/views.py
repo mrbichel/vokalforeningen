@@ -8,41 +8,41 @@ from models import Note, Category
 from forms import NoteForm, TimeForm
 from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import list_detail, date_based, create_update
+from django.views.generic.list import ListView
+from django.views.generic.edit import DeleteView
+
 from django.conf import settings
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
 
 
-def event_list(request, **kwargs):
-    return list_detail.object_list(
-        request,
-        queryset=Note.objects.filter(is_event=True, end__gte=datetime.datetime.now()-datetime.timedelta(days=1)).order_by('start'),
-        paginate_by=PAGINATE_BY,
-        extra_context={'listtitle': 'Events'},
-        **kwargs
-    )
+class EventList(ListView):
 
-def note_list(request, **kwargs):
-    return list_detail.object_list(
-        request,
-        queryset=Note.objects.filter(is_event=False).order_by('-pub_date'),
-        paginate_by=PAGINATE_BY,
-        extra_context={'listtitle': 'Opslag'},
-        **kwargs
-    )
+    def get_queryset(self, **kwargs):
+        return Note.objects.filter(is_event=True, end__gte=datetime.datetime.now()-datetime.timedelta(days=1)).order_by('start')
+
+    paginate_by=PAGINATE_BY
+    extra_context={'listtitle': 'Events'}
+
+class NoteList(ListView):
+
+    def get_queryset(self, **kwargs):
+        return Note.objects.filter(is_event=False).order_by('-pub_date')
+
+    paginate_by=PAGINATE_BY
+    extra_context={'listtitle': 'Opslag'}
 
 def detail(request, id):
     note = get_object_or_404(Note, id=id)
     return render(request, "corkboard/note_detail.html", {'object': note})
 
-def by_category(request, slug, **kwargs):
-    cat = get_object_or_404(Category, slug=slug)
-    return list_detail.object_list(
-        request,
+class ByCategory(ListView):
+
+    def get_queryset(self, **kwargs):
+        cat = get_object_or_404(Category, slug=self.args[0])
         queryset=Note.objects.filter(category=cat),
-        paginate_by=PAGINATE_BY,
-        **kwargs
-    )
+
+    paginate_by=PAGINATE_BY,
+
 
 def create(request, event):
     if request.user.is_authenticated():
@@ -81,7 +81,7 @@ def create(request, event):
                         note.is_event = True
                         note.save()
                         return HttpResponseRedirect(note.get_absolute_url())
-                    
+
         else:
             form = NoteForm()
             if event:
@@ -141,17 +141,14 @@ def update(request, id):
     else:
         return HttpResponseForbidden("Du har ikke tilladelse til at redigere dette opslag.")
 
-def delete(request, id):
+def delete(DeleteView):
     note = Note.objects.get(id=id)
     if request.user == note.author:
 
-        return create_update.delete_object(
-            request,
             login_required=True,
             model=Note,
             object_id=id,
             post_delete_redirect="/",
-        )
 
     else:
         return HttpResponseForbidden("Du har ikke tilladelse til at slette dette opslag.")

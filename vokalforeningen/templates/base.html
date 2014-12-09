@@ -52,32 +52,32 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
         <header id="site-header">
 
             <div id="site-logo" class="wrapper">
-                <a href="{% url index %}">
+                <a href="/">
                     <h1><span>Dansk Vokalforening</span></h1>
                 </a>
             </div>
 
             <nav id="main-navigation" class="wrapper">
                 <ul>
-                    <li><a href="{% url profiles_index %}">Medlemmer</a></li>
-                    <li><a href="{% url corkboard_events %}">Events</a></li>
-                    <li><a href="{% url corkboard_notes %}">Opslag</a></li>
+                    <li><a href="{% url 'profiles_index' %}">Medlemmer</a></li>
+                    <li><a href="{% url 'corkboard_events' %}">Events</a></li>
+                    <li><a href="{% url 'corkboard_notes' %}">Opslag</a></li>
                     <li><a href="/i/">Om foreningen</a></li>
-                    <li><a href="{% url meetings_index %}">Møder og referater</a></li>
+                    <li><a href="{% url 'meetings_index' %}">Møder og referater</a></li>
                 </ul>
             </nav>
 
             <nav id="user-navigation">
                 <ul>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url profile_detail user.id %}">{{ user.get_full_name }}</li>
+                        <li><a href="{% url 'profile_detail' user.id %}">{{ user.get_full_name }}</li>
                         {% if user.is_staff %}
                             <li><a href="/a">admin</a></li>
                         {% endif %}
-                        <li><a href="{% url logout %}">log ud</a></li>
+                        <li><a href="{% url 'logout' %}">log ud</a></li>
                     {% else %}
-                        <li><a href="{% url login %}">Log ind</a></li>
-                        <li><a href="{% url registration %}">Bliv medlem</a></li>
+                        <li><a href="{% url 'login' %}">Log ind</a></li>
+                        <li><a href="{% url 'registration' %}">Bliv medlem</a></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -96,13 +96,13 @@ http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
             <nav class="wrapper">
                 <ul>
                     <li><a href="#top">til toppen</a></li>
-                    <li><a href="{% url index %}">Forside</a></li>
+                    <li><a href="/">Forside</a></li>
                     <li><a href="/i/">Om Dansk Vokalforening</a></li>
-                    <li><a href="{% url profiles_index %}">Medlemmer</a></li>
+                    <li><a href="{% url 'profiles_index' %}">Medlemmer</a></li>
 
-                    <li><a href="{% url corkboard_events %}">Events</a></li>
-                    <li><a href="{% url corkboard_notes %}">Opslag</a></li>
-                    <li><a href="{% url meetings_index %}">Møder og referater</a></li>
+                    <li><a href="{% url 'corkboard_events' %}">Events</a></li>
+                    <li><a href="{% url 'corkboard_notes' %}">Opslag</a></li>
+                    <li><a href="{% url 'meetings_index' %}">Møder og referater</a></li>
                 </ul>
             </nav>
 
