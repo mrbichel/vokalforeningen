@@ -19,7 +19,7 @@ ADMINS = (
     ('Johan Bichel Lindegaard', 'sysadmin@tango.johan.cc'),
 )
 MANAGERS = ADMINS + (
-    ('Malene Bichel', 'malenebi@gmail.com'),
+    ('Malene Bichel', 'malbichel@gmail.com'),
     ('Anne Marie', 'amk@vmn.dk'),
 
 )
