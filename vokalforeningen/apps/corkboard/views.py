@@ -10,6 +10,7 @@ from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect, Ht
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView
+from django.views.decorators.csrf import csrf_protect
 
 from django.conf import settings
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
@@ -44,9 +45,10 @@ class ByCategory(ListView):
     paginate_by=PAGINATE_BY,
 
 
+@csrf_protect
 def create(request, event):
     if request.user.is_authenticated():
-        c = Context()
+        c = {}
         if request.method == 'POST':
             form = NoteForm(request.POST)
             if event:
