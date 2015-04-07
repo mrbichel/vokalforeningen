@@ -2,9 +2,9 @@
 
 import datetime
 import pprint
-from django.contrib.comments.signals import comment_was_posted
+from django_comments.signals import comment_was_posted
 from django.db.models.signals import post_save
-from django.contrib.comments.models import Comment
+from django_comments.models import Comment
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models import get_app
 from django.dispatch import receiver

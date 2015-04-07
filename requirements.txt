@@ -4,13 +4,11 @@ pillow
 mailsnake
 markdown2
 sorl-thumbnail==11.12.1b
-wsgiref
 python-memcached
 fabric
 django-notification
 django-debug-toolbar
 django-flatblocks
 django-grappelli
-psycopg2
 django-markwhat
 django-markdown-deux

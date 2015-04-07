@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 import datetime
 import pprint
 from django.contrib.auth.views import redirect_to_login
@@ -10,6 +9,7 @@ from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect, Ht
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView
+from django.template.context_processors import csrf
 
 from django.conf import settings
 PAGINATE_BY = getattr(settings, 'PAGINATE_BY', 12)
@@ -47,6 +47,8 @@ class ByCategory(ListView):
 def create(request, event):
     if request.user.is_authenticated():
         c = Context()
+        c.update(csrf(request))
+
         if request.method == 'POST':
             form = NoteForm(request.POST)
             if event:

@@ -44,21 +44,6 @@
         <a class="action" href="{% url 'corkboard_notes' %}">Se alle opslag</a>
     </section>
 
-    <section id="events" class=wrapper>
-
-        <header><h1>Events</h1></header>
-        {% for e in events %}
-            <article>
-                <a href="{{ e.get_absolute_url }}">
-                    <time class="pubdate" datetime="{{ e.start|date:"c" }}">Om {{ e.start|timeuntil }}</time>
-                    <h2>{{ e.title }}</h2>
-                </a>
-            </article>
-        {% endfor %}
-
-        <a class="action" href="{% url 'corkboard_events' %}">Se alle events</a>
-    </section>
-
     <section id="members" class="wrapper">
         <header><h1>Medlemmer</h1></header>
         <ul>

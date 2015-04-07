@@ -14,14 +14,12 @@ sys.path.append(BASE_PATH + '/apps')
 
 ALLOWED_HOSTS = ['vokalforening.dk']
 
-
 ADMINS = (
     ('Johan Bichel Lindegaard', 'sysadmin@tango.johan.cc'),
 )
 MANAGERS = ADMINS + (
     ('Malene Bichel', 'malbichel@gmail.com'),
     ('Anne Marie', 'amk@vmn.dk'),
-
 )
 
 AUTHENTICATION_BACKENDS = ('vokalforeningen.backends.EmailBackend',
@@ -69,6 +67,8 @@ USE_L10N = False
 LOCALE_PATHS = (
     BASE_PATH + '/locale',
 )
+
+COMMENTS_ALLOW_PROFANITIES = True
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -141,7 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django_markwhat',
     'django.contrib.sitemaps',
-    'django.contrib.comments',
+    'django_comments',
     'django.contrib.flatpages',
 )
 
