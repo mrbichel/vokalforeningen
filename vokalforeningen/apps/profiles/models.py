@@ -38,7 +38,7 @@ class Profile(models.Model):
     position = models.TextField('Stilling', blank=True)
 
     receive_email = models.BooleanField('Modtag email',
-            help_text="Kryds af hvis du vil modtage emails når der er nye kommentarer på indlæg du selv har skrevet eller kommenteret på.")
+            help_text="Kryds af hvis du vil modtage emails når der er nye kommentarer på indlæg du selv har skrevet eller kommenteret på.", default=True)
 
     def __unicode__(self):
         return self.user.username
