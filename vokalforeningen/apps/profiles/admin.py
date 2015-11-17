@@ -5,14 +5,14 @@ from django.contrib.auth.admin import UserAdmin
 from models import Profile
 from django.contrib.auth.models import User
 
-admin.site.unregister(Profile)
+#admin.site.unregister(Profile)
 admin.site.unregister(User)
 
-class UserProfileInline(admin.StackedInline):
-    model = Profile
+#class UserProfileInline(admin.StackedInline):
+#    model = Profile
 
 class UserProfileAdmin(UserAdmin):
-    inlines = [ UserProfileInline, ]
+#    inlines = [ UserProfileInline, ]
     list_display = ('email', 'first_name', 'last_name', 'is_staff', 'is_active', 'last_login')
     
     
