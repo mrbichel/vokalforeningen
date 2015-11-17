@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 
     url(r'^registration/$', 'profiles.views.registration', name="registration"),
 
-    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^comments/', include('django_comments.urls')),
     (r'^notification/', include('notification.urls')),
     
     url(r'^$', 'vokalforeningen.views.index', name='index'),

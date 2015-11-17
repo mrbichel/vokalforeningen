@@ -130,6 +130,8 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'markdown_deux',
 
+    'django_comments',
+
     # Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,7 +143,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django_markwhat',
     'django.contrib.sitemaps',
-    'django.contrib.comments',
     'django.contrib.flatpages',
 )
 
