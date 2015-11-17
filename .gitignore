@@ -13,3 +13,4 @@ static/admin
 vokalforeningen/settings_local.py
 /static/grappelli/
 /static_build/
+.sass-cache
