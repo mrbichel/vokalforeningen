@@ -13,5 +13,5 @@ Pillow==3.0.0
 python-memcached==1.57
 requests==2.5.0
 simplejson==3.8.1
-sorl-thumbnail==13.3
+sorl-thumbnail
 sqlparse==0.1.18
